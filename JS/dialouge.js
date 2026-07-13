@@ -21,55 +21,66 @@ const SHOP_DIALOGUE = {
 		   ]
 };
 
-// 2. Setup the configuration state
 const dialogueState = {
-    textElement: document.getElementById('dialogue-text'), // Target HTML container
-    currentText: "",
-    currentIndex: 0,
-    typingSpeed: 30, // Milliseconds per character
+    textElement: document.getElementById('dialogue-text'),
+    nextIndicator: document.getElementById('next-page-indicator'),
+    
+    currentStoryPages: [], // Holds the active array of strings
+    currentPageIndex: 0,   // Tracks which page we are on
+    currentText: "",       // Text of the current page
+    currentIndex: 0,       // Character index within the page
+    
+    typingSpeed: 30,
     isTyping: false,
     timeoutId: null,
-    audioCtx: null // For procedural audio blips
+    audioCtx: null
 };
 
-// 3. Procedural Chiptune Audio Blip (No asset files needed!)
+
 function playTextBlip() {
     try {
-        // Initialize AudioContext on first user interaction
         if (!dialogueState.audioCtx) {
             dialogueState.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         }
-		const ctx = dialogueState.audioCtx;
+        const ctx = dialogueState.audioCtx;
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         
-        // square or retro waves for text
         osc.type = 'square'; 
-        // Slight randomization
-        osc.frequency.setValueAtTime(120 + Math.random() * 20, ctx.currentTime); 
+        osc.frequency.setValueAtTime(130 + Math.random() * 15, ctx.currentTime); 
         
-        gain.gain.setValueAtTime(0.05, ctx.currentTime); // Keep volume low
-        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.05); // Snap fadeout
+        gain.gain.setValueAtTime(0.04, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.04);
         
         osc.connect(gain);
         gain.connect(ctx.destination);
-        
         osc.start();
-        osc.stop(ctx.currentTime + 0.05);
-    } catch (e) {
-        console.log("Audio not allowed yet. Click the page first.");
-    }
+        osc.stop(ctx.currentTime + 0.04);
+    } catch (e) {}
 }
 
-// 4. Core Dialogue Typer Engine
-function startDialogue(textKey) {
-    // Clear any active typing loops
+
+function startDialogueSequence(conversationKey) {
+    const sequence = SHOP_DIALOGUE[conversationKey];
+    if (!sequence) return;
+
+    dialogueState.currentStoryPages = sequence;
+    dialogueState.currentPageIndex = 0;
+    
+    
+    dialogueState.nextIndicator.style.visibility = "hidden"; 
+    
+    displayPage(dialogueState.currentPageIndex);
+}
+// Prepares and starts typing a specific page from the sequence
+function displayPage(pageIndex) {
     clearTimeout(dialogueState.timeoutId);
     
-    dialogueState.currentText = SHOP_DIALOGUE[textKey] || textKey;
+    dialogueState.currentText = dialogueState.currentStoryPages[pageIndex];
     dialogueState.currentIndex = 0;
     dialogueState.isTyping = true;
-    dialogueState.textElement.innerHTML = ""; // Clear box
+    dialogueState.textElement.innerHTML = "";
+    dialogueState.nextIndicator.style.visibility = "hidden";
     
     typeNextChar();
 }
@@ -77,52 +88,57 @@ function startDialogue(textKey) {
 function typeNextChar() {
     if (dialogueState.currentIndex >= dialogueState.currentText.length) {
         dialogueState.isTyping = false;
-        return; // Text completed
+        // Show the blinking indicator once the current page finishes typing
+        dialogueState.nextIndicator.style.visibility = "visible";
+        return;
     }
 
     let remainingText = dialogueState.currentText.slice(dialogueState.currentIndex);
     let currentSpeed = dialogueState.typingSpeed;
 
-    // Check for inline command tags like [delay:500]
     if (remainingText.startsWith("[delay:")) {
         const closeBracket = remainingText.indexOf("]");
         const delayAmount = parseInt(remainingText.substring(7, closeBracket), 10);
-        
-        // Advance index past the tag entirely
         dialogueState.currentIndex += closeBracket + 1; 
-        
-        // Pause typing loop for the delay duration
         dialogueState.timeoutId = setTimeout(typeNextChar, delayAmount);
         return;
     }
 
-    // Grab the next regular character
     const char = dialogueState.currentText[dialogueState.currentIndex];
     dialogueState.textElement.innerHTML += char;
     dialogueState.currentIndex++;
 
-    // Only play audio for letters/numbers, skip spaces
-    if (char !== " ") {
-        playTextBlip();
-    }
+    if (char !== " ") playTextBlip();
 
-    // Add extra pause mechanics for natural punctuation reading
     if (char === "." || char === "?" || char === "!") {
-        currentSpeed = dialogueState.typingSpeed * 8; // Dramatic pause at end of sentence
+        currentSpeed = dialogueState.typingSpeed * 8;
     } else if (char === ",") {
-        currentSpeed = dialogueState.typingSpeed * 4; // Slight breath at a comma
+        currentSpeed = dialogueState.typingSpeed * 4;
     }
 
     dialogueState.timeoutId = setTimeout(typeNextChar, currentSpeed);
 }
 
-// 5. Instantly finish dialogue if the user presses 'Z' or Clicks 
-function skipDialogue() {
-    if (!dialogueState.isTyping) return;
-    
-    clearTimeout(dialogueState.timeoutId);
-    // Strip out delay tags for the instant reveal
-    let cleanText = dialogueState.currentText.replace(/\[delay:\d+\]/g, "");
-    dialogueState.textElement.innerHTML = cleanText;
-    dialogueState.isTyping = false;
+// Master click handler bound to the text box
+function handleBoxClick() {
+    // State 1: Page is actively typing -> Skip to the end of this page
+    if (dialogueState.isTyping) {
+        clearTimeout(dialogueState.timeoutId);
+        let cleanText = dialogueState.currentText.replace(/\[delay:\d+\]/g, "");
+        dialogueState.textElement.innerHTML = cleanText;
+        dialogueState.isTyping = false;
+        dialogueState.nextIndicator.style.visibility = "visible";
+        return;
+    }
+
+    // State 2: Page finished, and there are more pages left -> Advance page
+    if (dialogueState.currentPageIndex < dialogueState.currentStoryPages.length - 1) {
+        dialogueState.currentPageIndex++;
+        displayPage(dialogueState.currentPageIndex);
+        return;
+    }
+
+    // State 3: Last page finished -> Clear/Close dialogue box layout
+    dialogueState.nextIndicator.style.visibility = "hidden";
+    dialogueState.textElement.innerHTML = "<em>Conversation ended.</em>";
 }
