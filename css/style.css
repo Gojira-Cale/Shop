@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'DRFont';
-    src: url('fonts/dr_font.ttf') format('truetype');
+    font-family: 'PixelOperatorMono-Bold';
+    src: url('PixelOperatorMono-Bold.ttf') format('truetype');
 }
 
 body {
@@ -17,46 +17,52 @@ body {
     width: 320px;
     height: 240px;
     image-rendering: pixelated;
-    transform: scale(3);
+    transform: scale(3); /* Scale up for retro look */
     transform-origin: top left;
+    overflow: hidden;
 }
 
+/* Shopkeeper fills left side */
 #shopkeeper {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 100px;
+    top: 0;
+    left: 0;
+    height: 240px;
+    width: auto;
 }
 
+/* Gold counter in top right */
 #gold {
     position: absolute;
     top: 5px;
     right: 10px;
-    font-family: 'DRFont', monospace;
+    font-family: 'PixelOperatorMono-Bold', monospace;
     font-size: 8px;
     color: white;
 }
 
+/* Dialog box fills bottom */
 #dialog-box {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 320px;
     height: 60px;
-    background: url('images/dialog_box.png') no-repeat;
+    background: url('assests/DeltaruneBorder.gif') no-repeat;
     background-size: cover;
     padding: 8px;
     box-sizing: border-box;
 }
 
 #dialog-text {
-    font-family: 'DRFont', monospace;
+    font-family: 'PixelOperatorMono-Bold', monospace;
     font-size: 8px;
     color: white;
     white-space: pre-line;
 }
 
-#menu {
+/* Menu on right side */
+.menu {
     position: absolute;
     top: 50px;
     right: 10px;
@@ -65,14 +71,14 @@ body {
     gap: 4px;
 }
 
-.menu-option {
-    font-family: 'DRFont', monospace;
+.menu-option, .item {
+    font-family: 'PixelOperatorMono-Bold', monospace;
     font-size: 8px;
     color: white;
     cursor: pointer;
 }
 
-.menu-option:hover {
+.menu-option:hover, .item:hover {
     color: yellow;
 }
 
