@@ -1,85 +1,55 @@
 body {
     background-color: black;
     color: white;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Courier New', monospace;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    user-select: none;
 }
 
-#shop-container {
-    width: 640px;
-    height: 480px;
+.shop-container {
     border: 4px solid white;
-    background: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     padding: 20px;
-    box-sizing: border-box;
-    position: relative;
+    width: 500px;
+    background-color: #111;
 }
 
-#dialogue-box {
-    width: 100%;
-    height: 160px;
-    border: 4px solid white;
-    padding: 15px;
-    box-sizing: border-box;
+.shopkeeper {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.shopkeeper img {
+    width: 200px;
+    height: auto;
+    image-rendering: pixelated; /* Retro pixel look */
+}
+
+.dialog-box {
+    border: 2px solid white;
+    padding: 10px;
+    min-height: 60px;
+    background-color: #000;
+    margin-bottom: 15px;
+}
+
+.menu {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 20px;
-    line-height: 1.4;
-    position: relative;
+    justify-content: space-around;
 }
 
-.dialogue-contents {
-    display: flex;
-}
-
-.asterisk {
-    margin-right: 15px;
-}
-
-#next-page-indicator {
-    align-self: flex-end;
-    color: #ff00ff;
-    font-size: 14px;
-    visibility: hidden;
-}
-
-/* Menu Layout */
-#shop-menu-grid {
-    width: 100%;
-    height: 220px;
-    border: 4px solid white;
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    padding: 20px 20px 20px 60px; 
-    position: relative;
-}
-
-.menu-item {
-    font-size: 24px;
-    text-transform: uppercase;
+.menu-btn {
+    background-color: black;
     color: white;
-    display: flex;
-    align-items: center;
+    border: 2px solid white;
+    padding: 5px 15px;
     cursor: pointer;
+    font-size: 16px;
 }
 
-/* Red Soul Cursor */
-#soul-cursor {
-    position: absolute;
-    color: #ff0000; /* Neon red */
-    font-size: 24px;
-    line-height: 1;
-    transition: transform 0.1s ease-out; /* animation */
-    pointer-events: none;
+.menu-btn:hover {
+    background-color: white;
+    color: black;
 }
