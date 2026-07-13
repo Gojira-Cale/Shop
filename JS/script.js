@@ -61,15 +61,4 @@ function openBuyMenu() {
 
 function openSellMenu() {
     state = "sell";
-    showMenu("menu-sell");
-    setDialog("What are you offering?", "talk");
-    updateSellList();
-}
-
-function updateSellList() {
-    const list = document.getElementById("sell-list");
-    list.innerHTML = "";
-    if (inventory.length === 0) {
-        list.innerHTML = "<div class='item'>(No items)</div>";
-    } else {
-        inventory.forEach((item, index) => {
+    showMenu("menu
