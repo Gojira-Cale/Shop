@@ -1,0 +1,49 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css); @import url(https://ne0nbandit.art/achievements.css); @font-face {
+    font-family: 'DTM-sans';
+    src: url("/assets/fonts/DTM-Sans.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'PixelOperator';
+    src: url("/assets/fonts/PixelOperator.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Deltarune';
+    src: url("/assets/fonts/Deltarune.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'DotumChe';
+    src: url("/assets/fonts/DotumChe-Pixel.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Mercy';
+    src: url("/assets/fonts/MERCY.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Pixelham-Bold';
+    src: url("/assets/fonts/Pixelham-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Pixelham';
+    src: url("/assets/fonts/Pixelham-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Earthbound';
+    src: url("/assets/fonts/Earth%20Momma.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'MagicForest';
+    src: url("/assets/fonts/Magic%20Forest.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'Wingdings';
+    src: url("/assets/fonts/Pixelated-Wingdings.ttf") format("truetype")
+}
