@@ -1,68 +1,24 @@
-  body { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
-  .ShopScreen { animation-name: fadeinblack; animation-duration: 1s; filter: auto; }
-  .ShopArt { display: flex; margin: auto; justify-content: center; pointer-events: none; z-index: 0; position: relative; }
-  .ShopUI { display: flex; justify-content: center; width: 1280px; margin: auto; font-family: 'DTM-sans'; text-shadow: 3px 3px #282864; height: 392px; }
-  .ShopBox { border: 52px solid transparent; border-image: url(https://github.com/Gojira-Cale/Shop/blob/main/assests/DeltaruneBorder.gif); image-rendering: pixelated; border-image-slice: 27.6% fill; z-index: 2; position: relative; height: 100%; }
-  .ShopDialogue { margin-right: -16px; width: 816px; font-size: 44px ;}
-  .ShopMenu { margin-left: -16px; width: 496px; }
-  .ShopMenu a { color: white; font-size: 44px; line-height: 60px; }
-  .ShopMenu a:hover { color: #fff203; }   
-  .Menu { display: flex; flex-direction: column; margin: 0; margin-left: 44px; }
-  .wallet { margin: 0; color: white; font-size: 40px; margin-top: 20px;}
-  .ShopDialogue p { font-size: 45px; color: white; line-height: 50px; letter-spacing: 2px; }
-  .ShopItem { color: white; width: 496px; z-index: 0; height: 392px; bottom: -52px; left: 732px; position: absolute; transition: bottom .3s; }
-  .ShopItem p { font-size: 45px; line-height: 50px; letter-spacing: 2px; }
-  .ItemDesc:hover .ShopItem { bottom: 308px; }
-  .HiddenUI { position: relative; bottom: 390px; z-index: 0; }
-  .musicbutton { background: none; border: 0; filter: drop-shadow(3px 3px #282864); width: auto; height: auto; }
-  .musicbutton:hover { border: none; }
-  .musicbutton img { width: 30px; image-rendering: pixelated; }
-  .musicbutton img:hover { padding: 1px; }
-  .ShopList { font-size: 44px; padding: 5px; display: flex; justify-content: space-between; }
-  .ShopList a { color: white; }
-  .ShopList a:hover { color: #fff203; }
-  .ItemName { display: flex; flex-direction: column; justify-content: space-around; }
-  .ItemPrice { display: flex; flex-direction: column; justify-content: space-around; color: white; }
-  #buy2 p { font-size: 44px; color: white; letter-spacing: 2px; margin-left: 44px; line-height: 55px; margin-top: 0; }
-  #sell2 p { font-size: 44px; color: white; letter-spacing: 2px; margin-left: 44px; line-height: 55px; margin-top: 0; }
-  #talk2 p { font-size: 44px; color: white; letter-spacing: 2px; margin-left: 44px; line-height: 55px; margin-top: 0; }
-  #talk3 p { font-size: 44px; color: white; letter-spacing: 2px; margin-left: 44px; line-height: 55px; margin-top: 0; }  
-  .TalkList { display: flex; flex-direction: column; justify-content: space-around; height: 100%; margin-left: 44px; letter-spacing: 1px; text-shadow: none; }
-  .TalkList a { color: #fff203; }
-  .TalkList a:hover { color: #fff203; }
-  .TalkListvisited { color: white !important; }
-  .TalkListvisited:hover { color: #fff203; }
-  a#exit { color: white; }
-  a#exit:hover { color: #fff203; }
-  .nextbtn a { color: white; font-size: 40px; }
-  .nextbtn a:hover { color: #fff203; }
-  #talkshopnew { display: none; }
-  #talkleadersnew { display: none; }
+#dialogue-box {
+    width: 90%;
+    height: 120px;
+    border: 4px solid white;
+    background-color: black;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    font-size: 22px;
+    line-height: 1.4;
+    cursor: pointer;
+}
 
-  @keyframes fadeinblack { 0% {filter: brightness(0);} 100% {filter: brightness(1);} }
-  @-webkit-keyframes fadeinblack { 0% {filter: brightness(0);} 100% {filter: brightness(1);} }
+.asterisk {
+    margin-right: 15px;
+    color: white;
+    user-select: none;
+}
 
-  @media only screen and (max-width: 1115px) { }
-  
-  @media only screen and (max-width: 700px) {
-  body { height: auto; }
-  .ShopBox { border: 26px solid transparent; border-image: url(https://github.com/Gojira-Cale/Shop/blob/main/assests/DeltaruneBorder.gif) 52 stretch; image-rendering: pixelated; border-image-slice: 27.3% fill; }
-  .ShopUI { flex-direction: column; width: 100%; height: 100%;}
-  .ShopDialogue { margin-right: auto; width: 100%; min-height: 200px; font-size: 24px; }
-  .ShopDialogue p { font-size: 24px; line-height: 25px; letter-spacing: 0px; }
-  .ShopMenu { margin-left: auto; width: 100%; margin-top: -16px; }
-  .ShopMenu a { font-size: 25px; line-height: inherit; }
-  .Menu { display: flex; margin: auto; margin-left: auto; justify-content: space-between; margin: 5px 2px; flex-direction: row; }
-  .wallet { font-size: 20px; margin: 0; }
-  .musicbutton { margin-top: 5px; }
-  .musicbutton img { width: 15px; }  
-  #buy2 p { font-size: 24px; line-height: 30px; }
-  #sell2 p { font-size: 24px; line-height: 30px; }
-  #talk2 p { font-size: 24px; line-height: 30px; }
-  #talk3 p { font-size: 24px; line-height: 30px; }
-  .ShopItem { display: none; }
-  .ItemName, .ItemPrice, .TalkList { line-height: 30px; }
-  .ItemPrice { justify-content: flex-start; }
-  .TalkList { margin-left: auto;}
-  .nextbtn a { font-size: 25px; }
-  }
+#dialogue-text {
+    color: white;
+    word-break: break-word;
+    white-space: pre-wrap; /* Keeps spaces clean */
+}
