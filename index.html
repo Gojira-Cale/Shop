@@ -30,24 +30,25 @@
 </head>
 <body>
     <div id="shop-container">
-       <div id="idle-sprite">
-                <img id="idle-sprite" src="assests/shop/me/idle-sprite.gif" alt="me">
-    </div>
-
-        <div id="shop-box">
-    <!-- Click anywhere on the box to skip text OR advance the page -->
-    <div id="dialogue-box" onclick="handleBoxClick()">
-        <div style="display: flex; width: 100%;">
+    <!-- Dialogue Text Box -->
+    <div id="dialogue-box">
+        <div class="dialogue-contents">
             <span class="asterisk">*</span> 
-            <span id="dialogue-text">Heya!</span>
+            <span id="dialogue-text">Welcome !</span>
         </div>
-        
         <div id="next-page-indicator">▼</div>
     </div>
 
-    <div class="menu-buttons" style="margin-top: 20px;">
-        <button onclick="startDialogueSequence('talk_lore')">Talk</button>
-        <button onclick="startDialogueSequence('welcome')">Buy</button>
+    <!-- The Interactive Shop Grid Menu -->
+    <div id="shop-menu-grid">
+        
+        <div id="soul-cursor">♥</div>
+        
+        <!-- Grid Items-->
+        <div class="menu-item active" data-index="0" data-action="buy">Buy</div>
+        <div class="menu-item" data-index="1" data-action="sell">Sell</div>
+        <div class="menu-item" data-index="2" data-action="talk">Talk</div>
+        <div class="menu-item" data-index="3" data-action="exit">Exit</div>
     </div>
 </div>
 </body>
