@@ -1,12 +1,67 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
+.shop-container {
+    border: 4px solid white;
+    padding: 20px;
+    width: 500px;
+    background-color: #111;
+}
 
-  --cursor-main: url(https://github.com/Gojira-Cale/Shop/blob/main/assests/cursors/utdrheart.png), auto;
-  --cursor-pointer: url(https://github.com/Gojira-Cale/Shop/blob/main/assests/cursors/utdrheartyellow.png), auto;
+.shopkeeper {
+    text-align: center;
+    margin-bottom: 10px;
+}
 
+.shopkeeper img {
+    width: 200px;
+    height: auto;
+    image-rendering: pixelated;
+}
 
-  /* Deltarune Border CSS */
-  --border-img: url(https://github.com/Gojira-Cale/Shop/blob/main/assests/DeltaruneBorder.gif) 52 stretch;
-  --border-size: 26px solid transparent;
-  --border-shadow: drop-shadow(4px 4px 0px #00000059);
-  --border-slice: 27.3% fill;
+.gold-counter {
+    text-align: right;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.dialog-box {
+    border: 2px solid white;
+    padding: 10px;
+    min-height: 60px;
+    background-color: #000;
+    margin-bottom: 15px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-btn, .item {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+.menu-btn:hover, .item:hover {
+    background-color: white;
+    color: black;
+}
+
+.hidden {
+    display: none;
 }
