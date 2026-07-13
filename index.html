@@ -33,5 +33,22 @@
        <div id="idle-sprite">
                 <img id="idle-sprite" src="assests/shop/me/idle-sprite.gif" alt="me">
     </div>
+
+        <div id="shop-box">
+    
+    <div id="dialogue-box" onclick="skipDialogue()">
+    
+        <span class="asterisk">*</span> 
+        <span id="dialogue-text">Welcome in!</span>
+    </div>
+
+    <!-- Shop Control Buttons -->
+    <div class="menu-buttons">
+        <button onclick="startDialogue('welcome')">Talk: Greet</button>
+        <button onclick="startDialogue('talk_lore')">Talk: About me</button>
+        <button onclick="startDialogue('buy_item')">Buy Item</button>
+        <button onclick="startDialogue('no_money')">No Money Error</button>
+    </div>
+</div>
 </body>
 </html>
