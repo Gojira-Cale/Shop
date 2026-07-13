@@ -1,45 +1,20 @@
-const items = [
-    { name: "N/A", price: 000, desc: "Restores 0 HP." },
-    { name: "N/A", price: 000, desc: "Restores 0 HP." }
-];
-
-const dialogueBox = document.getElementById('ShopDialogue').querySelector('p');
-const itemList = document.getElementById('ShopList');
-const menuButtons = document.querySelectorAll('.menu-btn');
-
-menuButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        const action = e.target.textContent;
-        handleAction(action);
-    });
-});
-
-function handleAction(action) {
-    if (action === "buy") {
-        itemList.classList.remove('hidden');
-        renderItems();
-        dialogueBox.textContent = "What are you buying, kid?";
-    } else {
-        itemList.classList.add('hidden');
-        if (action === "TALK") {
-            dialogueBox.textContent = "It's a lovely day to be stuck in this dark world.";
-        } else if (action === "EXIT") {
-            dialogueBox.textContent = "Come back when you need more!";
-        }
+const shopData = {
+    items: [
+        { name: "Revive Mint", price: 100, desc: "Revives a fallen ally." },
+        { name: "Darkburger", price: 50, desc: "Heals 70 HP." }
+    ],
+    dialogue: {
+        greeting: "Welcome, welcome! Looking to buy some wares?",
+        sold: "Thank you! Come again."
     }
-}
+};
 
-function renderItems() {
-    itemList.innerHTML = '<h3>ITEMS</h3>';
-    items.forEach(item => {
-        const itemDiv = document.createElement('div');
-        itemDiv.className = 'shop-item';
-        itemDiv.innerHTML = `<span class="item-name">${item.name}</span> <span class="item-price">${item.price} D$</span>`;
-        itemDiv.addEventListener('click', () => buyItem(item));
-        itemList.appendChild(itemDiv);
-    });
-}
-
-function buyItem(item) {
-    dialogueBox.textContent = `You bought the ${item.name}! (Not actually coded to deduct money yet!)`;
+//  UI switching
+function openMenu(menuType) {
+    const dialogBox = document.getElementById('dialog-box');
+    if (menuType === 'TALK') {
+        dialogBox.innerText = "The weather is looking rather dark today, isn't it?";
+    } else if (menuType === 'BUY') {
+        // Build the Buy grid
+    }
 }
