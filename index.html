@@ -19,10 +19,27 @@
      <div id="idle-sprite">
       <img id="idle-sprite" src="assests/shop/me/idle-sprite.gif" alt="me">
           </div>
+<style>
+            #shop/me {
+                z-index: 4;
+                image-rendering: pixelated;
+            }
 
+                .talk {
+                cursor: var(--cursor-pointer);
+            }
+
+    @media only screen and (max-width: 700px) {
+                #idle-sprite.gif {
+                    width: 100%;
+                    height: 270px;
+                    object-fit: cover;
+                    image-rendering: auto;
+                    object-position: -95px;
+                }
+                </style>
     
     <div class="ShopUI">
-        <!-- Top Panel;;Shopkeeper and Dialogue -->
         <div id="main" style="display: block;" class="tab .ShopBox .ShopDialogue">
            
             
