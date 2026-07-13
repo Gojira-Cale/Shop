@@ -311,3 +311,79 @@ function processNextCharacter() {
 
     const currentCharacter = appState.currentText[appState.currentCharacterIndex];
     appState.textElement.innerHTML += currentCharacter;
+    appState.currentCharacterindex++;
+
+    if (currentCharacter !==" "){
+        makeChiptuneSound(110 + (Math.random() * 15), 0.04, 'square' 0.03); // Retro text voice
+        blip
+    }
+    
+if ([".", "?", "!"].includes(currentCharacter)) {
+speedModifier = appState.typingSpeed * 8;
+} else if (currentCharacter === ",") {
+speedModifier = appState.typingSpeed * 4;
+}
+appState.textTimeoutId = setTimeout(processNextCharacter, speedModifier);
+}
+    
+function handleBoxClick() {
+
+if (appState.isTyping) {
+clearTimeout(appState.textTimeoutId);
+appState.textElement.innerHTML = appState.currentText.replace(/
+delay:\d+
+    /g, "");
+appState.isTyping = false;
+appState.indicatorElement.style.visibility = "visible";
+return;
+}
+    
+if (appState.currentPageIndex < appState.currentStoryPages.length - 1) {
+appState.currentPageIndex++;
+renderActivePage(appState.currentPageIndex);
+}
+}
+    function navigateGrid(directionKey) {
+        let position = GRID_COORDINATES[appState.currentMenuIndex];
+        let row = position.row;
+        let col = position.col;
+        if (directionKey === 'ArrowUp') row = Math.max(0, row - 1);
+        if (directionKey === 'ArrowDown') row = Math.min(1, row + 1);
+        if (directionKey === 'ArrowLeft') col = Math.max(0, col - 1);
+        if (directionKey === 'ArrowRight') col = Math.min(1, col + 1);
+        const calculatedIndex = GRID_COORDINATES.findIndex(c => c.row === row && c.col === col);
+        if (calculatedIndex !== -1 && calculatedIndex !== appState.currentMenuIndex) {
+            appState.currentMenuIndex = calculatedIndex;
+            renderCursor();
+            makeChiptuneSound(240, 0.03, 'sine', 0.04);
+        }
+    }
+    function executeSelectedAction() {
+        const item = appState.menuItems[appState.currentMenuIndex];
+        const actionKey = item.getAttribute('data-action');
+        makeChiptuneSound(400, 0.05, 'triangle', 0.05); 
+        runDialogueSequence(actionKey);
+    }
+    
+    window.addEventListener('keydown', (e) => {
+        if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+            e.preventDefault();
+            navigateGrid(e.key);
+        }
+        if (e.key.toLowerCase() === 'z' || e.key === 'Enter') {
+            executeSelectedAction();
+        }
+        if (e.key.toLowerCase() === 'x' || e.key === 'Shift') {
+            handleBoxClick();
+        }
+    });
+    appState.menuItems.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            appState.currentMenuIndex = parseInt(element.getAttribute('data-index'), 10);
+            renderCursor();
+        });
+        element.addEventListener('click', () => {
+            executeSelectedAction();
+        });
+    });
+    readyrenderCursor();
