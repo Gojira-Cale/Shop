@@ -1,40 +1,85 @@
-#dialogue-box {
-    width: 90%;
-    height: 140px;
-    border: 4px solid white;
+body {
     background-color: black;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    user-select: none;
+}
+
+#shop-container {
+    width: 640px;
+    height: 480px;
+    border: 4px solid white;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#dialogue-box {
+    width: 100%;
+    height: 160px;
+    border: 4px solid white;
     padding: 15px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 1.4;
-    cursor: pointer;
     position: relative;
-    user-select: none;
+}
+
+.dialogue-contents {
+    display: flex;
 }
 
 .asterisk {
     margin-right: 15px;
-    color: white;
 }
-
-#dialogue-text {
-    color: white;
-    word-break: break-word;
-    white-space: pre-wrap;
-}
-
 
 #next-page-indicator {
     align-self: flex-end;
-    color: #ff00ff; 
-    font-size: 16px;
-    visibility: hidden; /* Controlled via JS toggles */
-    animation: blink 0.8s infinite steps(2);
+    color: #ff00ff;
+    font-size: 14px;
+    visibility: hidden;
 }
 
-@keyframes blink {
-    to { visibility: hidden; }
+/* Menu Layout */
+#shop-menu-grid {
+    width: 100%;
+    height: 220px;
+    border: 4px solid white;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 20px 20px 20px 60px; 
+    position: relative;
+}
+
+.menu-item {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Red Soul Cursor */
+#soul-cursor {
+    position: absolute;
+    color: #ff0000; /* Neon red */
+    font-size: 24px;
+    line-height: 1;
+    transition: transform 0.1s ease-out; /* animation */
+    pointer-events: none;
 }
