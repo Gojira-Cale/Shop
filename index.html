@@ -35,19 +35,19 @@
     </div>
 
         <div id="shop-box">
-    
-    <div id="dialogue-box" onclick="skipDialogue()">
-    
-        <span class="asterisk">*</span> 
-        <span id="dialogue-text">Welcome in!</span>
+    <!-- Click anywhere on the box to skip text OR advance the page -->
+    <div id="dialogue-box" onclick="handleBoxClick()">
+        <div style="display: flex; width: 100%;">
+            <span class="asterisk">*</span> 
+            <span id="dialogue-text">Heya!</span>
+        </div>
+        
+        <div id="next-page-indicator">▼</div>
     </div>
 
-    <!-- Shop Control Buttons -->
-    <div class="menu-buttons">
-        <button onclick="startDialogue('welcome')">Talk: Greet</button>
-        <button onclick="startDialogue('talk_lore')">Talk: About me</button>
-        <button onclick="startDialogue('buy_item')">Buy Item</button>
-        <button onclick="startDialogue('no_money')">No Money Error</button>
+    <div class="menu-buttons" style="margin-top: 20px;">
+        <button onclick="startDialogueSequence('talk_lore')">Talk: About me)</button>
+        <button onclick="startDialogueSequence('welcome')">Talk: Welcome !</button>
     </div>
 </div>
 </body>
