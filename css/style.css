@@ -1,0 +1,12 @@
+@import url(https://ne0nbandit.art/style.css);
+
+  --cursor-main: url(https://github.com/Gojira-Cale/Shop/blob/main/assests/cursors/utdrheart.png), auto;
+  --cursor-pointer: url(https://github.com/Gojira-Cale/Shop/blob/main/assests/cursors/utdrheartyellow.png), auto;
+
+
+  /* Deltarune Border CSS */
+  --border-img: url(https://github.com/Gojira-Cale/Shop/blob/main/assests/DeltaruneBorder.gif) 52 stretch;
+  --border-size: 26px solid transparent;
+  --border-shadow: drop-shadow(4px 4px 0px #00000059);
+  --border-slice: 27.3% fill;
+}
