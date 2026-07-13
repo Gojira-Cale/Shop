@@ -66,7 +66,6 @@
             padding: 20px 25px;
         }
 
-        /* Fixed: Changed layout behavior to ensure this box takes up all remaining room and is fully clickable */
         #left-dialogue-pane {
             flex: 1;
             font-size: 24px;
@@ -76,7 +75,7 @@
             align-items: flex-start;
             position: relative;
             padding-right: 15px;
-            cursor: pointer; /* Visual indicator that you can click to advance text */
+            cursor: pointer; 
             height: 100%;
         }
 
@@ -90,6 +89,7 @@
             word-break: break-word;
             white-space: pre-wrap;
         }
+
         #right-menu-pane {
             width: 150px;
             height: 100%;
@@ -107,7 +107,7 @@
             flex-direction: column;
             gap: 6px;
             width: 100%;
-        }
+            }
 
         .menu-option {
             font-size: 24px;
@@ -120,7 +120,7 @@
             cursor: pointer;
             width: 100%;
             position: relative;
-            z-index: 10; /* Ensures mouse clicks pass directly into the option */
+            z-index: 10; 
         }
 
         #currency-counter {
@@ -148,7 +148,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.95);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -159,228 +159,202 @@
             cursor: pointer;
             text-align: center;
             line-height: 1.6;
-            }
+        }
     </style>
-</head>
-<body>
 
-<div id="click-shield" onclick="initializeEngine()">
-    [ CLICK ANYWHERE ON WINDOW TO BOOT DESIGN LOOP ]<br>
-    <span style="font-size:14px; color:white; margin-top:10px; display:block;">(Unblocks mouse tracking and audio engine)</span>
-</div>
+    <script>
+    // Safeguarded Global App Logic Framework Block
+    document.addEventListener("DOMContentLoaded", () => {
+        const SHOP_DIALOGUE = {
+            greeting: [
+                "Heh heh... [delay:200] Welcome, travelers.",
+                "Take a look around... [delay:300]\nif you dare look into the void."
+            ],
+            buy: ["What caught your eye?"],
+            sell: ["I don't need your garbage right now."],
+            talk: [
+                "This room stays warm while the world outside grows colder.",
+                "Fountains change things... [delay:300] but old walls stay sturdy."
+            ],
+            exit: ["Goodbye. [delay:200] Don't get lost in the dark."]
+        };
 
-<div id="game-window">
+        const state = {
+            textNode: document.getElementById('dialogue-text'),
+            cursorNode: document.getElementById('soul-cursor'),
+            menuOptions: document.querySelectorAll('.menu-option'),
+            currentMenuIndex: 0,
+            activePageArray: [],
+            currentPageIndex: 0,
+            currentTextString: "",
+            currentCharIndex: 0,
+            typingSpeedMs: 30,
+            isTextAnimating: false,
+            timerId: null,
+            audioContext: null
+        };
 
-    <div id="shopkeeper-stage">
-        <img id="shopkeeper-sprite" src="assests/shop/me/idle-sprite.gif" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-        <div class="fallback-graphic-text">( Place 'shopkeeper.png' sprite asset file here )</div>
-    </div>
-
-    <div id="shop-panel-frame">
-        
-        <div id="left-dialogue-pane">
-            <span class="asterisk">*</span>
-            <span id="dialogue-text">...</span>
-        </div>
-
-        <div id="right-menu-pane">
-            <div id="soul-cursor">♥</div>
-            
-            <div class="menu-list-items-wrapper">
-                <div class="menu-option" data-index="0" data-action="buy">Buy</div>
-                <div class="menu-option" data-index="1" data-action="sell">Sell</div>
-                <div class="menu-option" data-index="2" data-action="talk">Talk</div>
-                <div class="menu-option" data-index="3" data-action="exit">Exit</div>
-            </div>
-
-            <div id="currency-counter">D$ 2500</div>
-        </div>
-
-    </div>
-
-</div>
-<script>
-const SHOP_DIALOGUE = {
-    greeting: [
-        "Heh heh... [delay:200] Welcome, travelers.",
-        "Take a look around... [delay:300]\nif you dare look into the void."
-    ],
-    buy: ["What caught your eye?"],
-    sell: ["I don't need your garbage right now."],
-    talk: [
-        "This room stays warm while the world outside grows colder.",
-        "Fountains change things... [delay:300] but old walls stay sturdy."
-    ],
-    exit: ["Goodbye. [delay:200] Don't get lost in the dark."]
-};
-
-const state = {
-    textNode: document.getElementById('dialogue-text'),
-    cursorNode: document.getElementById('soul-cursor'),
-    menuOptions: document.querySelectorAll('.menu-option'),
-    currentMenuIndex: 0,
-    activePageArray: [],
-    currentPageIndex: 0,
-    currentTextString: "",
-    currentCharIndex: 0,
-    typingSpeedMs: 30,
-    isTextAnimating: false,
-    timerId: null,
-    audioContext: null
-};
-
-function initializeEngine() {
-    // Fixed: Completely delete the shield element from existence so it cannot block mouse input
-    const shield = document.getElementById('click-shield');
-    if (shield) shield.remove();
-
-    state.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    if (state.audioContext.state === 'suspended') {
-        state.audioContext.resume();
-    }
-
-    setupControlBindings();
-    positionSoulCursor();
-    triggerDialogue('greeting');
-}
-
-function positionSoulCursor() {
-    const activeItem = state.menuOptions[state.currentMenuIndex];
-    if (!activeItem) return;
-    
-    state.menuOptions.forEach(opt => opt.style.color = "white");
-    activeItem.style.color = "#ffff00"; 
-
-    const targetTopOffset = activeItem.offsetTop;
-    state.cursorNode.style.top = `${targetTopOffset}px`;
-}
-
-function beep(freq, duration, waveType = 'square', gainValue = 0.03) {
-    if (!state.audioContext) return;
-    
-    const ctx = state.audioContext;
-    const osc = ctx.createOscillator();
-    const volumeNode = ctx.createGain();
-
-    osc.type = waveType;
-    osc.frequency.setValueAtTime(freq, ctx.currentTime);
-    
-    volumeNode.gain.setValueAtTime(gainValue, ctx.currentTime);
-    volumeNode.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
-
-    osc.connect(volumeNode);
-    volumeNode.connect(ctx.destination);
-    
-    osc.start();
-    osc.stop(ctx.currentTime + duration);
-}
-
-function triggerDialogue(conversationKey) {
-    const dialoguePages = SHOP_DIALOGUE[conversationKey];
-    if (!dialoguePages) return;
-
-    state.activePageArray = dialoguePages;
-    state.currentPageIndex = 0;
-    
-    buildAndTypeActivePage();
-}
-
-function buildAndTypeActivePage() {
-    clearTimeout(state.timerId);
-
-    state.currentTextString = state.activePageArray[state.currentPageIndex];
-    state.currentCharIndex = 0;
-    state.isTextAnimating = true;
-    state.textNode.innerHTML = "";
-
-    processTextTick();
-}
-
-function processTextTick() {
-    if (state.currentCharIndex >= state.currentTextString.length) {
-        state.isTextAnimating = false;
-        return;
+        // Wire Up the Start Shield Layer immediately
+        const shield = document.getElementById('click-shield');
+        if (shield) {
+            shield.addEventListener('click', initializeEngine);
         }
 
-    let remainingStringSlice = state.currentTextString.slice(state.currentCharIndex);
-    let calculatedSpeed = state.typingSpeedMs;
+        function initializeEngine() {
+            // Drop Shield Immediately to guarantee web layout elements become clickable
+            if (shield) shield.remove();
 
-    if (remainingStringSlice.startsWith("[delay:")) {
-        const closeBracketIndex = remainingStringSlice.indexOf("]");
-        const parsedDelayValue = parseInt(remainingStringSlice.substring(7, closeBracketIndex), 10);
-        state.currentCharIndex += closeBracketIndex + 1;
-        state.timerId = setTimeout(processTextTick, parsedDelayValue);
-        return;
-    }
-
-    const currentCharacter = state.currentTextString[state.currentCharIndex];
-    state.textNode.innerHTML += currentCharacter;
-    state.currentCharIndex++;
-
-    if (currentCharacter !== " ") {
-        beep(105 + (Math.random() * 12), 0.04, 'square', 0.03); 
-    }
-
-    if ([".", "?", "!"].includes(currentCharacter)) {
-        calculatedSpeed = state.typingSpeedMs * 8;
-    } else if (currentCharacter === ",") {
-        calculatedSpeed = state.typingSpeedMs * 4;
-    }
-
-    state.timerId = setTimeout(processTextTick, calculatedSpeed);
-}
-
-function advanceOrSkipText() {
-    if (state.isTextAnimating) {
-        clearTimeout(state.timerId);
-        state.textNode.innerHTML = state.currentTextString.replace(/
-                                                                   delay:\d+
-            /g, "");
-            state.isTextAnimating = false;
-        return;
-    }
-    if (state.currentPageIndex < state.activePageArray.length - 1) {
-        state.currentPageIndex++;
-        buildAndTypeActivePage();
-    }
-}
-    function navigateVerticalMenu(directionSteps) {
-        let newIndex = state.currentMenuIndex + directionSteps;
-        if (newIndex >= 0 && newIndex < state.menuOptions.length) {
-            state.currentMenuIndex = newIndex;
-            positionSoulCursor();
-            beep(210, 0.03, 'sine', 0.04);
-        }
-    }
-    function selectActiveMenuAction() {
-        const highlightedElement = state.menuOptions[state.currentMenuIndex];
-        if (!highlightedElement) return;
-        const targetActionKey = highlightedElement.getAttribute('data-action');
-        beep(380, 0.05, 'triangle', 0.05);
-        triggerDialogue(targetActionKey);
-    }
-    function setupControlBindings() {
-       
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowUp') { e.preventDefault(); navigateVerticalMenu(-1); }
-            if (e.key === 'ArrowDown') { e.preventDefault(); navigateVerticalMenu(1); }
-            if (e.key.toLowerCase() === 'z' || e.key === 'Enter') {selectActiveMenuAction();}
-            if (e.key.toLowerCase() === 'x' || e.key === 'Shift') {
-                advanceOrSkipText();
+        // Safe WebAudio API Activation Block
+            try {
+                state.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                if (state.audioContext.state === 'suspended') {
+                    state.audioContext.resume();
+                }
+            } catch (audioError) {
+                console.warn("Audio initialization bypassed by browser security filters:", audioError);
             }
-        });
-       
-        state.menuOptions.forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                state.currentMenuIndex = parseInt(element.getAttribute('data-index'), 10);
+
+            setupControlBindings();
+            positionSoulCursor();
+            triggerDialogue('greeting');
+        }
+
+        function positionSoulCursor() {
+            const activeItem = state.menuOptions[state.currentMenuIndex];
+            if (!activeItem) return;
+            
+            state.menuOptions.forEach(opt => opt.style.color = "white");
+            activeItem.style.color = "#ffff00"; 
+
+            state.cursorNode.style.top = `${activeItem.offsetTop}px`;
+        }
+
+        function beep(freq, duration, waveType = 'square', gainValue = 0.03) {
+            if (!state.audioContext) return;
+            try {
+                const ctx = state.audioContext;
+                if (ctx.state === 'suspended') return;
+                
+                const osc = ctx.createOscillator();
+                const volumeNode = ctx.createGain();
+
+                osc.type = waveType;
+                osc.frequency.setValueAtTime(freq, ctx.currentTime);
+                
+                volumeNode.gain.setValueAtTime(gainValue, ctx.currentTime);
+                volumeNode.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+
+                osc.connect(volumeNode);
+                volumeNode.connect(ctx.destination);
+                
+                osc.start();
+                osc.stop(ctx.currentTime + duration);
+            } catch(e) {}
+        }
+
+        function triggerDialogue(conversationKey) {
+            const dialoguePages = SHOP_DIALOGUE[conversationKey];
+            if (!dialoguePages) return;
+
+            state.activePageArray = dialoguePages;
+            state.currentPageIndex = 0;
+            
+            buildAndTypeActivePage();
+        }
+
+        function buildAndTypeActivePage() {
+            clearTimeout(state.timerId);
+
+            state.currentTextString = state.activePageArray[state.currentPageIndex];
+            state.currentCharIndex = 0;
+            state.isTextAnimating = true;
+            state.textNode.innerHTML = "";
+
+            processTextTick();
+        }
+
+        function processTextTick() {
+            if (state.currentCharIndex >= state.currentTextString.length) {
+                state.isTextAnimating = false;
+                return;
+            }
+
+            let remainingStringSlice = state.currentTextString.slice(state.currentCharIndex);
+            let calculatedSpeed = state.typingSpeedMs;
+
+            if (remainingStringSlice.startsWith("[delay:")) {
+                const closeBracketIndex = remainingStringSlice.indexOf("]");
+                const parsedDelayValue = parseInt(remainingStringSlice.substring(7, closeBracketIndex), 10);
+                state.currentCharIndex += closeBracketIndex + 1;
+                state.timerId = setTimeout(processTextTick, parsedDelayValue);
+                return;
+            }
+
+            const currentCharacter = state.currentTextString[state.currentCharIndex];
+            state.textNode.innerHTML += currentCharacter;
+            state.currentCharIndex++;
+            if (currentCharacter !== " ") {
+                beep(105 + (Math.random() * 12), 0.04, 'square', 0.03); 
+            }
+
+            if ([".", "?", "!"].includes(currentCharacter)) {
+                calculatedSpeed = state.typingSpeedMs * 8;
+            } else if (currentCharacter === ",") {
+                calculatedSpeed = state.typingSpeedMs * 4;
+            }
+
+            state.timerId = setTimeout(processTextTick, calculatedSpeed);
+        }
+
+        function advanceOrSkipText() {
+            if (state.isTextAnimating) {
+                clearTimeout(state.timerId);
+                state.textNode.innerHTML = state.currentTextString.replace(/\[delay:\d+\]/g, "");
+state.isTextAnimating = false;
+                return;
+            }
+            if (state.currentPageIndex < state.activePageArray.length - 1) {
+                state.currentPageIndex++;buildAndTypeActivePage();
+            }
+        }
+        function navigateVerticalMenu(directionSteps) {
+            let newIndex = state.currentMenuIndex + directionSteps;
+            if (newIndex >= 0 && newIndex < state.menuOptions.length) {
+                state.currentMenuIndex = newIndex;
                 positionSoulCursor();
+                beep(210, 0.03, 'sine', 0.04);
+            }
+        }
+        function selectActiveMenuAction() {
+            const highlightedElement = state.menuOptions[state.currentMenuIndex];
+            if (!highlightedElement) return;
+            const targetActionKey = highlightedElement.getAttribute('data-action');
+            beep(380, 0.05, 'triangle', 0.05);
+            triggerDialogue(targetActionKey);
+        }
+        function setupControlBindings() {
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowUp') { e.preventDefault(); navigateVerticalMenu(-1); }
+                if (e.key === 'ArrowDown') { e.preventDefault(); navigateTransitionMenu(1);
+                navigateVerticalMenu(1); }
+                if (e.key.toLowerCase() === 'z' || e.key === 'Enter') {
+                    selectActiveMenuAction();
+                }
+                if (e.key.toLowerCase() === 'x' || e.key === 'Shift') {
+                    advanceOrSkipText();
+                }
             });
-            element.addEventListener('click', (e) => {
-                e.stopPropagation(); 
-                selectActiveMenuAction();
+            state.menuOptions.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    state.currentMenuIndex = parseInt(element.getAttribute('data-index'), 10);
+                    positionSoulCursor();});
+                element.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    selectActiveMenuAction();
+                });
             });
-        });
-        document.getElementById('left-dialogue-pane').addEventListener('click',
-                                                                       advanceOrSkipText);
-    }
-</script>
+            document.getElementById('left-dialogue-pane').addEventListener('click',
+                                                                           advanceOrSkipText);
+        }
+    });
+            
