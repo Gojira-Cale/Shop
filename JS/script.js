@@ -1,4 +1,5 @@
 let gold = 100;
+let inventory = [];
 
 const shopkeeperSprites = {
     idle: "assests/shop/me/idle-sprite.gif",
@@ -23,7 +24,7 @@ function changeShopkeeper(state) {
 }
 
 function setDialog(text, sprite = "talking") {
-    const dialogBox = document.getElementById("dialog-text");
+    const dialogBox = document.getElementById("talk-sprite");
     dialogBox.textContent = "";
     changeShopkeeper(sprite);
     let i = 0;
