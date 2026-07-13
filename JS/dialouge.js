@@ -1,10 +1,24 @@
 // 1. Define your Shopkeeper's dialogue data
 const SHOP_DIALOGUE = {
-    welcome: "Welcome Welcome! [delay:500] Nice to see ya here.",
-    buy_item: "Not added yet [delay:300] !",
-    no_money: "Sorry, ya aint got enough cash.",
-    talk_lore: "Not added yet [delay:300] !",
-    exit: "Bye bye !"
+    welcome: [
+		      "Welcome Welcome!",
+		      "Nice to see ya here."
+		]
+		
+    buy_item: [ 
+	"Not added yet !",
+			   ]
+	
+    no_money: [ 
+		"Sorry, ya aint got enough cash.",
+			   ]
+	
+    talk_lore: [
+		"Not added yet [delay:300] !",
+		]
+	
+    exit: ["Bye bye !"
+		   ]
 };
 
 // 2. Setup the configuration state
