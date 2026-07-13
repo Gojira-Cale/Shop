@@ -1,10 +1,10 @@
 let gold = 100;
 
 const shopkeeperSprites = {
-    idle: "images/shop_idle.png",
-    happy: "images/shop_happy.png",
-    talk: "images/shop_talk.png",
-    angry: "images/shop_angry.png"
+    idle: "assests/shop/me/idle-sprite.gif",
+    talking: "assests/shop/me/talk-sprite-1.gif",
+    laughing: "assests/shop/me/laughing-sprite-1.gif",
+    confused: "assests/shop/me/confused-sprite-1.gif"
 };
 
 function updateGold() {
@@ -34,13 +34,13 @@ document.querySelectorAll(".menu-option").forEach(opt => {
     opt.addEventListener("click", () => {
         const action = opt.dataset.action;
         if (action === "buy") {
-            setDialog("Here's what I have for sale...", "happy");
+            setDialog("Here's what I have for sale...", "talking");
         } else if (action === "sell") {
-            setDialog("What are you offering?", "talk");
+            setDialog("What are you offering?", "talking");
         } else if (action === "talk") {
-            setDialog("This town has seen better days...", "talk");
+            setDialog("This town has seen better days...", "talking");
         } else if (action === "exit") {
-            setDialog("Come again soon!", "idle");
+            setDialog("Come again soon!", "laughing");
         }
     });
 });
