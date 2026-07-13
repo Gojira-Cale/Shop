@@ -9,47 +9,305 @@
             background-color: black;
             color: white;
             font-family: 'Courier New', Courier, monospace;
-            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
+            user-select: none;
+        }
+
+        
+        #shop-container {
+            width: 640px;
+            height: 480px;
+            border: 4px solid white;
+            background: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 15px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        
+        #top-layout-row {
+            display: flex;
+            width: 100%;
+            height: 220px;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        
+        .shopkeeper-view {
+            width: 180px;
+            height: 100%;
+            border: 4px solid white;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
             overflow: hidden;
         }
-        #shop-container {
-            width: 800px;
-            height: 600px;
-            border: 4px solid white;
-            position: relative;
-            background: #000;
-        }
-        .pixelated {
+
+        .shopkeeper-view img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        
+        .image-placeholder-label {
+            color: #555;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        #dialogue-box {
+            flex: 1;
+            height: 100%;
+            border: 4px solid white;
+            padding: 15px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 18px;
+            line-height: 1.4;
+            position: relative;
+            background-color: black;
+        }
+
+        .dialogue-contents {
+            display: flex;
+        }
+
+        .asterisk {
+            margin-right: 12px;
+            color: white;
+        }
+
+        #dialogue-text {
+            color: white;
+            word-break: break-word;
+            white-space: pre-wrap;
+        }
+
+        #next-page-indicator {
+            align-self: flex-end;
+            color: #ff00ff;
+            font-size: 14px;
+            visibility: hidden;
+            animation: arrowBlink 0.8s infinite steps(2);
+        }
+
+        @keyframes arrowBlink { to { visibility: hidden; } }
+
+        
+        #shop-menu-grid {
+            width: 100%;
+            height: 180px;
+            border: 4px solid white;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            padding: 15px 15px 15px 60px;
+            position: relative;
+            background-color: black;
+            }
+
+        .menu-item {
+            font-size: 22px;
+            text-transform: uppercase;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        #soul-cursor {
+            position: absolute;
+            color: #ff0000;
+            font-size: 22px;
+            line-height: 1;
+            transition: transform 0.08s ease-out;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
-    <div id="shop-container">
-    <!-- Dialogue Text Box -->
-    <div id="dialogue-box">
-        <div class="dialogue-contents">
-            <span class="asterisk">*</span> 
-            <span id="dialogue-text">Welcome !</span>
+
+<div id="shop-container">
+
+    <!-- TOP SECTION: Sprite Panel + Text Box Layout Row Block -->
+    <div id="top-layout-row">
+        
+        <!-- Shopkeeper Visual Frame Container -->
+        <div class="shopkeeper-view">
+            <!-- REPLACE 'shopkeeper.png' with your local game asset image file pathway -->
+            <img src="shopkeeper.png" alt="[NPC Sprite]" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="image-placeholder-label" style="display:none;">(Add your<br>shopkeeper.png here)</div>
         </div>
-        <div id="next-page-indicator">▼</div>
+
+        <!-- Dialogue Panel -->
+        <div id="dialogue-box" onclick="handleBoxClick()">
+            <div class="dialogue-contents">
+                <span class="asterisk">*</span> 
+                <span id="dialogue-text">Welcome to the shop window.</span>
+            </div>
+            <div id="next-page-indicator">▼</div>
+        </div>
+
     </div>
 
-    <!-- The Interactive Shop Grid Menu -->
+    <!-- BOTTOM SECTION: Action Decision Selection Grid Matrix -->
     <div id="shop-menu-grid">
-        
         <div id="soul-cursor">♥</div>
-        
-        <!-- Grid Items-->
-        <div class="menu-item active" data-index="0" data-action="buy">Buy</div>
+        <div class="menu-item" data-index="0" data-action="buy">Buy</div>
         <div class="menu-item" data-index="1" data-action="sell">Sell</div>
         <div class="menu-item" data-index="2" data-action="talk">Talk</div>
         <div class="menu-item" data-index="3" data-action="exit">Exit</div>
     </div>
+
 </div>
-</body>
-</html>
+
+<script>
+// 1. Central Multi-Page Interactive Text Storage Dictionary
+const SHOP_DIALOGUE = {
+    welcome: [
+        "Welcome, Welcome ! [delay:300] nice to see you.",
+        "Everything here is... [delay:400] a big wip."
+    ],
+    buy: [
+        "Whatcha lookin' for?",
+        "Ah... [delay:200] sadly you don't have anough."
+    ],
+    sell: [
+        "Sorry !! [delay:400] I'd love to accept - but im not advanced enough for that."
+    ],
+    talk: [
+        "wip.",
+        "wip."
+    ],
+    exit: [
+        "Bye bye!!."
+    ]
+};
+
+
+const appState = {
+    // UI Elements
+    textElement: document.getElementById('dialogue-text'),
+    indicatorElement: document.getElementById('next-page-indicator'),
+    cursorElement: document.getElementById('soul-cursor'),
+    gridContainer: document.getElementById('shop-menu-grid'),
+    menuItems: document.querySelectorAll('.menu-item'),
+
+    // Menu Selection Index
+    currentMenuIndex: 0,
+
+    // Dialogue State Fields
+    currentStoryPages: ["Welcome, traveler... [delay:300] Take a look at my humble inventory."],
+    currentPageIndex: 0,
+    currentText: "",
+    currentCharacterIndex: 0,
+    typingSpeed: 25,
+    isTyping: false,
+    textTimeoutId: null,
+    audioCtx: null
+};
+
+// 3. Grid Coordinates Array Blueprint
+const GRID_COORDINATES = [
+    { row: 0, col: 0 }, // 0: Buy
+    { row: 0, col: 1 }, // 1: Sell
+    { row: 1, col: 0 }, // 2: Talk
+    { row: 1, col: 1 }  // 3: Exit
+];
+    // 4. Clean Spatial Alignment Coordinate Math Mapping Function
+function renderCursor() {
+    const activeItem = appState.menuItems[appState.currentMenuIndex];
+    const itemRect = activeItem.getBoundingClientRect();
+    const gridRect = appState.gridContainer.getBoundingClientRect();
+
+    const targetTop = itemRect.top - gridRect.top + (itemRect.height / 2) - 11;
+    const targetLeft = itemRect.left - gridRect.left - 28;
+
+    appState.cursorElement.style.top = `${targetTop}px`;
+    appState.cursorElement.style.left = `${targetLeft}px`;
+}
+
+
+function makeChiptuneSound(frequency, duration, type = 'square', volume = 0.04) {
+    try {
+        if (!appState.audioCtx) {
+            appState.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        const ctx = appState.audioCtx;
+        if (ctx.state === 'suspended') ctx.resume();
+
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = type;
+        osc.frequency.setValueAtTime(frequency, ctx.currentTime);
+        gain.gain.setValueAtTime(volume, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + duration);
+    } catch(e) {}
+}
+
+
+function runDialogueSequence(conversationKey) {
+    const pages = SHOP_DIALOGUE[conversationKey];
+    if (!pages) return;
+
+    appState.currentStoryPages = pages;
+    appState.currentPageIndex = 0;
+    appState.indicatorElement.style.visibility = "hidden";
+    
+    renderActivePage(appState.currentPageIndex);
+}
+
+function renderActivePage(pageIndex) {
+    clearTimeout(appState.textTimeoutId);
+
+    appState.currentText = appState.currentStoryPages[pageIndex];
+    appState.currentCharacterIndex = 0;
+    appState.isTyping = true;
+    appState.textElement.innerHTML = "";
+    appState.indicatorElement.style.visibility = "hidden";
+
+    processNextCharacter();
+}
+
+function processNextCharacter() {
+    if (appState.currentCharacterIndex >= appState.currentText.length) {
+        appState.isTyping = false;
+        appState.indicatorElement.style.visibility = "visible";
+        return;
+    }
+
+    let sliceOfText = appState.currentText.slice(appState.currentCharacterIndex);
+    let speedModifier = appState.typingSpeed;
+
+    // Evaluate delay macros
+    if (sliceOfText.startsWith("[delay:")) {
+        const boundaryClose = sliceOfText.indexOf("]");
+        const amountOfDelay = parseInt(sliceOfText.substring(7, boundaryClose), 10);
+        appState.currentCharacterIndex += boundaryClose + 1;
+        appState.textTimeoutId = setTimeout(processNextCharacter, amountOfDelay);
+        return;
+    }
+
+    const currentCharacter = appState.currentText[appState.currentCharacterIndex];
+    appState.textElement.innerHTML += currentCharacter;
