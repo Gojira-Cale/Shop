@@ -4,7 +4,7 @@ const items = [
 ];
 
 const dialogueBox = document.getElementById('ShopDialogue').querySelector('p');
-const itemList = document.getElementById('item-list');
+const itemList = document.getElementById('ShopList');
 const menuButtons = document.querySelectorAll('.menu-btn');
 
 menuButtons.forEach(button => {
