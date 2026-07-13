@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Outwards Shop</title>
+    <title>Deltarune Shop</title>
     <style>
         body {
             background-color: black;
@@ -15,7 +15,7 @@
             height: 100vh;
             margin: 0;
             user-select: none;
-           overflow: hidden;
+            overflow: hidden;
         }
 
         #game-window {
@@ -26,10 +26,11 @@
             flex-direction: column;
             position: relative;
         }
-            #shopkeeper-stage {
+
+        #shopkeeper-stage {
             width: 100%;
             height: 240px;
-            background: #110e1a;
+            background: #110e1a; 
             display: flex;
             justify-content: center;
             align-items: flex-end;
@@ -44,6 +45,7 @@
             image-rendering: crisp-edges;
             object-fit: contain;
         }
+
         .fallback-graphic-text {
             color: rgba(255,255,255,0.25);
             font-size: 14px;
@@ -51,7 +53,6 @@
             text-align: center;
         }
 
-        
         #shop-panel-frame {
             width: 620px;
             height: 220px;
@@ -59,16 +60,13 @@
             background-color: black;
             box-sizing: border-box;
             position: relative;
-            
-            
             border: 6px double white; 
             outline: 2px solid black;
-            
             display: flex;
             padding: 20px 25px;
         }
 
-        
+        /* Fixed: Changed layout behavior to ensure this box takes up all remaining room and is fully clickable */
         #left-dialogue-pane {
             flex: 1;
             font-size: 24px;
@@ -78,19 +76,20 @@
             align-items: flex-start;
             position: relative;
             padding-right: 15px;
+            cursor: pointer; /* Visual indicator that you can click to advance text */
+            height: 100%;
         }
 
         .asterisk {
             margin-right: 12px;
             color: white;
         }
-#dialogue-text {
+
+        #dialogue-text {
             color: white;
             word-break: break-word;
             white-space: pre-wrap;
         }
-
-       
         #right-menu-pane {
             width: 150px;
             height: 100%;
@@ -107,6 +106,7 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
+            width: 100%;
         }
 
         .menu-option {
@@ -118,9 +118,11 @@
             display: flex;
             align-items: center;
             cursor: pointer;
+            width: 100%;
+            position: relative;
+            z-index: 10; /* Ensures mouse clicks pass directly into the option */
         }
 
-        
         #currency-counter {
             position: absolute;
             bottom: 0;
@@ -130,18 +132,16 @@
             color: white;
         }
 
-        
         #soul-cursor {
             position: absolute;
             color: #ff0000;
             font-size: 24px;
             line-height: 1;
             pointer-events: none;
-            
             transition: top 0.05s steps(2); 
             left: 10px; 
         }
-/* Initial Audio Authorization Screen Overlay Box Layout */
+
         #click-shield {
             position: absolute;
             top: 0;
@@ -150,6 +150,7 @@
             height: 100%;
             background: rgba(0,0,0,0.9);
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 999;
@@ -158,28 +159,24 @@
             cursor: pointer;
             text-align: center;
             line-height: 1.6;
-        }
+            }
     </style>
 </head>
 <body>
 
-
 <div id="click-shield" onclick="initializeEngine()">
     [ CLICK ANYWHERE ON WINDOW TO BOOT DESIGN LOOP ]<br>
-    <span style="font-size:14px; color:white; margin-top:10px; display:block;">(Allows text blip audio loops to run instantly)</span>
+    <span style="font-size:14px; color:white; margin-top:10px; display:block;">(Unblocks mouse tracking and audio engine)</span>
 </div>
 
 <div id="game-window">
 
-    
     <div id="shopkeeper-stage">
-        <img id="idle-sprite" src="assests/shop/me/idle-sprite.gif" alt="me" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <img id="shopkeeper-sprite" src="assests/shop/me/idle-sprite.gif" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div class="fallback-graphic-text">( Place 'shopkeeper.png' sprite asset file here )</div>
     </div>
 
-    
     <div id="shop-panel-frame">
-        
         
         <div id="left-dialogue-pane">
             <span class="asterisk">*</span>
@@ -196,16 +193,13 @@
                 <div class="menu-option" data-index="3" data-action="exit">Exit</div>
             </div>
 
-            
             <div id="currency-counter">D$ 2500</div>
         </div>
 
     </div>
 
 </div>
-
 <script>
-
 const SHOP_DIALOGUE = {
     greeting: [
         "Heh heh... [delay:200] Welcome, travelers.",
@@ -220,16 +214,11 @@ const SHOP_DIALOGUE = {
     exit: ["Goodbye. [delay:200] Don't get lost in the dark."]
 };
 
-
 const state = {
-    
     textNode: document.getElementById('dialogue-text'),
     cursorNode: document.getElementById('soul-cursor'),
     menuOptions: document.querySelectorAll('.menu-option'),
-
-    
     currentMenuIndex: 0,
-
     activePageArray: [],
     currentPageIndex: 0,
     currentTextString: "",
@@ -240,36 +229,31 @@ const state = {
     audioContext: null
 };
 
-
 function initializeEngine() {
-    
-    document.getElementById('click-shield').style.display = 'none';
+    // Fixed: Completely delete the shield element from existence so it cannot block mouse input
+    const shield = document.getElementById('click-shield');
+    if (shield) shield.remove();
 
-    
     state.audioContext = new (window.AudioContext || window.webkitAudioContext)();
     if (state.audioContext.state === 'suspended') {
         state.audioContext.resume();
     }
 
-    
     setupControlBindings();
     positionSoulCursor();
     triggerDialogue('greeting');
 }
 
-
 function positionSoulCursor() {
     const activeItem = state.menuOptions[state.currentMenuIndex];
-    
+    if (!activeItem) return;
     
     state.menuOptions.forEach(opt => opt.style.color = "white");
     activeItem.style.color = "#ffff00"; 
 
-    
     const targetTopOffset = activeItem.offsetTop;
     state.cursorNode.style.top = `${targetTopOffset}px`;
 }
-
 
 function beep(freq, duration, waveType = 'square', gainValue = 0.03) {
     if (!state.audioContext) return;
@@ -291,73 +275,77 @@ function beep(freq, duration, waveType = 'square', gainValue = 0.03) {
     osc.stop(ctx.currentTime + duration);
 }
 
-
 function triggerDialogue(conversationKey) {
     const dialoguePages = SHOP_DIALOGUE[conversationKey];
     if (!dialoguePages) return;
-    
+
     state.activePageArray = dialoguePages;
     state.currentPageIndex = 0;
+    
     buildAndTypeActivePage();
 }
-    function buildAndTypeActivePage() {
+
+function buildAndTypeActivePage() {
+    clearTimeout(state.timerId);
+
+    state.currentTextString = state.activePageArray[state.currentPageIndex];
+    state.currentCharIndex = 0;
+    state.isTextAnimating = true;
+    state.textNode.innerHTML = "";
+
+    processTextTick();
+}
+
+function processTextTick() {
+    if (state.currentCharIndex >= state.currentTextString.length) {
+        state.isTextAnimating = false;
+        return;
+        }
+
+    let remainingStringSlice = state.currentTextString.slice(state.currentCharIndex);
+    let calculatedSpeed = state.typingSpeedMs;
+
+    if (remainingStringSlice.startsWith("[delay:")) {
+        const closeBracketIndex = remainingStringSlice.indexOf("]");
+        const parsedDelayValue = parseInt(remainingStringSlice.substring(7, closeBracketIndex), 10);
+        state.currentCharIndex += closeBracketIndex + 1;
+        state.timerId = setTimeout(processTextTick, parsedDelayValue);
+        return;
+    }
+
+    const currentCharacter = state.currentTextString[state.currentCharIndex];
+    state.textNode.innerHTML += currentCharacter;
+    state.currentCharIndex++;
+
+    if (currentCharacter !== " ") {
+        beep(105 + (Math.random() * 12), 0.04, 'square', 0.03); 
+    }
+
+    if ([".", "?", "!"].includes(currentCharacter)) {
+        calculatedSpeed = state.typingSpeedMs * 8;
+    } else if (currentCharacter === ",") {
+        calculatedSpeed = state.typingSpeedMs * 4;
+    }
+
+    state.timerId = setTimeout(processTextTick, calculatedSpeed);
+}
+
+function advanceOrSkipText() {
+    if (state.isTextAnimating) {
         clearTimeout(state.timerId);
-        state.currentTextString = state.activePageArray[state.currentPageIndex];
-        state.currentCharIndex = 0;
-        state.isTextAnimating = true;
-        state.textNode.innerHTML = "";
-        processTextTick();
-    }
-    function processTextTick() {
-        if (state.currentCharIndex >= state.currentTextString.length) {
+        state.textNode.innerHTML = state.currentTextString.replace(/
+                                                                   delay:\d+
+            /g, "");
             state.isTextAnimating = false;
-            return;
-        }
-        let remainingStringSlice = state.currentTextString.slice(state.currentCharIndex);
-        let calculatedSpeed = state.typingSpeedMs;
-       
-        if (remainingStringSlice.startsWith("[delay:")) {
-            const closeBracketIndex = remainingStringSlice.indexOf("]");
-            const parsedDelayValue = parseInt(remainingStringSlice.substring(7,
-                                                                             closeBracketIndex), 10);
-            state.currentCharIndex += closeBracketIndex + 1;
-            state.timerId = setTimeout(processTextTick, parsedDelayValue);
-            return;
-        }
-        const currentCharacter = state.currentTextString[state.currentCharIndex];
-        state.textNode.innerHTML += currentCharacter;
-        state.currentCharIndex++;
-       
-        if (currentCharacter !== " ") {
-          
-            beep(105 + (Math.random() * 12), 0.04, 'square', 0.04);
-        }
-        
-        if ([".", "?", "!"].includes(currentCharacter)) {
-            calculatedSpeed = state.typingSpeedMs * 8;
-        } else if (currentCharacter === ",") {
-            calculatedSpeed = state.typingSpeedMs * 4;
-        }state.timerId = setTimeout(processTextTick, calculatedSpeed);
+        return;
     }
-    function advanceOrSkipText() {
-        
-        if (state.isTextAnimating) {
-            clearTimeout(state.timerId);
-            state.textNode.innerHTML = state.currentTextString.replace(/
-                                                                       delay:\d+
-                /g, "");
-                state.isTextAnimating = false;
-            return;
-        }
-        
-        if (state.currentPageIndex < state.activePageArray.length - 1) {
-            state.currentPageIndex++;
-            buildAndTypeActivePage();
-        }
+    if (state.currentPageIndex < state.activePageArray.length - 1) {
+        state.currentPageIndex++;
+        buildAndTypeActivePage();
     }
+}
     function navigateVerticalMenu(directionSteps) {
         let newIndex = state.currentMenuIndex + directionSteps;
-        
         if (newIndex >= 0 && newIndex < state.menuOptions.length) {
             state.currentMenuIndex = newIndex;
             positionSoulCursor();
@@ -366,19 +354,17 @@ function triggerDialogue(conversationKey) {
     }
     function selectActiveMenuAction() {
         const highlightedElement = state.menuOptions[state.currentMenuIndex];
+        if (!highlightedElement) return;
         const targetActionKey = highlightedElement.getAttribute('data-action');
         beep(380, 0.05, 'triangle', 0.05);
         triggerDialogue(targetActionKey);
     }
-    
     function setupControlBindings() {
+       
         window.addEventListener('keydown', (e) => {
-            
             if (e.key === 'ArrowUp') { e.preventDefault(); navigateVerticalMenu(-1); }
             if (e.key === 'ArrowDown') { e.preventDefault(); navigateVerticalMenu(1); }
-            if (e.key.toLowerCase() === 'z' || e.key === 'Enter') {
-                selectActiveMenuAction();
-            }
+            if (e.key.toLowerCase() === 'z' || e.key === 'Enter') {selectActiveMenuAction();}
             if (e.key.toLowerCase() === 'x' || e.key === 'Shift') {
                 advanceOrSkipText();
             }
@@ -389,12 +375,12 @@ function triggerDialogue(conversationKey) {
                 state.currentMenuIndex = parseInt(element.getAttribute('data-index'), 10);
                 positionSoulCursor();
             });
-            element.addEventListener('click', () => {
+            element.addEventListener('click', (e) => {
+                e.stopPropagation(); 
                 selectActiveMenuAction();
             });
         });
         document.getElementById('left-dialogue-pane').addEventListener('click',
                                                                        advanceOrSkipText);
     }
-    
-    </script>
+</script>
