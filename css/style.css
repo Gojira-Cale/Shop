@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'DTM-Sans';
-    src: url('assests/font/DTM-Sans.ttf') format('truetype');
+    font-family: 'DRFont';
+    src: url('fonts/dr_font.ttf') format('truetype');
 }
 
 body {
@@ -32,7 +32,7 @@ body {
     position: absolute;
     top: 5px;
     right: 10px;
-    font-family: 'DTM-Sans', monospace;
+    font-family: 'DRFont', monospace;
     font-size: 8px;
     color: white;
 }
@@ -50,7 +50,7 @@ body {
 }
 
 #dialog-text {
-    font-family: 'DTM-Sans', monospace;
+    font-family: 'DRFont', monospace;
     font-size: 8px;
     color: white;
     white-space: pre-line;
@@ -66,7 +66,7 @@ body {
 }
 
 .menu-option {
-    font-family: 'DTM-Sans', monospace;
+    font-family: 'DRFont', monospace;
     font-size: 8px;
     color: white;
     cursor: pointer;
@@ -81,7 +81,7 @@ body {
 }
 
 .item {
-    font-family: 'DTM-Sans', monospace;
+    font-family: 'DRFont', monospace;
     font-size: 8px;
     color: white;
     cursor: pointer;
