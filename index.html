@@ -1,44 +1,1036 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Outsiders Shop</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div id="game">
-    <!-- Shopkeeper -->
-    <img id="idle-sprite" src="assests/shop/me/idle-sprite.gif" alt="me">
+<!--CREDITS TOO =(0038)https://ne0nbandit.art/cable/backstage -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>The Outsider Shop</title>
+      <link href="./The Backstage - Deltarune (Cable AU)_files/style.css" rel="stylesheet" type="text/css" media="all">
+      <link href="./The Backstage - Deltarune (Cable AU)_files/style(1).css" rel="stylesheet" type="text/css" media="all">
+      <link href="./The Backstage - Deltarune (Cable AU)_files/shops.css" rel="stylesheet" type="text/css" media="all">
+      <link rel="icon" type="image" href="assests/deltarunelogo.png">
+      <meta property="og:title" content="The Backstage - Deltarune (Cable AU)">
+      <meta property="og:url" content="/cable/cast/backstage">
+      <meta property="og:description" content="* Welcome to the backstage, kids! This area is VIP only.">
+      <meta property="og:image" content="https://ne0nbandit.github.io/assets/img/cable/shop/backstage_preview.gif">
+      <script src="./The Backstage - Deltarune (Cable AU)_files/Tabs.js.download"></script>
+      <script src="./The Backstage - Deltarune (Cable AU)_files/Toggle.js.download"></script>
+      <style>
+         #mike { z-index: 4; image-rendering: pixelated; }
+         #host { image-rendering: pixelated;}
+         #mike_stand { z-index: 3; position: absolute; }
+         #mike_base  { z-index: 3; position: absolute; }
+         #mike_eyes  { z-index: 4; position: absolute; }
+         #mike_mouth { z-index: 5; position: absolute; }  
+         #host_mouth { z-index: 1; position: absolute; }
+         #brow       { z-index: 1; position: absolute; }
+         #hands      { z-index: 2; position: absolute; }
+         #handsback  { position: absolute; }
+         #host_base  { position: absolute; }
+         .shake1 { animation: shaking 0.25s infinite; }
+         .shake2 { animation: shaking 0.15s infinite; }
+         .shake3 { animation: shaking2 0.15s infinite; }
+         #talkglassestemp  { display: none; }
+         #talkglasses  { display: none; }
+         #talkglasses_1 { display: none; }
+         #talkglasses_2 { display: none; }      
+         #talkglasses_3 { display: none; }
+         #talkglasses_4 { display: none; }
+         
+         @keyframes shaking {
+         0% { transform: translate(0, 0); }
+         25% { transform: translate(1px, 1px); }
+         50% { transform: translate(0, 0); }
+         75% { transform: translate(-1px, 1px); }
+         100% { transform: translate(0, 0); }
+         }
+         @keyframes shaking2 {
+         0% { transform: translate(0, 0); }
+         25% { transform: translate(2px, 1px); }
+         50% { transform: translate(0, 0); }
+         75% { transform: translate(-1px, 2px); }
+         100% { transform: translate(0, 0); }
+         }
+         #dealmakerpt1 { display: block; }
+         #dealmakerpt2 { display: none; }
+         #dealmakerpt3 { display: none; }
+         .piss { filter: drop-shadow(3px 3px 0px #4C4C00); }
+         .talk { cursor: var(--cursor-pointer); }
+         @media only screen and (max-width: 700px) {
+         #backstage, #mike img, #host img, #mike_stand {
+         width: 100%;
+         height: 270px;
+         object-fit: cover;
+         }
+         #host img { image-rendering: auto; object-position: -95px; }
+         #mike img, #mike_stand { object-position: -100px; image-rendering: auto; }
+         .shake1 { animation: auto; }
+         .shake2 { animation: auto; }
+         .shake3 { animation: auto; }
+         }      
+      </style>
+   </head>
+   <!-- This page is filled with coding crimes, please don't tell anyone that this is how I live my life -->
+   <body>
+      <script>
+         // Host Brow Swap
+         function browhalf()   { document.getElementById("brow").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/BrowHalf.png"; }
+         function browsad()    { document.getElementById("brow").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/BrowSad.png"; }
+         function browangry()  { document.getElementById("brow").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/BrowsAngry.png"; }
+         function browangry2() { document.getElementById("brow").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/BrowsAngry.gif"; }
+         function browreset()  { document.getElementById("brow").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/blank.png"; }
+         
+         // Host Front Hand Swap
+         function hands_idle()       { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandsIdle.gif"; }
+         function hands_still()      { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandsIdle.png"; }
+         function hand_R()           { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandR.png"; }
+         function hand_R2()          { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandR.gif"; }
+         function hands_shy()        { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandsPoint.gif"; }
+         function hands_no()         { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandNo.gif"; }
+         function hands_gasp()       { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandsGasp.gif"; }
+         function hands_name()       { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandsName.gif"; setTimeout(hands_idle, 2700); }
+         function hands_gasp2()      { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandsGasp.png"; }
+         function hands_speechless() { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandsSpeechless.png"; }
+         function hand_UpR()         { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandUpR.png"; }
+         function hand_UpR2()        { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandUpR.gif"; }
+         
+         // Host Back Hand Swap
+         function wave()        { document.getElementById("handsback").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandWave.gif"; }
+         function hand_L()      { document.getElementById("handsback").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandL.png"; }
+         function hand_L2()     { document.getElementById("handsback").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandL.gif"; }
+         function hand_UpL()    { document.getElementById("handsback").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandUpL.png"; }
+         function hand_UpL2()   { document.getElementById("handsback").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandUpL.gif"; }
+         function hands_blank() { document.getElementById("handsback").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/blank.png"; }
+         
+         // Host Mouth Swaps
+         function host_smile() { document.getElementById("host_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/Mouth.gif"; }
+         function host_fangs() { document.getElementById("host_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/MouthFangs.gif"; }
+         function host_frown() { document.getElementById("host_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/MouthFrown.png"; }
+         
+         // Mike Base Swaps
+         function mic_base ()    { document.getElementById("mike_base").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/Base.gif"; }
+         function mic_basesad () { document.getElementById("mike_base").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/BaseSad.gif"; }
+         
+         // Mike Eye Swaps
+         function mic_eyebase ()    { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesBase.png"; }
+         function mic_eyeclose ()   { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesClosed.png"; }
+         function mic_lookdown ()   { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesLookDown.png"; }
+         function mic_lookup ()     { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesLookUp.png"; }
+         function mic_squint ()     { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSquint.png"; }
+         function mic_tired ()      { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesTired.png"; }
+         function mic_shock ()      { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesShock.png"; }
+         function mic_shockdown ()  { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesShockDown.png"; }
+         function mic_shockangry () { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesShockAngry.png"; }
+         function mic_serious ()    { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSerious.png"; }         
+         function mic_sadDown ()    { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSad1.png"}
+         function mic_sadShock ()   { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSad2.png"}
+         function mic_sadUp ()      { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSad3.png"}
+         function mic_sadSide ()    { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSad4.png"}
+         function mic_sadRemorse () { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSad5.png"}
+         function mic_sadClosed ()  { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSadClosed.png"}
+         
+         // Mike Mouth Swaps
+         function mic_talk()       { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk.gif"; }
+         function mic_talkfast()   { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalkFast.gif"; }
+         function mic_talkfrown()  { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk2.gif"; }
+         function mic_talkfrown2() { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk3.gif"; }
+         function mic_smile()      { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthBase.png"; }
+         function mic_smileweak()  { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthWeakSmile.png"; }
+         function mic_frown()      { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthFrown1.png"; }
+         function mic_frown2()     { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthFrown2.png"; }
+         
+         function mic_talk1sec()     { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk.gif"; setTimeout(mic_smile, 1400);}
+         function mic_talk3sec()     { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk.gif"; setTimeout(mic_smile, 2500);}
+         function mic_frown1sec()    { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk2.gif"; setTimeout(mic_frown, 1400);}
+         function mic_frown3sec()    { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk2.gif"; setTimeout(mic_frown, 3000);}
+         function mic_frown1secalt() { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk3.gif"; setTimeout(mic_frown2, 1400);}
+         function mic_frown3secalt() { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk3.gif"; setTimeout(mic_frown2, 2500);}
+         
+         function mic_shake() { var element = document.getElementById("mike"); element.classList.add("shake1"); }
+         
+         function mic_shake2() {
+           var element = document.getElementById("mike"); element.classList.remove("shake1");
+           var element = document.getElementById("mike"); element.classList.add("shake2");
+           var element = document.getElementById("mike_mouth"); element.classList.add("shake1");
+         }
+         
+         function mic_shake3() {
+           var element = document.getElementById("mike"); element.classList.remove("shake2");
+           var element = document.getElementById("mike"); element.classList.add("shake3");
+           var element = document.getElementById("mike_eyes"); element.classList.add("shake1");
+           var element = document.getElementById("mike_mouth"); element.classList.remove("shake1");
+           var element = document.getElementById("mike_mouth"); element.classList.add("shake2");
+         }
+         
+         function shakereset() {
+           var element = document.getElementById("mike"); element.classList.remove("shake3");
+           var element = document.getElementById("mike_eyes"); element.classList.remove("shake1");
+           var element = document.getElementById("mike_mouth"); element.classList.remove("shake2");
+         }
+      </script>
 
-    <!-- Gold Counter -->
-    <div id="gold">GOLD: <span id="gold-amount">100</span>G</div>
+   <div id="achievementWinCable">
+      <div id="GlassesStory" class="achievementCable"><div><img class="achievementCableImg"></div>
+      <div><div class="achievementCableTitle"></div><p class="achievementFlavour"></p></div>
+    </div></div>
+      <div class="ShopScreen">
+         <div class="ShopArt">
+            <div id="mike">
+               <img id="mike_mouth" src="./The Backstage - Deltarune (Cable AU)_files/MouthBase.png">
+               <img id="mike_eyes" src="./The Backstage - Deltarune (Cable AU)_files/EyesSquint.png">
+               <img id="mike_base" src="./The Backstage - Deltarune (Cable AU)_files/Base.gif">          
+            </div>
+            <img id="mike_stand" src="./The Backstage - Deltarune (Cable AU)_files/Stand.png">
+            <div id="host">
+               <img id="brow" src="./The Backstage - Deltarune (Cable AU)_files/blank.png">
+               <img id="hands" src="./The Backstage - Deltarune (Cable AU)_files/HandR.png">
+               <img id="handsback" src="./The Backstage - Deltarune (Cable AU)_files/HandWave.gif">
+               <img id="host_mouth" src="./The Backstage - Deltarune (Cable AU)_files/Mouth.gif">
+               <img id="host_base" src="./The Backstage - Deltarune (Cable AU)_files/Base(1).gif">
+            </div>
+            <img id="backstage" src="./The Backstage - Deltarune (Cable AU)_files/Backstage.png">
+         </div>
+         <div class="ShopUI">
+            <div id="main" style="display: block;" class="tab ShopBox ShopDialogue">
+               <p>* Welcome to the Backstage, kids.</p>
+               <p>* This area is VIP only.</p>
+            </div>
+            <div id="buy" style="display: none;" class="tab ShopBox ShopDialogue ShopList">
+               <div style="display: flex; justify-content: space-between; height: 100%;">
+                  <div class="ItemName">
+                     <div class="ItemDesc">
+                        <div class="ShopBox ShopItem">
+                           <p>ITEM<br>Small candy<br>Share with your friends<br>+10HP</p>
+                        </div>
+                        <a onmouseover="UIHover()" onclick="UIerror(); menutab(&#39;buy2&#39;); mic_squint(); mic_talk1sec(); browangry(); hands_no(); host_fangs(); hands_blank(); typeInit(this);" data-line="1" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>MicDrops</span></a>
+                     </div>
+                     <div class="ItemDesc">
+                        <div class="ShopBox ShopItem">
+                           <p>???<br>Decoration for your room?<br>No other use.</p>
+                        </div>
+                        <a onmouseover="UIHover()" onclick="UIerror(); menutab(&#39;buy2&#39;); mic_squint(); mic_talk1sec(); browangry(); hands_no(); host_fangs(); hands_blank(); typeInit(this);" data-line="1" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>M&amp;H Poster</span></a>
+                     </div>
+                     <div class="ItemDesc">
+                        <div class="ShopBox ShopItem">
+                           <p>KEY ITEM<br>You already have this.</p>
+                        </div>
+                        <a onmouseover="UIHover()" onclick="UIerror(); menutab(&#39;buy2&#39;); mic_squint(); mic_talk1sec(); browangry(); hands_no(); host_fangs(); hands_blank(); typeInit(this);" data-line="1" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>VIP Card</span></a>
+                     </div>
+                     <div class="ItemDesc">
+                        <div class="ShopBox ShopItem">
+                           <p>ARMOR<br>Handsome<br>brand-name bowtie.<br>+1DF</p>
+                        </div>
+                        <a onmouseover="UIHover()" onclick="UIerror(); menutab(&#39;buy2&#39;); mic_squint(); mic_talk1sec(); browangry(); hands_no(); host_fangs(); hands_blank(); typeInit(this);" data-line="1" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>OG B.ShotBowtie</span></a>
+                     </div>
+                     <a onmouseover="UIHover()" onclick="opentab(&#39;main&#39;); menutab(&#39;mainmenu&#39;); mic_talk1sec(); mic_eyebase(); hands_idle(); browreset(); hands_blank(); host_smile();"><span class="battleheart">❤ &nbsp;</span>Exit</a> 
+                  </div>
+                  <div class="ItemPrice">
+                     <span>$30</span>
+                     <span>$150</span>
+                     <span>$300</span>
+                     <span>$5000</span>
+                     <span><!----></span>
+                  </div>
+               </div>
+            </div>
+            <div id="sell" style="display: none;" class="tab ShopBox ShopDialogue ShopList">
+               <div style="display: flex; justify-content: space-between; height: 100%;">
+                  <div class="ItemName">
+                     <div id="frayedtie"><a onmouseover="UIHover()" onclick="UIerror(); opentab(&#39;sellfrayedtie&#39;); menutab(&#39;blank&#39;); mic_frown3secalt(); mic_basesad(); mic_shockdown(); hand_UpR2(); host_frown(); hand_L2(); typeInit(this);" data-line="12" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>FrayedBowtie</span></a></div>
+                     <div id="bshottie"><a onmouseover="UIHover()" onclick="UIerror(); opentab(&#39;sellbshottie&#39;); menutab(&#39;blank&#39;);  mic_base(); browreset(); mic_shockdown(); mic_smile(); hands_gasp(); hands_blank(); host_frown(); typeInit(this);" data-line="4" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>B.ShotBowtie</span></a></div>
+                     <a onmouseover="UIHover()" onclick="UIerror(); mic_squint(); mic_frown1sec(); browhalf(); hand_UpR2(); host_frown(); hand_L2(); typeInit(this);" data-line="3" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>Jevilstail</span></a>
+                     <div id="dealmakerpt1"><a onmouseover="UIHover()" onclick="UIerror(); opentab(&#39;selldealmaker_a&#39;); menutab(&#39;blank&#39;); mic_sadShock(); mic_basesad(); mic_frown(); hands_speechless(); hands_blank(); host_frown(); browreset(); typeInit(this);" data-line="18" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>Dealmaker</span></a></div>
+                     <div id="dealmakerpt2"><a onmouseover="UIHover()" onclick="UIerror(); opentab(&#39;selldealmaker_b&#39;); menutab(&#39;blank&#39;); browsad(); mic_serious(); mic_base(); mic_frown1sec(); hands_gasp(); hands_blank(); host_frown(); typeInit(this);" data-line="24" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span style="color: #fff203; text-shadow: none;">Dealmaker (NEW)</span></a></div>
+                     <div id="dealmakerpt3"><a onmouseover="UIHover()" onclick="UIerror(); mic_serious(); mic_frown1sec(); host_frown(); typeInit(this);" data-line="34" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>Dealmaker</span></a></div>
+                     <a onmouseover="UIHover()" onclick="opentab(&#39;main&#39;); menutab(&#39;mainmenu&#39;); mic_talk1sec(); mic_eyebase(); hands_idle(); browreset(); hands_blank(); host_smile();"><span class="battleheart">❤ &nbsp;</span>Exit</a> 
+                  </div>
+                  <div class="ItemPrice">
+                     <span><!----></span>
+                     <span><!----></span>
+                     <span><!----></span>
+                     <span><!----></span>
+                     <span><!----></span>
+                  </div>
+               </div>
+            </div>
+            <!-- SELL - BIG SHOT BOWTIE-->
+            <div class="talk">
+               <div id="sellbshottie" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie2&#39;); mic_shock(); mic_talk1sec(); mic_shake(); typeInit(this);" data-line="5" data-speed="30" data-sound="0">
+                  <p id="sellbshottie_1" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="sellbshottie2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie3&#39;); mic_shockdown(); mic_talkfast(); mic_shake2(); typeInit(this);" data-line="6" data-speed="20" data-sound="0">
+                  <p id="sellbshottie_2" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="sellbshottie3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie4&#39;); mic_shockangry(); mic_shake3(); typeInit(this);" data-line="7" data-speed="15" data-sound="0">
+                  <p id="sellbshottie_3" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="sellbshottie4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie5&#39;); shakereset(); mic_frown3sec(); mic_serious(); typeInit(this);" data-line="8" data-speed="30" data-sound="0">
+                  <p id="sellbshottie_4" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="sellbshottie5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie6&#39;); mic_tired(); mic_frown1secalt(); typeInit(this);" data-line="9" data-speed="30" data-sound="0">
+                  <p id="sellbshottie_5" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="sellbshottie6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie7&#39;); mic_frown3secalt(); typeInit(this);" data-line="10" data-speed="30" data-sound="0">
+                  <p id="sellbshottie_6" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="sellbshottie7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie8&#39;); mic_eyebase(); mic_talk3sec(); host_smile();  typeInit(this);" data-line="11" data-speed="30" data-sound="0">
+                  <p id="sellbshottie_7" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="sellbshottie8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sell&#39;); menutab(&#39;sell2&#39;); hands_idle(); hands_blank(); mic_eyeclose(); mic_talk1sec(); host_smile(); typeInit(this); sellbshottiecheck();" data-line="2" data-speed="20" data-sound="0">
+                  <p id="sellbshottie_8" style="white-space: break-spaces;"><!----></p>
+               </div>
+            </div>
+            <!-- SELL - FRAYED BOWTIE-->
+            <div class="talk">
+               <div id="sellfrayedtie" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellfrayedtie2&#39;); mic_lookdown(); mic_base(); mic_frown1sec(); typeInit(this);" data-line="13" data-speed="30" data-sound="0">
+                  <p id="sellfrayedtie_1" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="sellfrayedtie2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellfrayedtie3&#39;); browsad(); hands_idle(); hands_blank(); mic_basesad(); mic_tired(); mic_frown2(); typeInit(this);" data-line="14" data-speed="30" data-sound="0">
+                  <p id="sellfrayedtie_2" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="sellfrayedtie3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellfrayedtie4&#39;); mic_serious(); mic_frown3sec(); mic_base(); typeInit(this);" data-line="15" data-speed="30" data-sound="0">
+                  <p id="sellfrayedtie_3" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="sellfrayedtie4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellfrayedtie5&#39;); mic_lookdown(); mic_frown3secalt(); mic_basesad(); typeInit(this);" data-line="16" data-speed="30" data-sound="0">
+                  <p id="sellfrayedtie_4" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="sellfrayedtie5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellfrayedtie6&#39;); mic_eyeclose(); mic_talk1sec(); mic_base(); host_smile(); typeInit(this);" data-line="17" data-speed="30" data-sound="0">
+                  <p id="sellfrayedtie_5" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="sellfrayedtie6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sell&#39;); menutab(&#39;sell2&#39;); browreset(); hands_idle(); hands_blank(); mic_base(); mic_eyeclose(); mic_smile(); host_smile(); typeInit(this); sellfrayedtiecheck();" data-line="2" data-speed="20" data-sound="0">
+                  <p id="sellfrayedtie_6" style="white-space: break-spaces;"><!----></p>
+               </div>
+            </div>
+            <!-- SELL - DEALMAKER Part 1-->
+            <div class="talk">
+               <div id="selldealmaker_a" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_a2&#39;); mic_sadDown(); mic_frown1sec(); typeInit(this);" data-line="19" data-speed="30" data-sound="0">
+                  <p id="selldealmaker_a_1" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="selldealmaker_a2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_a3&#39;); browsad(); mic_frown1sec(); typeInit(this);" data-line="20" data-speed="30" data-sound="0">
+                  <p id="selldealmaker_a_2" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="selldealmaker_a3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_a4&#39;); mic_sadUp(); mic_frown1sec(); hands_gasp(); typeInit(this);" data-line="21" data-speed="30" data-sound="0">
+                  <p id="selldealmaker_a_3" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="selldealmaker_a4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_a5&#39;); mic_sadDown(); mic_frown1sec(); hands_idle(); typeInit(this);" data-line="22" data-speed="30" data-sound="0">
+                  <p id="selldealmaker_a_4" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="selldealmaker_a5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_a6&#39;); mic_sadRemorse(); mic_frown1sec(); typeInit(this);" data-line="23" data-speed="30" data-sound="0">
+                  <p id="selldealmaker_a_5" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="selldealmaker_a6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sell&#39;); menutab(&#39;sell2&#39;); browreset(); hands_idle(); mic_base(); hands_blank(); mic_eyeclose(); mic_smile(); host_smile(); typeInit(this); selldealmaker_acheck();" data-line="2" data-speed="20" data-sound="0">
+                  <p id="selldealmaker_a_6" style="white-space: break-spaces;"><!----></p>
+               </div>
+            </div>
+            <!-- SELL - DEALMAKER Part 2-->
+            <div class="talk">
+               <div id="selldealmaker_b" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b2&#39;); mic_sadSide(); mic_basesad(); mic_frown1sec(); typeInit(this);" data-line="25" data-speed="30" data-sound="0">
+                  <p id="selldealmaker_b_1" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="selldealmaker_b2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b3&#39;); browreset(); mic_frown1sec(); mic_sadSide(); typeInit(this);" data-line="26" data-speed="30" data-sound="0">
+                  <p id="selldealmaker_b_2" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="selldealmaker_b3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b4&#39;); mic_sadDown(); mic_frown1sec(); typeInit(this);" data-line="27" data-speed="30" data-sound="0">
+                  <p id="selldealmaker_b_3" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="selldealmaker_b4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b5&#39;); mic_sadRemorse(); mic_frown2(); browsad(); hands_idle(); typeInit(this);" data-line="28" data-speed="30" data-sound="0">
+                  <p id="selldealmaker_b_4" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="selldealmaker_b5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b6&#39;); mic_sadRemorse(); mic_frown2(); typeInit(this);" data-line="29" data-speed="30" data-sound="0">
+                  <p id="selldealmaker_b_5" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="selldealmaker_b6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b7&#39;); mic_lookdown(); mic_talk1sec(); host_smile(); typeInit(this);" data-line="30" data-speed="30" data-sound="0">
+                  <p id="selldealmaker_b_6" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="selldealmaker_b7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b8&#39;); mic_base(); mic_eyeclose(); mic_talk3sec(); typeInit(this);" data-line="31" data-speed="30" data-sound="0">
+                  <p id="selldealmaker_b_7" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="selldealmaker_b8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b9&#39;); browreset(); mic_lookup(); mic_talk3sec(); hands_gasp(); typeInit(this);" data-line="32" data-speed="30" data-sound="0">
+                  <p id="selldealmaker_b_8" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="selldealmaker_b9" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b10&#39;); mic_talk1sec(); mic_eyebase(); hands_idle(); typeInit(this);" data-line="33" data-speed="30" data-sound="0">
+                  <p id="selldealmaker_b_9" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="selldealmaker_b10" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sell&#39;); menutab(&#39;sell2&#39;); browreset(); hands_idle(); mic_base(); hands_blank(); mic_eyeclose(); mic_smile(); host_smile(); typeInit(this); selldealmaker_bcheck();" data-line="2" data-speed="20" data-sound="0">
+                  <p style="white-space: break-spaces; color: #ffffff00; position: absolute; z-index: 0; mix-blend-mode: multiply; text-shadow: none;">* If ya do wanna hear about the glasses, well I'd love to <span class="piss">Talk</span> about it...<br>* Just lemme know.</p>
+                  <p id="selldealmaker_b_10" style="white-space: break-spaces;"><!----></p>
+               </div>
+            </div>
+            <div id="talk" style="display: none;" class="tab ShopBox ShopDialogue ShopTalk">
+               <div class="TalkList">
+                  <a onmouseover="UIHover()" onclick="opentab(&#39;talkself&#39;); menutab(&#39;blank&#39;); mic_squint(); mic_talk3sec(); hands_gasp(); hands_blank(); typeInit(this);" data-line="35" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_self">About You</span></a>
+                  <a onmouseover="UIHover()" onclick="opentab(&#39;talkshow&#39;); menutab(&#39;blank&#39;); mic_shock(); mic_frown1secalt(); host_frown(); hand_UpR2(); hand_L2(); typeInit(this);" data-line="41" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_show">Your Show</span></a>
+                  <a onmouseover="UIHover()" onclick="opentab(&#39;talkfountain&#39;); menutab(&#39;blank&#39;); mic_serious(); mic_frown1secalt(); hands_speechless(); hands_blank(); host_frown(); typeInit(this);" data-line="50" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_fountain">The Fountain</span></a>
 
-    <!-- Dialog Box -->
-    <div id="dialog-box">
-        <p id="dialog-text">Welcome!</p>
-    </div>
+                  <span id="talkglasses"><a onmouseover="UIHover()" onclick="opentab(&#39;glasses_pt_1_1&#39;); menutab(&#39;blank&#39;); mic_eyeclose(); mic_talk3sec(); typeInit(this);" data-line="59" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_divide">Glasses Story<span id="newglasses"> (NEW)</span></span></a></span>
+                  <span id="talkglasses_1"><a onmouseover="UIHover()" onclick="opentab(&#39;glasses_pt_1_1&#39;); menutab(&#39;blank&#39;); mic_eyeclose(); mic_talk3sec(); typeInit(this);" data-line="59" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_divide">Glasses Story (Part 1/4)</span></a></span>
+                  <span id="talkglasses_2"><a onmouseover="UIHover()" onclick="opentab(&#39;glasses_pt_2_1&#39;); menutab(&#39;blank&#39;); mic_squint(); mic_talk3sec(); typeInit(this);" data-line="71" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_divide">Glasses Story (Part 2/4)</span></a></span>
+                  <span id="talkglasses_3"><a onmouseover="UIHover()" onclick="opentab(&#39;glasses_pt_3_1&#39;); menutab(&#39;blank&#39;); mic_shock(); mic_frown3secalt(); hands_gasp(); host_frown(); typeInit(this);" data-line="77" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_divide">Glasses Story (Part 3/4)</span></a></span>
+                  <span id="talkglasses_4"><a onmouseover="UIHover()" onclick="opentab(&#39;glasses_pt_4_1&#39;); menutab(&#39;blank&#39;); mic_lookup(); mic_talk1sec(); typeInit(this);" data-line="85" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_divide">Glasses Story (Part 4/4)</span></a></span>
+                  <a onmouseover="UIHover()" onclick="opentab(&#39;main&#39;); menutab(&#39;mainmenu&#39;); mic_talk1sec(); mic_eyebase(); hands_idle(); browreset(); hands_blank(); host_smile();" id="exit"><span class="battleheart">❤ &nbsp;</span>Exit</a> 
+               </div>
+            </div>
+            <!-- TALK - ABOUT YOU-->
+            <div class="talk">
+               <div id="talkself" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkself2&#39;); mic_eyeclose(); mic_talk3sec(); typeInit(this);" data-line="36" data-speed="30" data-sound="0">
+                  <p id="talkself_1" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkself2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkself3&#39;); mic_lookup(); mic_talk1sec();  typeInit(this);" data-line="37" data-speed="30" data-sound="0">
+                  <p id="talkself_2" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkself3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkself4&#39;); mic_squint(); mic_talk1sec(); browsad(); hands_shy(); hands_shy(); typeInit(this);" data-line="38" data-speed="30" data-sound="0">
+                  <p id="talkself_3" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkself4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkself5&#39;); hands_name(); browreset(); mic_lookup(); mic_talk3sec(); typeInit(this);" data-line="39" data-speed="30" data-sound="0">
+                  <p id="talkself_4" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkself5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkself6&#39;); hands_shy(); mic_eyeclose(); mic_talk3sec(); typeInit(this);" data-line="40" data-speed="30" data-sound="0">
+                  <p id="talkself_5" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkself6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); mic_talk1sec(); mic_lookup(); hands_idle(); hands_blank(); typeInit(this); talkselfcheck();" data-line="94" data-speed="30" data-sound="0">
+                  <p id="talkself_6" style="white-space: break-spaces;"><!----></p>
+               </div>
+            </div>
+            <!-- TALK - YOUR SHOW-->
+            <div class="talk">
+               <div id="talkshow" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow2&#39;); mic_lookup(); mic_talk3sec(); host_smile(); typeInit(this);" data-line="42" data-speed="30" data-sound="0">
+                  <p id="talkshow_1" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkshow2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow3&#39;); mic_eyebase(); mic_talk1sec(); hands_blank(); hands_idle(); typeInit(this);" data-line="43" data-speed="30" data-sound="0">
+                  <p id="talkshow_2" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkshow3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow4&#39;); mic_lookup(); mic_talk1sec(); hands_gasp(); typeInit(this);" data-line="44" data-speed="30" data-sound="0">
+                  <p id="talkshow_3" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkshow4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow5&#39;); mic_squint(); browangry(); mic_talk1sec(); typeInit(this);" data-line="45" data-speed="30" data-sound="0">
+                  <p style="white-space: break-spaces; color: #ffffff00; position: absolute; z-index: 0; mix-blend-mode: multiply; text-shadow: none;">* The <span class="piss">Headchef</span>, the <span class="piss">Director</span> and the <span class="piss">Forecaster</span>?</p>
+                  <p id="talkshow_4" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkshow5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow6&#39;); mic_squint(); host_fangs(); mic_talk3sec(); typeInit(this);" data-line="46" data-speed="30" data-sound="0">
+                  <p id="talkshow_5" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkshow6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow7&#39;); mic_eyeclose(); mic_talkfast(); browreset(); typeInit(this);" data-line="47" data-speed="30" data-sound="0">
+                  <p id="talkshow_6" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkshow7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow8&#39;); host_smile(); hands_idle(); mic_eyeclose(); mic_talk1sec(); typeInit(this);" data-line="48" data-speed="30" data-sound="0">
+                  <p id="talkshow_7" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkshow8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow9&#39;); mic_lookup(); mic_talk3sec(); typeInit(this);" data-line="49" data-speed="30" data-sound="0">
+                  <p id="talkshow_8" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkshow9" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); mic_talk1sec(); mic_lookup(); hands_idle(); hands_blank(); typeInit(this); talkshowcheck();" data-line="94" data-speed="30" data-sound="0">
+                  <p id="talkshow_9" style="white-space: break-spaces;"><!----></p>
+               </div>
+            </div>
+            <!-- TALK - THE FOUNTAIN -->
+            <div class="talk">
+               <div id="talkfountain" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain2&#39;); mic_squint(); mic_frown1sec(); browhalf(); hands_gasp(); typeInit(this);" data-line="51" data-speed="30" data-sound="0">
+                  <p id="talkfountain_1" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkfountain2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain3&#39;); mic_eyebase(); mic_talk1sec(); hands_idle(); browsad(); typeInit(this);" data-line="52" data-speed="30" data-sound="0">
+                  <p id="talkfountain_2" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkfountain3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain4&#39;); hands_speechless(); mic_basesad(); mic_lookup(); mic_frown1sec(); typeInit(this);" data-line="53" data-speed="30" data-sound="0">
+                  <p id="talkfountain_3" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkfountain4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain5&#39;); mic_base(); mic_serious(); mic_talk1sec(); typeInit(this);" data-line="54" data-speed="30" data-sound="0">
+                  <p id="talkfountain_4" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkfountain5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain6&#39;); mic_basesad(); mic_sadDown(); mic_frown1sec(); typeInit(this);" data-line="55" data-speed="30" data-sound="0">
+                  <p id="talkfountain_5" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkfountain6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain7&#39;); mic_sadUp(); mic_frown3sec(); typeInit(this);" data-line="56" data-speed="30" data-sound="0">
+                  <p id="talkfountain_6" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkfountain7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain8&#39;); mic_lookup(); mic_talk1sec(); typeInit(this);" data-line="57" data-speed="30" data-sound="0">
+                  <p id="talkfountain_7" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkfountain8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain9&#39;); mic_base(); hands_idle(); hands_blank(); mic_eyebase(); mic_talk3sec(); typeInit(this);" data-line="58" data-speed="30" data-sound="0">
+                  <p id="talkfountain_8" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talkfountain9" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); mic_talk1sec(); host_smile(); browreset(); mic_lookup(); typeInit(this); talkfountaincheck();" data-line="94" data-speed="30" data-sound="0">
+                  <p id="talkfountain_9" style="white-space: break-spaces;"><!----></p>
+               </div>
+            </div>
+            <!-- TALK - GLASSES STORY PT1 -->
+            <div class="talk">
+               <div id="glasses_pt_1_1" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_2&#39;); mic_lookup(); mic_talk1sec(); hands_gasp(); typeInit(this);" data-line="60" data-speed="30" data-sound="0">
+                  <p id="glasses_pt1_1" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_1_2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_3&#39;); mic_eyeclose(); mic_talk1sec(); typeInit(this);" data-line="61" data-speed="30" data-sound="0">
+                  <p id="glasses_pt1_2" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_1_3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_4&#39;); mic_serious(); mic_talk3sec(); browangry(); host_fangs(); typeInit(this);" data-line="62" data-speed="30" data-sound="0">
+                  <p id="glasses_pt1_3" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_1_4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_5&#39;); mic_eyeclose(); mic_talk3sec(); browreset(); host_smile(); typeInit(this);" data-line="63" data-speed="30" data-sound="0">
+                  <p id="glasses_pt1_4" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_1_5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_6&#39;); mic_lookup(); mic_talk3sec(); browsad(); hands_idle(); typeInit(this);" data-line="64" data-speed="30" data-sound="0">
+                  <p id="glasses_pt1_5" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_1_6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_7&#39;); mic_basesad(); mic_talk3sec(); mic_lookdown(); typeInit(this);" data-line="65" data-speed="30" data-sound="0">
+                  <p id="glasses_pt1_6" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_1_7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_8&#39;); mic_base(); mic_serious(); mic_talk3sec(); browreset(); typeInit(this);" data-line="66" data-speed="30" data-sound="0">
+                  <p id="glasses_pt1_7" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_1_8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_9&#39;); mic_eyeclose(); mic_talk3sec(); typeInit(this);" data-line="67" data-speed="30" data-sound="0">
+                  <p id="glasses_pt1_8" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_1_9" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_10&#39;); mic_lookup(); mic_talk3sec(); typeInit(this);" data-line="68" data-speed="30" data-sound="0">
+                  <p id="glasses_pt1_9" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_1_10" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_11&#39;); mic_shake3(); mic_shockangry(); mic_talkfast(); typeInit(this);" data-line="69" data-speed="30" data-sound="0">
+                  <p id="glasses_pt1_10" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_1_11" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_12&#39;); shakereset(); mic_eyeclose(); mic_talk3sec(); typeInit(this);" data-line="70" data-speed="30" data-sound="0">
+                  <p id="glasses_pt1_11" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_1_12" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); mic_talk1sec(); mic_lookup(); hands_idle(); hands_blank(); typeInit(this); glassespt1check();" data-line="94" data-speed="30" data-sound="0">
+                  <p id="glasses_pt1_12" style="white-space: break-spaces;"><!----></p>
+               </div>
+            </div>
+            <!-- TALK - GLASSES STORY PT2 -->
+            <div class="talk">
+               <div id="glasses_pt_2_1" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_2_2&#39;); mic_shockdown(); mic_frown1secalt(); host_frown(); hands_gasp(); typeInit(this);" data-line="72" data-speed="30" data-sound="0">
+                  <p id="glasses_pt2_1" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_2_2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_2_3&#39;); host_smile(); mic_talk1sec(); mic_shock(); typeInit(this);" data-line="73" data-speed="30" data-sound="0">
+                  <p id="glasses_pt2_2" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_2_3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_2_4&#39;); host_fangs(); mic_lookup(); mic_talk1sec(); typeInit(this);" data-line="74" data-speed="30" data-sound="0">
+                  <p id="glasses_pt2_3" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_2_4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_2_5&#39;); mic_shock(); mic_frown3secalt(); host_smile(); hands_idle(); typeInit(this);" data-line="75" data-speed="30" data-sound="0">
+                  <p id="glasses_pt2_4" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_2_5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_2_6&#39;); mic_eyeclose(); mic_talk3sec(); typeInit(this);" data-line="76" data-speed="30" data-sound="0">
+                  <p id="glasses_pt2_5" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_2_6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); mic_talk1sec(); mic_lookup(); hands_idle(); hands_blank(); typeInit(this); glassespt2check();" data-line="94" data-speed="30" data-sound="0">
+                  <p id="glasses_pt2_6" style="white-space: break-spaces;"><!----></p>
+               </div>
+            </div>
+            <!-- TALK - GLASSES STORY PT3 -->
+            <div class="talk">
+               <div id="glasses_pt_3_1" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_2&#39;); host_smile(); mic_eyeclose(); mic_talk1sec(); typeInit(this);" data-line="78" data-speed="30" data-sound="0">
+                  <p id="glasses_pt3_1" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_3_2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_3&#39;); mic_serious(); mic_talk3sec(); typeInit(this);" data-line="79" data-speed="30" data-sound="0">
+                  <p id="glasses_pt3_2" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_3_3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_4&#39;); mic_eyebase(); mic_talk1sec(); typeInit(this);" data-line="80" data-speed="30" data-sound="0">
+                  <p id="glasses_pt3_3" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_3_4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_5&#39;); mic_lookdown(); mic_talk1sec(); hands_idle(); typeInit(this);" data-line="81" data-speed="30" data-sound="0">
+                  <p id="glasses_pt3_4" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_3_5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_6&#39;); host_frown(); mic_serious(); mic_talk1sec(); typeInit(this);" data-line="82" data-speed="30" data-sound="0">
+                  <p id="glasses_pt3_5" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_3_6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_7&#39;); host_fangs(); mic_eyeclose(); mic_talk1sec(); typeInit(this);" data-line="83" data-speed="30" data-sound="0">
+                  <p id="glasses_pt3_6" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_3_7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_8&#39;); mic_eyeclose(); mic_talkfast(); typeInit(this);" data-line="84" data-speed="30" data-sound="0">
+                  <p id="glasses_pt3_7" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_3_8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); mic_talk1sec(); mic_lookup(); hands_idle(); hands_blank(); host_smile(); typeInit(this); glassespt3check();" data-line="94" data-speed="30" data-sound="0">
+                  <p id="glasses_pt3_8" style="white-space: break-spaces;"><!----></p>
+               </div>
+            </div>
+            <!-- TALK - GLASSES STORY PT4 -->
+            <div class="talk">
+               <div id="glasses_pt_4_1" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_2&#39;); mic_eyeclose(); mic_talk3sec(); typeInit(this);" data-line="86" data-speed="30" data-sound="0">
+                  <p id="glasses_pt4_1" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_4_2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_3&#39;); mic_lookup(); mic_talk3sec(); typeInit(this);" data-line="87" data-speed="30" data-sound="0">
+                  <p id="glasses_pt4_2" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_4_3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_4&#39;); mic_shock(); mic_frown1secalt(); typeInit(this);" data-line="88" data-speed="30" data-sound="0">
+                  <p id="glasses_pt4_3" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_4_4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_5&#39;); mic_shockdown(); mic_frown3secalt(); typeInit(this);" data-line="89" data-speed="30" data-sound="0">
+                  <p id="glasses_pt4_4" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_4_5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_6&#39;); browsad(); hands_shy(); mic_lookdown(); mic_basesad(); mic_talk3sec(); typeInit(this);" data-line="90" data-speed="30" data-sound="0">
+                  <p id="glasses_pt4_5" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_4_6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_7&#39;); mic_sadUp(); host_frown(); mic_frown3secalt(); typeInit(this);" data-line="91" data-speed="30" data-sound="0">
+                  <p id="glasses_pt4_6" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_4_7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_8&#39;); mic_base(); mic_lookdown(); mic_talk3sec(); host_smile(); hands_idle(); typeInit(this);" data-line="92" data-speed="30" data-sound="0">
+                  <p id="glasses_pt4_7" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_4_8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_9&#39;); hands_gasp(); browreset(); mic_squint(); mic_talk3sec(); typeInit(this);" data-line="93" data-speed="30" data-sound="0">
+                  <p id="glasses_pt4_8" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="glasses_pt_4_9" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); mic_talk1sec(); mic_lookup(); hands_idle(); hands_blank(); typeInit(this); glassespt4check(); oldman();" data-line="94" data-speed="30" data-sound="0">
+                  <p id="glasses_pt4_9" style="white-space: break-spaces;"><!----></p>
+               </div>
+            </div>
+            <div class="ShopBox ShopMenu">
+               <div id="mainmenu" style="display: block;" class="tabmenu">
+                  <div class="Menu">
+                     <a onmouseover="UIHover()" onclick="opentab(&#39;buy&#39;); menutab(&#39;buy2&#39;); mic_talk1sec(); mic_lookup(); hands_idle(); hands_blank(); typeInit(this);" data-line="0" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span>Buy</a>
+                     <a onmouseover="UIHover()" onclick="opentab(&#39;sell&#39;); menutab(&#39;sell2&#39;); hands_idle(); hands_blank(); mic_eyeclose(); mic_smile(); typeInit(this);" data-line="2" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span>Sell</a>
+                     <a onmouseover="UIHover()" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); mic_talk1sec(); host_smile(); hands_idle(); hands_blank(); browreset(); mic_lookup(); typeInit(this);" data-line="94" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span>Talk</a>
+                     <a onmouseover="UIHover()" onclick="window.location.href=&#39;/cable/cast&#39;;"><span class="battleheart">❤ &nbsp;</span>Exit</a>
+                  </div>
+               </div>
+               <div id="buy2" style="display: none;" class="tabmenu">
+                  <p id="buytext" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="buy3" style="display: none;" class="tabmenu">
+                  <p id="buytext2" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="sell2" style="display: none;" class="tabmenu">
+                  <p id="selltext" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talk2" style="display: none;" class="tabmenu">
+                  <p id="talktext" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="talk3" style="display: none;" class="tabmenu">
+                  <p id="talktext2" style="white-space: break-spaces;"><!----></p>
+               </div>
+               <div id="blank" style="display: none;" class="tabmenu">
+               </div>
+               <div style="display: flex; align-items: flex-end; justify-content: space-between;">
+                  <p class="wallet">1$</p>
+                  <button class="musicbutton" id="button"><img src="./The Backstage - Deltarune (Cable AU)_files/music.png"></button>               
+                  <audio loop="" autoplay="" id="player">
+                     <source style="margin: auto;" src="https://ne0nbandit.github.io/assets/music/Backstage.mp3" type="audio/mpeg">
+                  </audio>
+               </div>
+            </div>
+         </div>
+      </div>
+      
+      <audio src="https://ne0nbandit.github.io/assets/sound/ui_move.wav" preload="auto" id="hoveraudio"></audio>
+      <audio src="https://ne0nbandit.github.io/assets/sound/ui_cant_select.wav" preload="auto" id="erroraudio"></audio>
+   
+   <script>
+      // UI Audio
+      function UIHover(){ var audio = document.getElementById("hoveraudio"); audio.play();}
+      function UIerror(){ var audio = document.getElementById("erroraudio"); audio.play();}
+      
+      // Talk Seen      
+      function sellbshottiecheck()    { document.getElementById("bshottie").style.display = "none"; }
+      function sellfrayedtiecheck()   { document.getElementById("frayedtie").style.display = "none"; }
+      function selldealmaker_acheck() { document.getElementById("dealmakerpt1").style.display = "none"; document.getElementById("dealmakerpt2").style.display = "block"; }
+      function selldealmaker_bcheck() { document.getElementById("dealmakerpt2").style.display = "none"; document.getElementById("dealmakerpt3").style.display = "block"; document.getElementById("talkglasses").style.display = "block"; }      
 
-    <!-- Menu -->
-    <div id="menu">
-        <div class="menu-option" data-action="buy">BUY</div>
-        <div class="menu-option" data-action="sell">SELL</div>
-        <div class="menu-option" data-action="talk">TALK</div>
-        <div class="menu-option" data-action="exit">EXIT</div>
-    </div>
+      function talkselfcheck()     { var element = document.getElementById("talk_self"); element.classList.add("TalkListvisited"); }
+      function talkshowcheck()     { var element = document.getElementById("talk_show"); element.classList.add("TalkListvisited"); }
+      function talkfountaincheck() { var element = document.getElementById("talk_fountain"); element.classList.add("TalkListvisited"); }      
 
-     <!-- Buy Menu -->
-    <div id="menu-buy" class="menu hidden">
-        <div id="buy-list"></div>
-        <div class="menu-option" data-action="back">BACK</div>
-    </div>
-
-    <!-- Sell Menu -->
-    <div id="menu-sell" class="menu hidden">
-        <div id="sell-list"></div>
-        <div class="menu-option" data-action="back">BACK</div>
-  
-</div>
-<script src="script.js"></script>
-</body>
-</html>
+      function glassespt1check() { var element = document.getElementById("talkglasses").style.display = "none"; document.getElementById("talkglasses_1").style.display = "none"; document.getElementById("talkglasses_2").style.display = "block"; }
+      function glassespt2check() { var element = document.getElementById("talkglasses_2").style.display = "none"; document.getElementById("talkglasses_3").style.display = "block"; }
+      function glassespt3check() { var element = document.getElementById("talkglasses_3").style.display = "none"; document.getElementById("talkglasses_4").style.display = "block"; }
+      function glassespt4check() { var element = document.getElementById("talkglasses_4").style.display = "none"; document.getElementById("talkglasses_1").style.display = "block"; }      
+   </script>
+   <script>
+      var button = document.getElementById("button");
+      var audio = document.getElementById("player");        
+      button.addEventListener('click', function(){      
+              if   ( audio.paused){ audio.play(); button.innerHTML = '<img src="https://ne0nbandit.github.io/assets/img/cable/music.png">'; }
+              else { audio.pause(); button.innerHTML = '<img src="https://ne0nbandit.github.io/assets/img/cable/musicoff.png">'; }
+            });
+   </script>
+   <script>
+      //   DELTARUNE TALKBOXES SCRIPT 
+      //   Contributors: ne0nbandit, sheepydwagon
+      // Thank you sheepydwagon for making this work better than I ever could! :)
+      // ============================================================================
+      
+      const textList = [
+      // 0 - 1 - BUY
+      "Host will help ya with that!",
+      "What?!\nWe ain't givin' no handouts!",
+      
+      // 2 - 3 - SELL
+      "Whaddya got for us?",
+      "Hey, put that thing away! Yer upsettin' Host!", // Jeviltail Dialogue
+      
+      // 4 - 11 - SELL - BIGSHOT BOWTIE
+      "* ...?!\n* WH-WHAT THE-?!",
+      "* Kris????????", // 5
+      "* WHAT KINDA FASHION-HATIN' HOOLIGAN HAS VANDALIZED OUR POOR BOWTIES IN SUCHA CRUDE MANNER?!",
+      "* WHY I OUGHTA GIVE 'EM A PIECE OF MY MIND WHEN WE LEARN WHO'S RESPONSIBLE FOR REMOVIN' THE TAGS SO METICULOUSLY!",
+      "* These were special edition and we had 'em made specifically for...",
+      "* . . .\n* Good grief...",
+      "* Well that ain't important now, is it?\n* Here, you can have a new one.", // 10
+      "* Do call me if ya get the scoop on this bowtie fiend.", 
+      
+      // 12 - 17 - SELL - FRAYED BOWTIE
+      "* . . .!\n* Golly, how didja get yer hands on one of these...?",
+      "* This bowtie has seen better days...\n* Maybe even years...",
+      "* . . .\n* . . .\n* . . .",
+      "* Oh!\n* S-Sorry, kid.\n* I... seem to have spaced out for a second there...", // 15
+      "* I guess I was reminded of some things...\n* Or...\n* Of someone...",
+      "* But nevermind all that!\n* Please let me replace this.\n* On the house, of course!",
+      
+      // 18 - 23 - SELL - Dealmaker Pt. 1
+      "* ...?!",
+      "* Wait...\n* This is...",
+      "* S... Spammy...?", // 20
+      "* Where did ya get this...?",
+      "* . . .\n* . . . \n* I see...",
+      "* No, I...\n* We can't take this...\n* I'm sorry...\n* For everythin'...",
+      
+      // 24 - 34 - SELL - Dealmaker Pt.2
+      "* I told ya, we're not takin' these!",
+      "* It's...\n* It's too upsettin'...\n* Buncha bad memories...", // 25
+      "* Or bittersweet...?",
+      "* After all these years...\n* Spammy kept these?",
+      "* Heh...",
+      "* ...",
+      "* Y'know... I do got a funny story 'bout these glasses.\n* ...If you'd wanna indulge me.", // 30
+      "* I already used to torment poor Spammy by talkin' his ear off all the time!",
+      "* Hey! I can't help it, kiddo!\n* Whatsa Microphone suppose to do if not yap on for hours?\n* Host knows what I'm talkin' about!",
+      '* If ya do wanna hear about the glasses, well I\'d love to Talk about it...\n* Just lemme know.',
+      "We ain't takin' those... Please keep 'em safe.",
+      
+      // 35 - 40 - TALK - About You
+      "* Don't gimme any of that, kid!\n* We've met and are practically family!", // 35
+      "* Did ya know I was buddies with ya dad back in the day?\n* How's the old goat doin', by the by?",
+      "* But if ya truly demand an audience with us...\n* Who are we to deny it?",
+      "* Name's Mike.\n* Charmed to meetcha!\n* ...Again.",
+      "* And this is my wife, Host. You've met 'em.\n* They're a bit a shy around Lightners, but I'm sure you'll get along!",
+      "* We're overseers of the Cable.\n* If you ever need anythin' we're always a phone call away!", // 40
+      
+      // 41 - 49 - TALK - Your Show
+      "* Our show?\n* What're you kids yappin' about?",
+      "* We ain't had no show since the 90s!\n* Managing this place is work enough as it is, y'know?",
+      "* The Channels are the ones in charge of the entertainment.\n* You've met them, haven't ya?",
+      "* The Headchef, the Director and the Forecaster?",
+      "* Pretty sure I gave 'em a call to keep an eye on you kiddos!", // 45
+      "* I dunno how ya got past the Chef.\n* It ain't like her to let ya kids sneak out.",
+      "* HEAHEAHEA!!",
+      "* Don't worry, I ain't mad!\n* I just like knowin' yer safe, is all.",
+      "* We're all so thrilled to have ya here!\n* Whatever helps ya feel right at Home, we're here for it!",
+      
+      // 50 - 58 - TALK - Fountain
+      "* Ya sure there ain't no way to change yer minds?\n* I'd hate for us to reach an impasse over somethin' like this.", // 50
+      "* And we're not lettin' ya kids near the Fountain!\n* It's far too dangerous!",
+      "* Besides...\n* This Fountain gives the people hope.\n* In a way that we ain't seen in a long time!",
+      "* And if it brought you back, then...",
+      "* Look, I'm sure if ya give us enough time, we'll work out a solution where everyone's happy!",
+      "* If not...", // 55
+      "* Kris... Susie...\n* If you try to stop us, we'll have to FIGHT.\n* I don't want to do that.",
+      "* You're like family to us.\n* And we'd do anythin' for our family!",
+      "* Promise me that you'll reconsider!\n* You can be happy here!\n* You'll see!",
+      
+      // 59 - 70 - TALK - Glasses Story (Part 1)
+      "* Heaheahea!\n* So ya do wanna hear it!",
+      "* Settle down, this might take a while!", // 60
+      "* Spammy and I were super close back then!\n* Closer than thieves!",
+      "* WE WOULD BE THIEVES, if I hadn't taught that kid some manners!\n* No pupil of mine is gonna be a disonest salesman!",
+      "* But ahh...\n* Early on, y'know?\n* When he was first gettin' his career goin'?",
+      "* He was so excited in his fancy red suit and nice room!\n* I couldn't be more proud!",
+      "* We did butt heads at times.\n* But I cared a great deal 'bout him, y'know?", // 65
+      "* Thing is!\n* Spammy's a smart kid!\n* He kept tellin' me:",
+      '"* "Hey [Mic]! You don\'t gotta manage every single one of my decisions!"\n* "I know what I want!"',
+      "* Aaah... I was different man back then.\n* Because when Spammy said he wanted his suit to be racecar red, why...",
+      "* I WAS LIVID!!",
+      "* I DEMANDED that he made it pink!\n* It was so much nicer, and I was sure it would make him more successful in his brand!", // 70
+      
+      // 71 - 76 - TALK - Glasses Story (Part 2)
+      "* But Spammy was persistent!\n* We fought for weeks over the colour of his suit!",
+      "* And eventually, he snaps at me!",
+      "* Says that, he didn't want to wear pink...\n* I did!",
+      "* Host had told me the same thing too!",
+      "* But golly, it took Spammy sayin' it out loud for me to realize what an old grump I'd been at him!", // 75
+      "* He hangs up the phone on me and I don't hear a peep from him for a few days.\n* Figures! Kid's got a business to run!",
+      
+      // 77 - 84 - TALK - Glasses Story (Part 3)
+      "* I don't hear from Spammy for a while...\n* Until, one day!\n* I get a call from him again!",
+      "* Spammy tells me he had gotten his new suit and tells me to give it a look!",
+      "* He had gotten the pink suit!\n* Pink and white, like I had so ruthlessly persisted!",
+      "* With this, he says he also ordered a new accessory that'll sure to bring his brand together!", // 80
+      "* And he puts on the glasses you're holdin' right now!",
+      "* And he tells me that since I wanna project on him so badly...",
+      "* Well I better get used to him stealin' my look as well!",
+      "* HEAHEAHEAHEA!", 
+      
+      // 85 - 93 - TALK - Glasses Story (Part 4)
+      "* I let him make his own decisions after that!",
+      "* Of course his red suit came and his intuition was correct.\n* The red was better on him!",
+      "* He just needed a nudge in the right direction!\n* Not this old Microphone naggin' him all the time!",      
+      "* I only ever saw him use those glasses once...",
+      "* It's been so long I had almost forgotten about them...\n* And it's been so long since I've heard from Spammy too...",
+      "* We miss him a lot sometimes, ya know?\n* If you ever get a hold of him, well uh...", // 90
+      "* Just tell him I hope he's doin' well, and that I do miss him and that...\n* I'm sorry.",
+      "* But it's too late for that now, ain't it...?\n* I'd be surprised if he even remembers me at this point, hehe...",
+      "* Thanks for listenin' to my yappin'!\n* Now get outta here!\n* We got important business to take care of!",
+      
+      // 94 - TALK
+      "Sure! Let's chat!"
+      ];
+      
+      const sfxList = [
+          "https://ne0nbandit.github.io/assets/sound/mike.wav",
+          "https://ne0nbandit.github.io/assets/sound/defaul2t.ogg", // Default UTDR beep
+      ];
+      
+      // ============================================================================
+      
+      var start = 0; // initialize global variable for the start of the dialogue line
+      
+      // function that initializes the typewriter
+      // Parameters:
+      // text = the button that called the function
+      function typeInit(text) {
+          currentLetter = 0;                                  // resets currentLetter to zero
+          lineNum = parseInt(text.getAttribute("data-line")); // gets the line number from the button call as an Int
+          speed = parseInt(text.getAttribute("data-speed"));  // gets the speed from the button call as an Int
+          currentText = textList[lineNum];                    // gets the string text for the current line
+      
+          sfxNum = parseInt(text.getAttribute("data-sound")); // gets the sound number from the button call as an Int
+          currentSfx = sfxList[sfxNum];                       // gets the sound src from the list
+          sfxAudio = new Audio(currentSfx);                   // creates an Audio object for it
+          sfxAudio.load();                                    // makes sure the audio is loaded before it is played
+      
+          // Jay Note - There must definitely be an easier way to do this, but right now this is the closest approximation to what i'm going for
+          // If you are reading this, then know that I feel shame, but it was the only way I could find to make it work lmao
+      
+          document.getElementById("buytext").innerHTML = "";     // resets the text currently displayed
+          document.getElementById("buytext2").innerHTML = "";
+          document.getElementById("selltext").innerHTML = "";
+          document.getElementById("sellbshottie_1").innerHTML = "";
+          document.getElementById("sellbshottie_2").innerHTML = "";
+          document.getElementById("sellbshottie_3").innerHTML = "";
+          document.getElementById("sellbshottie_4").innerHTML = "";
+          document.getElementById("sellbshottie_5").innerHTML = "";
+          document.getElementById("sellbshottie_6").innerHTML = "";
+          document.getElementById("sellbshottie_7").innerHTML = "";
+          document.getElementById("sellbshottie_8").innerHTML = "";
+          document.getElementById("sellfrayedtie_1").innerHTML = "";
+          document.getElementById("sellfrayedtie_2").innerHTML = "";
+          document.getElementById("sellfrayedtie_3").innerHTML = "";
+          document.getElementById("sellfrayedtie_4").innerHTML = "";
+          document.getElementById("sellfrayedtie_5").innerHTML = "";
+          document.getElementById("sellfrayedtie_6").innerHTML = "";
+          document.getElementById("selldealmaker_a_1").innerHTML = "";
+          document.getElementById("selldealmaker_a_2").innerHTML = "";
+          document.getElementById("selldealmaker_a_3").innerHTML = "";
+          document.getElementById("selldealmaker_a_4").innerHTML = "";
+          document.getElementById("selldealmaker_a_5").innerHTML = "";
+          document.getElementById("selldealmaker_a_6").innerHTML = "";
+          document.getElementById("selldealmaker_b_1").innerHTML = "";
+          document.getElementById("selldealmaker_b_2").innerHTML = "";
+          document.getElementById("selldealmaker_b_3").innerHTML = "";
+          document.getElementById("selldealmaker_b_4").innerHTML = "";
+          document.getElementById("selldealmaker_b_5").innerHTML = "";
+          document.getElementById("selldealmaker_b_6").innerHTML = "";
+          document.getElementById("selldealmaker_b_7").innerHTML = "";
+          document.getElementById("selldealmaker_b_8").innerHTML = "";
+          document.getElementById("selldealmaker_b_9").innerHTML = "";
+          document.getElementById("selldealmaker_b_10").innerHTML = "";
+          document.getElementById("talktext").innerHTML = "";          
+          document.getElementById("talkself_1").innerHTML = "";
+          document.getElementById("talkself_2").innerHTML = "";
+          document.getElementById("talkself_3").innerHTML = "";
+          document.getElementById("talkself_4").innerHTML = "";
+          document.getElementById("talkself_5").innerHTML = "";
+          document.getElementById("talkself_6").innerHTML = "";
+          document.getElementById("talkshow_1").innerHTML = "";
+          document.getElementById("talkshow_2").innerHTML = "";
+          document.getElementById("talkshow_3").innerHTML = "";
+          document.getElementById("talkshow_4").innerHTML = "";
+          document.getElementById("talkshow_5").innerHTML = "";
+          document.getElementById("talkshow_6").innerHTML = "";
+          document.getElementById("talkshow_7").innerHTML = "";
+          document.getElementById("talkshow_8").innerHTML = "";
+          document.getElementById("talkshow_9").innerHTML = "";
+          document.getElementById("talkfountain_1").innerHTML = "";
+          document.getElementById("talkfountain_2").innerHTML = "";
+          document.getElementById("talkfountain_3").innerHTML = "";
+          document.getElementById("talkfountain_4").innerHTML = "";
+          document.getElementById("talkfountain_5").innerHTML = "";
+          document.getElementById("talkfountain_6").innerHTML = "";
+          document.getElementById("talkfountain_7").innerHTML = "";
+          document.getElementById("talkfountain_8").innerHTML = "";
+          document.getElementById("talkfountain_9").innerHTML = "";                 
+          document.getElementById("glasses_pt1_1").innerHTML = "";
+          document.getElementById("glasses_pt1_2").innerHTML = "";
+          document.getElementById("glasses_pt1_3").innerHTML = "";
+          document.getElementById("glasses_pt1_4").innerHTML = "";
+          document.getElementById("glasses_pt1_5").innerHTML = "";
+          document.getElementById("glasses_pt1_6").innerHTML = "";
+          document.getElementById("glasses_pt1_7").innerHTML = "";
+          document.getElementById("glasses_pt1_8").innerHTML = "";
+          document.getElementById("glasses_pt1_9").innerHTML = "";
+          document.getElementById("glasses_pt1_10").innerHTML = "";
+          document.getElementById("glasses_pt1_11").innerHTML = "";
+          document.getElementById("glasses_pt1_12").innerHTML = "";
+          document.getElementById("glasses_pt2_1").innerHTML = "";
+          document.getElementById("glasses_pt2_2").innerHTML = "";
+          document.getElementById("glasses_pt2_3").innerHTML = "";
+          document.getElementById("glasses_pt2_4").innerHTML = "";
+          document.getElementById("glasses_pt2_5").innerHTML = "";
+          document.getElementById("glasses_pt2_6").innerHTML = "";
+          document.getElementById("glasses_pt3_1").innerHTML = "";
+          document.getElementById("glasses_pt3_2").innerHTML = "";
+          document.getElementById("glasses_pt3_3").innerHTML = "";
+          document.getElementById("glasses_pt3_4").innerHTML = "";
+          document.getElementById("glasses_pt3_5").innerHTML = "";
+          document.getElementById("glasses_pt3_6").innerHTML = "";
+          document.getElementById("glasses_pt3_7").innerHTML = "";
+          document.getElementById("glasses_pt3_8").innerHTML = "";
+          document.getElementById("glasses_pt4_1").innerHTML = "";
+          document.getElementById("glasses_pt4_2").innerHTML = "";
+          document.getElementById("glasses_pt4_3").innerHTML = "";
+          document.getElementById("glasses_pt4_4").innerHTML = "";
+          document.getElementById("glasses_pt4_5").innerHTML = "";
+          document.getElementById("glasses_pt4_6").innerHTML = "";
+          document.getElementById("glasses_pt4_7").innerHTML = "";
+          document.getElementById("glasses_pt4_8").innerHTML = "";
+          document.getElementById("glasses_pt4_9").innerHTML = "";      
+          typeWriter();                                       // calls the recursive typewriter function
+      }
+      
+      // recursive function that adds each letter to the currently displayed text at a certain speed
+      function typeWriter() {
+          // if the currentLetter is not the last letter in the current line of dialogue
+          if (currentLetter < currentText.length) {
+      
+              sfxAudio.play();                                 // play the text sound
+      
+              // add the currentLetter to the displayed text
+              document.getElementById("buytext").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("buytext2").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selltext").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("sellbshottie_1").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("sellbshottie_2").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("sellbshottie_3").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("sellbshottie_4").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("sellbshottie_5").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("sellbshottie_6").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("sellbshottie_7").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("sellbshottie_8").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("sellfrayedtie_1").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("sellfrayedtie_2").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("sellfrayedtie_3").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("sellfrayedtie_4").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("sellfrayedtie_5").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("sellfrayedtie_6").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_a_1").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_a_2").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_a_3").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_a_4").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_a_5").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_a_6").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_b_1").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_b_2").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_b_3").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_b_4").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_b_5").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_b_6").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_b_7").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_b_8").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_b_9").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("selldealmaker_b_10").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talktext").innerHTML += currentText.charAt(currentLetter);              
+              document.getElementById("talkself_1").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkself_2").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkself_3").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkself_4").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkself_5").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkself_6").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkshow_1").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkshow_2").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkshow_3").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkshow_4").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkshow_5").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkshow_6").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkshow_7").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkshow_8").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkshow_9").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkfountain_1").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkfountain_2").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkfountain_3").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkfountain_4").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkfountain_5").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkfountain_6").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkfountain_7").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkfountain_8").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("talkfountain_9").innerHTML += currentText.charAt(currentLetter);                       
+              document.getElementById("glasses_pt1_1").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt1_2").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt1_3").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt1_4").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt1_5").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt1_6").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt1_7").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt1_8").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt1_9").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt1_10").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt1_11").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt1_12").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt2_1").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt2_2").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt2_3").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt2_4").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt2_5").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt2_6").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt3_1").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt3_2").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt3_3").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt3_4").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt3_5").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt3_6").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt3_7").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt3_8").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt4_1").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt4_2").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt4_3").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt4_4").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt4_5").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt4_6").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt4_7").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt4_8").innerHTML += currentText.charAt(currentLetter);
+              document.getElementById("glasses_pt4_9").innerHTML += currentText.charAt(currentLetter);      
+              currentLetter++;                                // make the current letter the next letter
+              setTimeout(typeWriter, speed);                  // call this function again on a delay
+          }
+      }
+      
+      // ============================================================================
+      
+      var currLoop = -1; // initialize global variable for current place in loop
+      
+      // function that loops dialogue between a certain range of lines
+      // must be in order and consecutive (ex. 3-5, 10-20, etc)
+      // Parameters:
+      //    text = the button that called the function
+      function typeLoopInit(text) {
+          loopStart = parseInt(text.getAttribute("data-loop-start")); // gets the starting number for the loop range as an Int
+          loopStop = parseInt(text.getAttribute("data-loop-stop"));   // gets the ending number for the loop range as an Int
+          speed = parseInt(text.getAttribute("data-speed"));          // gets the speed for dialogue in the loop as an Int
+      
+          sfxNum = parseInt(text.getAttribute("data-sound"));         // gets the sound number from the button call as an Int
+          currentSfx = sfxList[sfxNum];                               // gets the sound src from the list
+          sfxAudio = new Audio(currentSfx);                           // creates an Audio object for it
+          sfxAudio.load();                                            // makes sure the audio is loaded before it is played
+      
+          currentLetter = 0;                                          // resets starting letter to zero
+      
+          // if the current place in the loop is less than the number of lines in the loop, advance the line
+          if (currLoop < (loopStop - loopStart)) {
+              currLoop++;                                             
+          }
+          // else, reset the current place in the loop to the start
+          else {                              
+              currLoop = 0;
+          }
+          
+          document.getElementById("info2").innerHTML = "";             // resets the displayed text
+          currentText = textList[currLoop + loopStart];               // sets the currently displayed text to the current line
+      
+          typeWriter(currLoop + loopStart, speed);                    // calls the typeWriter function for the current line
+      }
+      
+      // ============================================================================
+   </script>
+   <script src="./The Backstage - Deltarune (Cable AU)_files/MyAchievements.js.download"></script>
+</body></html>
