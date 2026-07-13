@@ -39,114 +39,23 @@
    <!-- This page is filled with coding crimes, please don't tell anyone that this is how I live my life -->
    <body>
       <script>
-         // Host Brow Swap
-         function browhalf()   { document.getElementById("brow").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/BrowHalf.png"; }
-         function browsad()    { document.getElementById("brow").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/BrowSad.png"; }
-         function browangry()  { document.getElementById("brow").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/BrowsAngry.png"; }
-         function browangry2() { document.getElementById("brow").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/BrowsAngry.gif"; }
-         function browreset()  { document.getElementById("brow").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/blank.png"; }
-         
-         // Host Front Hand Swap
-         function hands_idle()       { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandsIdle.gif"; }
-         function hands_still()      { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandsIdle.png"; }
-         function hand_R()           { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandR.png"; }
-         function hand_R2()          { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandR.gif"; }
-         function hands_shy()        { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandsPoint.gif"; }
-         function hands_no()         { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandNo.gif"; }
-         function hands_gasp()       { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandsGasp.gif"; }
-         function hands_name()       { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandsName.gif"; setTimeout(hands_idle, 2700); }
-         function hands_gasp2()      { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandsGasp.png"; }
-         function hands_speechless() { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandsSpeechless.png"; }
-         function hand_UpR()         { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandUpR.png"; }
-         function hand_UpR2()        { document.getElementById("hands").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandUpR.gif"; }
-         
-         // Host Back Hand Swap
-         function wave()        { document.getElementById("handsback").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandWave.gif"; }
-         function hand_L()      { document.getElementById("handsback").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandL.png"; }
-         function hand_L2()     { document.getElementById("handsback").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandL.gif"; }
-         function hand_UpL()    { document.getElementById("handsback").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandUpL.png"; }
-         function hand_UpL2()   { document.getElementById("handsback").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/HandUpL.gif"; }
-         function hands_blank() { document.getElementById("handsback").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/blank.png"; }
-         
-         // Host Mouth Swaps
-         function host_smile() { document.getElementById("host_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/Mouth.gif"; }
-         function host_fangs() { document.getElementById("host_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/MouthFangs.gif"; }
-         function host_frown() { document.getElementById("host_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/host/MouthFrown.png"; }
-         
-         // Mike Base Swaps
-         function mic_base ()    { document.getElementById("mike_base").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/Base.gif"; }
-         function mic_basesad () { document.getElementById("mike_base").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/BaseSad.gif"; }
-         
-         // Mike Eye Swaps
-         function mic_eyebase ()    { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesBase.png"; }
-         function mic_eyeclose ()   { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesClosed.png"; }
-         function mic_lookdown ()   { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesLookDown.png"; }
-         function mic_lookup ()     { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesLookUp.png"; }
-         function mic_squint ()     { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSquint.png"; }
-         function mic_tired ()      { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesTired.png"; }
-         function mic_shock ()      { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesShock.png"; }
-         function mic_shockdown ()  { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesShockDown.png"; }
-         function mic_shockangry () { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesShockAngry.png"; }
-         function mic_serious ()    { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSerious.png"; }         
-         function mic_sadDown ()    { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSad1.png"}
-         function mic_sadShock ()   { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSad2.png"}
-         function mic_sadUp ()      { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSad3.png"}
-         function mic_sadSide ()    { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSad4.png"}
-         function mic_sadRemorse () { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSad5.png"}
-         function mic_sadClosed ()  { document.getElementById("mike_eyes").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/EyesSadClosed.png"}
-         
-         // Mike Mouth Swaps
-         function mic_talk()       { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk.gif"; }
-         function mic_talkfast()   { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalkFast.gif"; }
-         function mic_talkfrown()  { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk2.gif"; }
-         function mic_talkfrown2() { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk3.gif"; }
-         function mic_smile()      { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthBase.png"; }
-         function mic_smileweak()  { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthWeakSmile.png"; }
-         function mic_frown()      { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthFrown1.png"; }
-         function mic_frown2()     { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthFrown2.png"; }
-         
-         function mic_talk1sec()     { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk.gif"; setTimeout(mic_smile, 1400);}
-         function mic_talk3sec()     { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk.gif"; setTimeout(mic_smile, 2500);}
-         function mic_frown1sec()    { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk2.gif"; setTimeout(mic_frown, 1400);}
-         function mic_frown3sec()    { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk2.gif"; setTimeout(mic_frown, 3000);}
-         function mic_frown1secalt() { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk3.gif"; setTimeout(mic_frown2, 1400);}
-         function mic_frown3secalt() { document.getElementById("mike_mouth").src="https://ne0nbandit.github.io/assets/img/cable/shop/mike/MouthTalk3.gif"; setTimeout(mic_frown2, 2500);}
-         
-         function mic_shake() { var element = document.getElementById("mike"); element.classList.add("shake1"); }
-         
-         function mic_shake2() {
-           var element = document.getElementById("mike"); element.classList.remove("shake1");
-           var element = document.getElementById("mike"); element.classList.add("shake2");
-           var element = document.getElementById("mike_mouth"); element.classList.add("shake1");
+         //Swap
+         function confused()   { document.getElementById("confused").src="https://github.com/Gojira-Cale/Shop/blob/main/assests/shop/me/confused-sprite-1.gif"; }
+         function talk()    { document.getElementById("talk").src="https://github.com/Gojira-Cale/Shop/blob/main/assests/shop/me/talk-sprite-1.gif"; }
+         function laughing()  { document.getElementById("laughing").src="https://github.com/Gojira-Cale/Shop/blob/main/assests/shop/me/laughing-sprite-1.gif"; }
+        
          }
          
-         function mic_shake3() {
-           var element = document.getElementById("mike"); element.classList.remove("shake2");
-           var element = document.getElementById("mike"); element.classList.add("shake3");
-           var element = document.getElementById("mike_eyes"); element.classList.add("shake1");
-           var element = document.getElementById("mike_mouth"); element.classList.remove("shake1");
-           var element = document.getElementById("mike_mouth"); element.classList.add("shake2");
-         }
-         
-         function shakereset() {
-           var element = document.getElementById("mike"); element.classList.remove("shake3");
-           var element = document.getElementById("mike_eyes"); element.classList.remove("shake1");
-           var element = document.getElementById("mike_mouth"); element.classList.remove("shake2");
-         }
+      
       </script>
 
-   <div id="achievementWinCable">
-      <div id="GlassesStory" class="achievementCable"><div><img class="achievementCableImg"></div>
-      <div><div class="achievementCableTitle"></div><p class="achievementFlavour"></p></div>
     </div></div>
       <div class="ShopScreen">
          <div class="ShopArt">
-            <div id="mike">
-               <img id="mike_mouth" src="./The Backstage - Deltarune (Cable AU)_files/MouthBase.png">
-               <img id="mike_eyes" src="./The Backstage - Deltarune (Cable AU)_files/EyesSquint.png">
-               <img id="mike_base" src="./The Backstage - Deltarune (Cable AU)_files/Base.gif">          
+            <div id="idle-sprite">
+               <img id="idle-sprite" src="https://github.com/Gojira-Cale/Shop/blob/main/assests/shop/me/idle-sprite.gif">
             </div>
-            <img id="mike_stand" src="./The Backstage - Deltarune (Cable AU)_files/Stand.png">
+      
             <div id="host">
                <img id="brow" src="./The Backstage - Deltarune (Cable AU)_files/blank.png">
                <img id="hands" src="./The Backstage - Deltarune (Cable AU)_files/HandR.png">
