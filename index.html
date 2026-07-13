@@ -4,42 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Outwards Shop</title>
-
-        <link href="/style.css" rel="stylesheet" type="text/css" media="all">
-        <link href="/style.css" rel="stylesheet" type="text/css" media="all">
-        <link href="/shopbox.css" rel="stylesheet" type="text/css" media="all">
-        <link rel="icon" type="image" href="assests/deltarunelogo.png">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #shop-container {
+            width: 800px;
+            height: 600px;
+            border: 4px solid white;
+            position: relative;
+            background: #000;
+        }
+        .pixelated {
+            image-rendering: pixelated;
+        }
+    </style>
 </head>
 <body>
-
-            <div id="idle-sprite">
+    <div id="shop-container">
+       <div id="idle-sprite">
                 <img id="idle-sprite" src="assests/shop/me/idle-sprite.gif" alt="me">
-
-
-            <div id="ShopBox">
-                <p>Welcome-Welcome!, nice to see ya</p>
-          </div>
-         </div>
-        </div>
-
-
-        <!-- Bottom Panel: Menu Choices -->
-
-        <div class="ShopUI">
-       <div class="ShopBox">
-        <div id="ShopDialouge">
-            <div id="ShopMenu">
-                <button class="menu-btn active">buy</button>
-                <button class="menu-btn">sell</button>
-                <button class="menu-btn">talk</button>
-                <button class="menu-btn">exit</button>
-            </div>
-            
-            <div id="item-list" class="hidden">
-             
-            </div>
-        </div>
     </div>
-    <script src="items.js"></script>
 </body>
 </html>
