@@ -29,9 +29,9 @@ function playTextBlip() {
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         
-        // Deltarune/Undertale use square or retro waves for text
+        // square or retro waves for text
         osc.type = 'square'; 
-        // Slight randomization gives it a natural "voice" characteristic
+        // Slight randomization
         osc.frequency.setValueAtTime(120 + Math.random() * 20, ctx.currentTime); 
         
         gain.gain.setValueAtTime(0.05, ctx.currentTime); // Keep volume low
@@ -102,7 +102,7 @@ function typeNextChar() {
     dialogueState.timeoutId = setTimeout(typeNextChar, currentSpeed);
 }
 
-// 5. Instantly finish dialogue if the user presses 'Z' or Clicks (Classic RPG skip)
+// 5. Instantly finish dialogue if the user presses 'Z' or Clicks 
 function skipDialogue() {
     if (!dialogueState.isTyping) return;
     
