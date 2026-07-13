@@ -4,7 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Outwards Shop</title>
-      <link href="https://github.com/Gojira-Cale/Shop/blob/main/assests/shop/me/talk-sprite-1.gif">
-    <h1>heya</h1>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="shop-container">
+        <!-- Top Panel;;Shopkeeper and Dialogue -->
+        <div id="dialogue-box">
+            <div id="shopkeeper-sprite">
+                <img id="idle-sprite" src="https://github.com/Gojira-Cale/Shop/blob/main/assests/shop/me/idle-sprite.gif" alt="me">
+            </div>
+            <div id="dialogue-text">
+                <p>Welcome-Welcome!, nice to see ya</p>
+            </div>
+        </div>
+
+        <!-- Bottom Panel: Menu Choices -->
+        <div id="menu-box">
+            <div id="shop-options">
+                <button class="menu-btn active">BUY</button>
+                <button class="menu-btn">SELL</button>
+                <button class="menu-btn">TALK</button>
+                <button class="menu-btn">EXIT</button>
+            </div>
+            <div id="item-list" class="hidden">
+                <!-- Items will be populated via JavaScript -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
