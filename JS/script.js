@@ -1,43 +1,75 @@
 let gold = 100;
-let state = "main"; // main, buy, sell, talk
-let dialogQueue = [];
-let shopkeeper = document.getElementById("shopkeeper");
-let dialogText = document.getElementById("dialog-text");
-let goldAmount = document.getElementById("gold-amount");
+let inventory = [];
+let state = "main";
 
-function setDialog(text, sprite = "assests/shop/me/idle-sprite.gif") {
-    shopkeeper.src = sprite;
-    dialogText.textContent = "";
+const shopkeeperSprites = {
+    idle: "images/shop_idle.png",
+    happy: "images/shop_happy.png",
+    talk: "images/shop_talk.png",
+    angry: "images/shop_angry.png"
+};
+
+const itemsForSale = [
+    { name: "Potion", price: 20 },
+    { name: "Elixir", price: 50 },
+    { name: "Sword", price: 80 },
+    { name: "Shield", price: 60 }
+];
+
+function updateGold() {
+    document.getElementById("gold-amount").textContent = gold;
+}
+
+function changeShopkeeper(state) {
+    document.getElementById("shopkeeper").src = shopkeeperSprites[state] || shopkeeperSprites.idle;
+}
+
+function setDialog(text, sprite = "talk") {
+    const dialogBox = document.getElementById("dialog-text");
+    dialogBox.textContent = "";
+    changeShopkeeper(sprite);
     let i = 0;
     let interval = setInterval(() => {
-        dialogText.textContent += text[i];
+        dialogBox.textContent += text[i];
         i++;
-        if (i >= text.length) clearInterval(interval);
+        if (i >= text.length) {
+            clearInterval(interval);
+            changeShopkeeper("idle");
+        }
     }, 20);
 }
 
-function changeState(newState) {
-    state = newState;
-    if (state === "buy") {
-        setDialog("Here's what I have for sale...", "assests/shop/me/talk-sprite-1.gif");
-    } else if (state === "sell") {
-        setDialog("What are you offering?", "assests/shop/me/talk-sprite-1.gif");
-    } else if (state === "talk") {
-        setDialog("This town has seen better days...", "assests/shop/me/talk-sprite-1.gif");
-    } else if (state === "exit") {
-        setDialog("Come again soon!", "assests/shop/me/idle-sprite.gif");
-    }
+function showMenu(menuId) {
+    document.querySelectorAll(".menu").forEach(m => m.classList.add("hidden"));
+    document.getElementById(menuId).classList.remove("hidden");
 }
 
-document.querySelectorAll(".menu-option").forEach(opt => {
-    opt.addEventListener("click", () => {
-        changeState(opt.dataset.action);
+function openBuyMenu() {
+    state = "buy";
+    showMenu("menu-buy");
+    setDialog("Here's what I have for sale...", "happy");
+    const list = document.getElementById("buy-list");
+    list.innerHTML = "";
+    itemsForSale.forEach(item => {
+        let div = document.createElement("div");
+        div.className = "item";
+        div.textContent = `${item.name} - ${item.price}G`;
+        div.onclick = () => buyItem(item);
+        list.appendChild(div);
     });
-});
-
-function updateGold() {
-    goldAmount.textContent = gold;
 }
 
-updateGold();
-setDialog("Welcome!", "assests/shop/me/idle-sprite.gif");
+function openSellMenu() {
+    state = "sell";
+    showMenu("menu-sell");
+    setDialog("What are you offering?", "talk");
+    updateSellList();
+}
+
+function updateSellList() {
+    const list = document.getElementById("sell-list");
+    list.innerHTML = "";
+    if (inventory.length === 0) {
+        list.innerHTML = "<div class='item'>(No items)</div>";
+    } else {
+        inventory.forEach((item, index) => {
