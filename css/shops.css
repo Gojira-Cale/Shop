@@ -2,7 +2,7 @@
   .ShopScreen { animation-name: fadeinblack; animation-duration: 1s; filter: auto; }
   .ShopArt { display: flex; margin: auto; justify-content: center; pointer-events: none; z-index: 0; position: relative; }
   .ShopUI { display: flex; justify-content: center; width: 1280px; margin: auto; font-family: 'DTM-sans'; text-shadow: 3px 3px #282864; height: 392px; }
-  .ShopBox { border: 52px solid transparent; border-image: url(https://ne0nbandit.github.io/assets/img/cable/DeltaruneBorder.gif); image-rendering: pixelated; border-image-slice: 27.6% fill; z-index: 2; position: relative; height: 100%; }
+  .ShopBox { border: 52px solid transparent; border-image: url(https://github.com/Gojira-Cale/Shop/blob/main/assests/DeltaruneBorder.gif); image-rendering: pixelated; border-image-slice: 27.6% fill; z-index: 2; position: relative; height: 100%; }
   .ShopDialogue { margin-right: -16px; width: 816px; font-size: 44px ;}
   .ShopMenu { margin-left: -16px; width: 496px; }
   .ShopMenu a { color: white; font-size: 44px; line-height: 60px; }
@@ -46,7 +46,7 @@
   
   @media only screen and (max-width: 700px) {
   body { height: auto; }
-  .ShopBox { border: 26px solid transparent; border-image: url(https://ne0nbandit.github.io/assets/img/cable/DeltaruneBorder.gif) 52 stretch; image-rendering: pixelated; border-image-slice: 27.3% fill; }
+  .ShopBox { border: 26px solid transparent; border-image: url(https://github.com/Gojira-Cale/Shop/blob/main/assests/DeltaruneBorder.gif) 52 stretch; image-rendering: pixelated; border-image-slice: 27.3% fill; }
   .ShopUI { flex-direction: column; width: 100%; height: 100%;}
   .ShopDialogue { margin-right: auto; width: 100%; min-height: 200px; font-size: 24px; }
   .ShopDialogue p { font-size: 24px; line-height: 25px; letter-spacing: 0px; }
