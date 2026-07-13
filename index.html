@@ -3,23 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deltarune-Style Shopkeeper</title>
+    <title>The Outsider Shop</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="shop-container">
+        <!-- Shopkeeper Sprite -->
         <div class="shopkeeper">
-            
             <img src="assests/shop/me/idle-sprite.gif" alt="me" id="idle-sprite">
         </div>
-        <div class="dialog-box" id="dialog-box">
-            <p id="dialog-text">Welcome !</p>
+
+        <!-- Gold Counter -->
+        <div class="gold-counter">
+            GOLD: <span id="gold-amount">100</span>G
         </div>
-        <div class="menu">
-            <button class="menu-btn" onclick="selectOption('Buy')">Buy</button>
-            <button class="menu-btn" onclick="selectOption('Sell')">Sell</button>
-            <button class="menu-btn" onclick="selectOption('Talk')">Talk</button>
-            <button class="menu-btn" onclick="selectOption('Exit')">Exit</button>
+
+        <!-- Dialog Box with Sprite Background -->
+        <div class="dialog-box" id="dialog-box">
+            <p id="dialog-text">Welcome!</p>
+        </div>
+
+        <!-- Main Menu -->
+        <div class="menu" id="main-menu">
+            <button class="menu-btn" onclick="openBuyMenu()">Buy</button>
+            <button class="menu-btn" onclick="openSellMenu()">Sell</button>
+            <button class="menu-btn" onclick="talk()">Talk</button>
+            <button class="menu-btn" onclick="exitShop()">Exit</button>
+        </div>
+
+        <!-- Buy Menu -->
+        <div class="menu hidden" id="buy-menu">
+            <div class="item" onclick="buyItem('xxx', 20)">xxx - 20G</div>
+            <div class="item" onclick="buyItem('xxx', 50)">xxx - 50G</div>
+            <div class="item" onclick="buyItem('xxx', 80)">xxx - 80G</div>
+            <button class="menu-btn" onclick="backToMain()">Back</button>
+        </div>
+
+        <!-- Sell Menu -->
+        <div class="menu hidden" id="sell-menu">
+            <div id="inventory-list"></div>
+            <button class="menu-btn" onclick="backToMain()">Back</button>
         </div>
     </div>
 
