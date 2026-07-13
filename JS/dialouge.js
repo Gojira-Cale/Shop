@@ -1,10 +1,10 @@
 // 1. Define your Shopkeeper's dialogue data
 const SHOP_DIALOGUE = {
-    welcome: "Welcome to my shop, traveler. Take your time... [delay:500] standard wares for standard souls.",
-    buy_item: "A fine choice. It has... [delay:300] interesting properties.",
-    no_money: "You lack the funds. Come back when your pockets are heavier.",
-    talk_lore: "This town? It used to be lively. [delay:400] Before the fountains, before the silence.",
-    exit: "Goodbye. Don't trip on your way out."
+    welcome: "Welcome Welcome! [delay:500] Nice to see ya here.",
+    buy_item: "Not added yet [delay:300] !",
+    no_money: "Sorry, ya aint got enough cash.",
+    talk_lore: "Not added yet [delay:300] !",
+    exit: "Bye bye !"
 };
 
 // 2. Setup the configuration state
