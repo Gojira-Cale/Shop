@@ -3,7 +3,7 @@ const items = [
     { name: "N/A", price: 000, desc: "Restores 0 HP." }
 ];
 
-const dialogueBox = document.getElementById('dialogue-text').querySelector('p');
+const dialogueBox = document.getElementById('ShopDialogue').querySelector('p');
 const itemList = document.getElementById('item-list');
 const menuButtons = document.querySelectorAll('.menu-btn');
 
