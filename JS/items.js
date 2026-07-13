@@ -15,7 +15,7 @@ menuButtons.forEach(button => {
 });
 
 function handleAction(action) {
-    if (action === "BUY") {
+    if (action === "buy") {
         itemList.classList.remove('hidden');
         renderItems();
         dialogueBox.textContent = "What are you buying, kid?";
