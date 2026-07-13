@@ -3,40 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deltarune-Style Shop</title>
+<title>The Outsiders Shop</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="game">
     <!-- Shopkeeper -->
-    <img id="shopkeeper" src="images/shop_idle.png" alt="Shopkeeper">
+    <img id="idle-sprite" src="assests/shop/me/idle-sprite.gif" alt="me">
 
     <!-- Gold Counter -->
     <div id="gold">GOLD: <span id="gold-amount">100</span>G</div>
 
     <!-- Dialog Box -->
     <div id="dialog-box">
-        <p id="dialog-text">Welcome, traveler!</p>
+        <p id="dialog-text">Welcome!</p>
     </div>
 
-    <!-- Main Menu -->
-    <div id="menu-main" class="menu">
+    <!-- Menu -->
+    <div id="menu">
         <div class="menu-option" data-action="buy">BUY</div>
         <div class="menu-option" data-action="sell">SELL</div>
         <div class="menu-option" data-action="talk">TALK</div>
         <div class="menu-option" data-action="exit">EXIT</div>
-    </div>
-
-    <!-- Buy Menu -->
-    <div id="menu-buy" class="menu hidden">
-        <div id="buy-list"></div>
-        <div class="menu-option" data-action="back">BACK</div>
-    </div>
-
-    <!-- Sell Menu -->
-    <div id="menu-sell" class="menu hidden">
-        <div id="sell-list"></div>
-        <div class="menu-option" data-action="back">BACK</div>
     </div>
 </div>
 <script src="script.js"></script>
