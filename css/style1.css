@@ -78,7 +78,7 @@ button:hover .heart { display: table-cell; }
 
 .piss { filter: drop-shadow(1px 1px 0px #4C4C00); background: -webkit-linear-gradient(#FFFFA8 25%, #FFFF0E); -webkit-text-fill-color: transparent; background-clip: text; -webkit-background-clip: text; text-shadow: none; padding: 5px 0; }
 
-#hostinfo { left: 0%; right: -610px; z-index: 1;}
+#meinfo { left: 0%; right: -610px; z-index: 1;}
 #mikeinfo { right: 310px; top: 21%; left: 0%; z-index: 1;}
 
 }
