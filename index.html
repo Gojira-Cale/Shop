@@ -15,8 +15,8 @@
       <script src="JS/Tabs.js"></script>
       <script src="JS/Toggle.js"></script>
       <style>
-         #idle-sprite { z-index: 4; image-rendering: pixelated; }
-         #idle-sprite  { position: absolute; }
+         #idlesprite { z-index: 4; image-rendering: pixelated; }
+         #idlesprite  { position: absolute; }
          
          #dealmakerpt1 { display: block; }
          #dealmakerpt2 { display: none; }
@@ -24,13 +24,13 @@
          .piss { filter: drop-shadow(3px 3px 0px #4C4C00); }
          .talk { cursor: var(--cursor-pointer); }
          @media only screen and (max-width: 700px) {
-         #idle-sprite {
+         #idlesprite {
          width: 100%;
          height: 270px;
          object-fit: cover;
          }
-         #idle-sprite { image-rendering: auto; object-position: -95px; }
-         #idle-sprite { object-position: -100px; image-rendering: auto; }
+         #idlesprite { image-rendering: auto; object-position: -95px; }
+         #idlesprite { object-position: -100px; image-rendering: auto; }
          
          }      
       </style>
@@ -51,8 +51,8 @@
     </div></div>
       <div class="ShopScreen">
          <div class="ShopArt">
-            <div id="idle-sprite">
-               <img id="idle-sprite" src="https://github.com/Gojira-Cale/Shop/blob/main/assets/shop/me/idle.gif">
+            <div id="idlesprite">
+               <img id="idlesprite" src="assets/shop/me/idle.gif">
             </div>
            
          <div class="ShopUI">
@@ -67,27 +67,27 @@
                         <div class="ShopBox ShopItem">
                            <p>ITEM<br>Small candy<br>Share with your friends<br>+10HP</p>
                         </div>
-                        <a onmouseover="UIHover()" onclick="UIerror(); menutab(&#39;buy2&#39;); idle_sprite(); typeInit(this);" data-line="1" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>MicDrops</span></a>
+                        <a onmouseover="UIHover()" onclick="UIerror(); menutab(&#39;buy2&#39;); idlesprite(); typeInit(this);" data-line="1" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>MicDrops</span></a>
                      </div>
                      <div class="ItemDesc">
                         <div class="ShopBox ShopItem">
                            <p>???<br>Decoration for your room?<br>No other use.</p>
                         </div>
-                        <a onmouseover="UIHover()" onclick="UIerror(); menutab(&#39;buy2&#39;); idle_sprite(); typeInit(this);" data-line="1" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>M&amp;H Poster</span></a>
+                        <a onmouseover="UIHover()" onclick="UIerror(); menutab(&#39;buy2&#39;); idlesprite(); typeInit(this);" data-line="1" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>M&amp;H Poster</span></a>
                      </div>
                      <div class="ItemDesc">
                         <div class="ShopBox ShopItem">
                            <p>KEY ITEM<br>You already have this.</p>
                         </div>
-                        <a onmouseover="UIHover()" onclick="UIerror(); menutab(&#39;buy2&#39;); idle_sprite(); typeInit(this);" data-line="1" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>VIP Card</span></a>
+                        <a onmouseover="UIHover()" onclick="UIerror(); menutab(&#39;buy2&#39;); idlesprite(); typeInit(this);" data-line="1" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>VIP Card</span></a>
                      </div>
                      <div class="ItemDesc">
                         <div class="ShopBox ShopItem">
                            <p>ARMOR<br>Handsome<br>brand-name bowtie.<br>+1DF</p>
                         </div>
-                        <a onmouseover="UIHover()" onclick="UIerror(); menutab(&#39;buy2&#39;); idle_sprite(); typeInit(this);" data-line="1" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>OG B.ShotBowtie</span></a>
+                        <a onmouseover="UIHover()" onclick="UIerror(); menutab(&#39;buy2&#39;); idlesprite(); typeInit(this);" data-line="1" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>OG B.ShotBowtie</span></a>
                      </div>
-                     <a onmouseover="UIHover()" onclick="opentab(&#39;main&#39;); menutab(&#39;mainmenu&#39;); idle_sprite(); host_smile();"><span class="battleheart">❤ &nbsp;</span>Exit</a> 
+                     <a onmouseover="UIHover()" onclick="opentab(&#39;main&#39;); menutab(&#39;mainmenu&#39;); idlesprite(); host_smile();"><span class="battleheart">❤ &nbsp;</span>Exit</a> 
                   </div>
                   <div class="ItemPrice">
                      <span>$30</span>
@@ -101,13 +101,13 @@
             <div id="sell" style="display: none;" class="tab ShopBox ShopDialogue ShopList">
                <div style="display: flex; justify-content: space-between; height: 100%;">
                   <div class="ItemName">
-                     <div id="frayedtie"><a onmouseover="UIHover()" onclick="UIerror(); opentab(&#39;sellfrayedtie&#39;); menutab(&#39;blank&#39;); idle_sprite(); typeInit(this);" data-line="12" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>FrayedBowtie</span></a></div>
-                     <div id="bshottie"><a onmouseover="UIHover()" onclick="UIerror(); opentab(&#39;sellbshottie&#39;); menutab(&#39;blank&#39;);  idle_sprite(); typeInit(this);" data-line="4" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>B.ShotBowtie</span></a></div>
-                     <a onmouseover="UIHover()" onclick="UIerror(); idle_sprite(); typeInit(this);" data-line="3" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>Jevilstail</span></a>
-                     <div id="dealmakerpt1"><a onmouseover="UIHover()" onclick="UIerror(); opentab(&#39;selldealmaker_a&#39;); menutab(&#39;blank&#39;); idle_sprite(); typeInit(this);" data-line="18" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>Dealmaker</span></a></div>
-                     <div id="dealmakerpt2"><a onmouseover="UIHover()" onclick="UIerror(); opentab(&#39;selldealmaker_b&#39;); menutab(&#39;blank&#39;); idle_sprite(); typeInit(this);" data-line="24" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span style="color: #fff203; text-shadow: none;">Dealmaker (NEW)</span></a></div>
-                     <div id="dealmakerpt3"><a onmouseover="UIHover()" onclick="UIerror(); idle_sprite(); typeInit(this);" data-line="34" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>Dealmaker</span></a></div>
-                     <a onmouseover="UIHover()" onclick="opentab(&#39;main&#39;); menutab(&#39;mainmenu&#39;); idle_sprite();"><span class="battleheart">❤ &nbsp;</span>Exit</a> 
+                     <div id="frayedtie"><a onmouseover="UIHover()" onclick="UIerror(); opentab(&#39;sellfrayedtie&#39;); menutab(&#39;blank&#39;); idlesprite(); typeInit(this);" data-line="12" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>FrayedBowtie</span></a></div>
+                     <div id="bshottie"><a onmouseover="UIHover()" onclick="UIerror(); opentab(&#39;sellbshottie&#39;); menutab(&#39;blank&#39;);  idlesprite(); typeInit(this);" data-line="4" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>B.ShotBowtie</span></a></div>
+                     <a onmouseover="UIHover()" onclick="UIerror(); idlesprite(); typeInit(this);" data-line="3" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>Jevilstail</span></a>
+                     <div id="dealmakerpt1"><a onmouseover="UIHover()" onclick="UIerror(); opentab(&#39;selldealmaker_a&#39;); menutab(&#39;blank&#39;); idlesprite(); typeInit(this);" data-line="18" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>Dealmaker</span></a></div>
+                     <div id="dealmakerpt2"><a onmouseover="UIHover()" onclick="UIerror(); opentab(&#39;selldealmaker_b&#39;); menutab(&#39;blank&#39;); idlesprite(); typeInit(this);" data-line="24" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span style="color: #fff203; text-shadow: none;">Dealmaker (NEW)</span></a></div>
+                     <div id="dealmakerpt3"><a onmouseover="UIHover()" onclick="UIerror(); idlesprite(); typeInit(this);" data-line="34" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span>Dealmaker</span></a></div>
+                     <a onmouseover="UIHover()" onclick="opentab(&#39;main&#39;); menutab(&#39;mainmenu&#39;); idlesprite();"><span class="battleheart">❤ &nbsp;</span>Exit</a> 
                   </div>
                   <div class="ItemPrice">
                      <span><!----></span>
@@ -120,326 +120,326 @@
             </div>
             <!-- SELL - BIG SHOT BOWTIE-->
             <div class="talk">
-               <div id="sellbshottie" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie2&#39;); idle_sprite(); typeInit(this);" data-line="5" data-speed="30" data-sound="0">
+               <div id="sellbshottie" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie2&#39;); idlesprite(); typeInit(this);" data-line="5" data-speed="30" data-sound="0">
                   <p id="sellbshottie_1" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="sellbshottie2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie3&#39;); idle_sprite(); typeInit(this);" data-line="6" data-speed="20" data-sound="0">
+               <div id="sellbshottie2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie3&#39;); idlesprite(); typeInit(this);" data-line="6" data-speed="20" data-sound="0">
                   <p id="sellbshottie_2" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="sellbshottie3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie4&#39;); idle_sprite(); typeInit(this);" data-line="7" data-speed="15" data-sound="0">
+               <div id="sellbshottie3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie4&#39;); idlesprite(); typeInit(this);" data-line="7" data-speed="15" data-sound="0">
                   <p id="sellbshottie_3" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="sellbshottie4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie5&#39;); idle_sprite(); typeInit(this);" data-line="8" data-speed="30" data-sound="0">
+               <div id="sellbshottie4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie5&#39;); idlesprite(); typeInit(this);" data-line="8" data-speed="30" data-sound="0">
                   <p id="sellbshottie_4" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="sellbshottie5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie6&#39;); idle_sprite(); typeInit(this);" data-line="9" data-speed="30" data-sound="0">
+               <div id="sellbshottie5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie6&#39;); idlesprite(); typeInit(this);" data-line="9" data-speed="30" data-sound="0">
                   <p id="sellbshottie_5" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="sellbshottie6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie7&#39;); idle_sprite(); typeInit(this);" data-line="10" data-speed="30" data-sound="0">
+               <div id="sellbshottie6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie7&#39;); idlesprite(); typeInit(this);" data-line="10" data-speed="30" data-sound="0">
                   <p id="sellbshottie_6" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="sellbshottie7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie8&#39;); idle_sprite();  typeInit(this);" data-line="11" data-speed="30" data-sound="0">
+               <div id="sellbshottie7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellbshottie8&#39;); idlesprite();  typeInit(this);" data-line="11" data-speed="30" data-sound="0">
                   <p id="sellbshottie_7" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="sellbshottie8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sell&#39;); menutab(&#39;sell2&#39;); idle_sprite(); typeInit(this); sellbshottiecheck();" data-line="2" data-speed="20" data-sound="0">
+               <div id="sellbshottie8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sell&#39;); menutab(&#39;sell2&#39;); idlesprite(); typeInit(this); sellbshottiecheck();" data-line="2" data-speed="20" data-sound="0">
                   <p id="sellbshottie_8" style="white-space: break-spaces;"><!----></p>
                </div>
             </div>
             <!-- SELL - FRAYED BOWTIE-->
             <div class="talk">
-               <div id="sellfrayedtie" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellfrayedtie2&#39;); idle_sprite(); typeInit(this);" data-line="13" data-speed="30" data-sound="0">
+               <div id="sellfrayedtie" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellfrayedtie2&#39;); idlesprite(); typeInit(this);" data-line="13" data-speed="30" data-sound="0">
                   <p id="sellfrayedtie_1" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="sellfrayedtie2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellfrayedtie3&#39;); idle_sprite(); typeInit(this);" data-line="14" data-speed="30" data-sound="0">
+               <div id="sellfrayedtie2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellfrayedtie3&#39;); idlesprite(); typeInit(this);" data-line="14" data-speed="30" data-sound="0">
                   <p id="sellfrayedtie_2" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="sellfrayedtie3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellfrayedtie4&#39;); idle_sprite(); typeInit(this);" data-line="15" data-speed="30" data-sound="0">
+               <div id="sellfrayedtie3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellfrayedtie4&#39;); idlesprite(); typeInit(this);" data-line="15" data-speed="30" data-sound="0">
                   <p id="sellfrayedtie_3" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="sellfrayedtie4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellfrayedtie5&#39;); idle_sprite(); typeInit(this);" data-line="16" data-speed="30" data-sound="0">
+               <div id="sellfrayedtie4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellfrayedtie5&#39;); idlesprite(); typeInit(this);" data-line="16" data-speed="30" data-sound="0">
                   <p id="sellfrayedtie_4" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="sellfrayedtie5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellfrayedtie6&#39;); idle_sprite(); typeInit(this);" data-line="17" data-speed="30" data-sound="0">
+               <div id="sellfrayedtie5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sellfrayedtie6&#39;); idlesprite(); typeInit(this);" data-line="17" data-speed="30" data-sound="0">
                   <p id="sellfrayedtie_5" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="sellfrayedtie6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sell&#39;); menutab(&#39;sell2&#39;); idle_sprite(); typeInit(this); sellfrayedtiecheck();" data-line="2" data-speed="20" data-sound="0">
+               <div id="sellfrayedtie6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sell&#39;); menutab(&#39;sell2&#39;); idlesprite(); typeInit(this); sellfrayedtiecheck();" data-line="2" data-speed="20" data-sound="0">
                   <p id="sellfrayedtie_6" style="white-space: break-spaces;"><!----></p>
                </div>
             </div>
             <!-- SELL - DEALMAKER Part 1-->
             <div class="talk">
-               <div id="selldealmaker_a" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_a2&#39;); idle_sprite(); typeInit(this);" data-line="19" data-speed="30" data-sound="0">
+               <div id="selldealmaker_a" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_a2&#39;); idlesprite(); typeInit(this);" data-line="19" data-speed="30" data-sound="0">
                   <p id="selldealmaker_a_1" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="selldealmaker_a2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_a3&#39;); idle_sprite(); typeInit(this);" data-line="20" data-speed="30" data-sound="0">
+               <div id="selldealmaker_a2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_a3&#39;); idlesprite(); typeInit(this);" data-line="20" data-speed="30" data-sound="0">
                   <p id="selldealmaker_a_2" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="selldealmaker_a3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_a4&#39;); idle_sprite(); typeInit(this);" data-line="21" data-speed="30" data-sound="0">
+               <div id="selldealmaker_a3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_a4&#39;); idlesprite(); typeInit(this);" data-line="21" data-speed="30" data-sound="0">
                   <p id="selldealmaker_a_3" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="selldealmaker_a4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_a5&#39;); idle_sprite(); typeInit(this);" data-line="22" data-speed="30" data-sound="0">
+               <div id="selldealmaker_a4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_a5&#39;); idlesprite(); typeInit(this);" data-line="22" data-speed="30" data-sound="0">
                   <p id="selldealmaker_a_4" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="selldealmaker_a5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_a6&#39;); idle_sprite(); typeInit(this);" data-line="23" data-speed="30" data-sound="0">
+               <div id="selldealmaker_a5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_a6&#39;); idlesprite(); typeInit(this);" data-line="23" data-speed="30" data-sound="0">
                   <p id="selldealmaker_a_5" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="selldealmaker_a6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sell&#39;); menutab(&#39;sell2&#39;); idle_sprite(); typeInit(this); selldealmaker_acheck();" data-line="2" data-speed="20" data-sound="0">
+               <div id="selldealmaker_a6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sell&#39;); menutab(&#39;sell2&#39;); idlesprite(); typeInit(this); selldealmaker_acheck();" data-line="2" data-speed="20" data-sound="0">
                   <p id="selldealmaker_a_6" style="white-space: break-spaces;"><!----></p>
                </div>
             </div>
             <!-- SELL - DEALMAKER Part 2-->
             <div class="talk">
-               <div id="selldealmaker_b" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b2&#39;); idle_sprite(); typeInit(this);" data-line="25" data-speed="30" data-sound="0">
+               <div id="selldealmaker_b" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b2&#39;); idlesprite(); typeInit(this);" data-line="25" data-speed="30" data-sound="0">
                   <p id="selldealmaker_b_1" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="selldealmaker_b2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b3&#39;); idle_sprite(); typeInit(this);" data-line="26" data-speed="30" data-sound="0">
+               <div id="selldealmaker_b2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b3&#39;); idlesprite(); typeInit(this);" data-line="26" data-speed="30" data-sound="0">
                   <p id="selldealmaker_b_2" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="selldealmaker_b3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b4&#39;); idle_sprite(); typeInit(this);" data-line="27" data-speed="30" data-sound="0">
+               <div id="selldealmaker_b3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b4&#39;); idlesprite(); typeInit(this);" data-line="27" data-speed="30" data-sound="0">
                   <p id="selldealmaker_b_3" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="selldealmaker_b4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b5&#39;); idle_sprite(); typeInit(this);" data-line="28" data-speed="30" data-sound="0">
+               <div id="selldealmaker_b4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b5&#39;); idlesprite(); typeInit(this);" data-line="28" data-speed="30" data-sound="0">
                   <p id="selldealmaker_b_4" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="selldealmaker_b5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b6&#39;); idle_sprite(); typeInit(this);" data-line="29" data-speed="30" data-sound="0">
+               <div id="selldealmaker_b5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b6&#39;); idlesprite(); typeInit(this);" data-line="29" data-speed="30" data-sound="0">
                   <p id="selldealmaker_b_5" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="selldealmaker_b6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b7&#39;); idle_sprite(); typeInit(this);" data-line="30" data-speed="30" data-sound="0">
+               <div id="selldealmaker_b6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b7&#39;); idlesprite(); typeInit(this);" data-line="30" data-speed="30" data-sound="0">
                   <p id="selldealmaker_b_6" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="selldealmaker_b7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b8&#39;); idle_sprite(); typeInit(this);" data-line="31" data-speed="30" data-sound="0">
+               <div id="selldealmaker_b7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b8&#39;); idlesprite(); typeInit(this);" data-line="31" data-speed="30" data-sound="0">
                   <p id="selldealmaker_b_7" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="selldealmaker_b8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b9&#39;); idle_sprite(); typeInit(this);" data-line="32" data-speed="30" data-sound="0">
+               <div id="selldealmaker_b8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b9&#39;); idlesprite(); typeInit(this);" data-line="32" data-speed="30" data-sound="0">
                   <p id="selldealmaker_b_8" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="selldealmaker_b9" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b10&#39;); idle_sprite(); typeInit(this);" data-line="33" data-speed="30" data-sound="0">
+               <div id="selldealmaker_b9" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;selldealmaker_b10&#39;); idlesprite(); typeInit(this);" data-line="33" data-speed="30" data-sound="0">
                   <p id="selldealmaker_b_9" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="selldealmaker_b10" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sell&#39;); menutab(&#39;sell2&#39;); idle_sprite(); typeInit(this); selldealmaker_bcheck();" data-line="2" data-speed="20" data-sound="0">
+               <div id="selldealmaker_b10" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;sell&#39;); menutab(&#39;sell2&#39;); idlesprite(); typeInit(this); selldealmaker_bcheck();" data-line="2" data-speed="20" data-sound="0">
                   <p style="white-space: break-spaces; color: #ffffff00; position: absolute; z-index: 0; mix-blend-mode: multiply; text-shadow: none;">* If ya do wanna hear about the glasses, well I'd love to <span class="piss">Talk</span> about it...<br>* Just lemme know.</p>
                   <p id="selldealmaker_b_10" style="white-space: break-spaces;"><!----></p>
                </div>
             </div>
             <div id="talk" style="display: none;" class="tab ShopBox ShopDialogue ShopTalk">
                <div class="TalkList">
-                  <a onmouseover="UIHover()" onclick="opentab(&#39;talkself&#39;); menutab(&#39;blank&#39;); idle_sprite(); typeInit(this);" data-line="35" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_self">About You</span></a>
-                  <a onmouseover="UIHover()" onclick="opentab(&#39;talkshow&#39;); menutab(&#39;blank&#39;); idle_sprite(); typeInit(this);" data-line="41" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_show">Your Show</span></a>
-                  <a onmouseover="UIHover()" onclick="opentab(&#39;talkfountain&#39;); menutab(&#39;blank&#39;); idle_sprite(); typeInit(this);" data-line="50" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_fountain">The Fountain</span></a>
+                  <a onmouseover="UIHover()" onclick="opentab(&#39;talkself&#39;); menutab(&#39;blank&#39;); idlesprite(); typeInit(this);" data-line="35" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_self">About You</span></a>
+                  <a onmouseover="UIHover()" onclick="opentab(&#39;talkshow&#39;); menutab(&#39;blank&#39;); idlesprite(); typeInit(this);" data-line="41" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_show">Your Show</span></a>
+                  <a onmouseover="UIHover()" onclick="opentab(&#39;talkfountain&#39;); menutab(&#39;blank&#39;); idlesprite(); typeInit(this);" data-line="50" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_fountain">The Fountain</span></a>
 
-                  <span id="talkglasses"><a onmouseover="UIHover()" onclick="opentab(&#39;glasses_pt_1_1&#39;); menutab(&#39;blank&#39;); idle_sprite(); typeInit(this);" data-line="59" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_divide">Glasses Story<span id="newglasses"> (NEW)</span></span></a></span>
-                  <span id="talkglasses_1"><a onmouseover="UIHover()" onclick="opentab(&#39;glasses_pt_1_1&#39;); menutab(&#39;blank&#39;); idle_sprite(); typeInit(this);" data-line="59" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_divide">Glasses Story (Part 1/4)</span></a></span>
-                  <span id="talkglasses_2"><a onmouseover="UIHover()" onclick="opentab(&#39;glasses_pt_2_1&#39;); menutab(&#39;blank&#39;); idle_sprite(); typeInit(this);" data-line="71" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_divide">Glasses Story (Part 2/4)</span></a></span>
-                  <span id="talkglasses_3"><a onmouseover="UIHover()" onclick="opentab(&#39;glasses_pt_3_1&#39;); menutab(&#39;blank&#39;); idle_sprite(); typeInit(this);" data-line="77" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_divide">Glasses Story (Part 3/4)</span></a></span>
-                  <span id="talkglasses_4"><a onmouseover="UIHover()" onclick="opentab(&#39;glasses_pt_4_1&#39;); menutab(&#39;blank&#39;); idle_sprite(); typeInit(this);" data-line="85" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_divide">Glasses Story (Part 4/4)</span></a></span>
-                  <a onmouseover="UIHover()" onclick="opentab(&#39;main&#39;); menutab(&#39;mainmenu&#39;); idle_sprite();" id="exit"><span class="battleheart">❤ &nbsp;</span>Exit</a> 
+                  <span id="talkglasses"><a onmouseover="UIHover()" onclick="opentab(&#39;glasses_pt_1_1&#39;); menutab(&#39;blank&#39;); idlesprite(); typeInit(this);" data-line="59" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_divide">Glasses Story<span id="newglasses"> (NEW)</span></span></a></span>
+                  <span id="talkglasses_1"><a onmouseover="UIHover()" onclick="opentab(&#39;glasses_pt_1_1&#39;); menutab(&#39;blank&#39;); idlesprite(); typeInit(this);" data-line="59" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_divide">Glasses Story (Part 1/4)</span></a></span>
+                  <span id="talkglasses_2"><a onmouseover="UIHover()" onclick="opentab(&#39;glasses_pt_2_1&#39;); menutab(&#39;blank&#39;); idlesprite(); typeInit(this);" data-line="71" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_divide">Glasses Story (Part 2/4)</span></a></span>
+                  <span id="talkglasses_3"><a onmouseover="UIHover()" onclick="opentab(&#39;glasses_pt_3_1&#39;); menutab(&#39;blank&#39;); idlesprite(); typeInit(this);" data-line="77" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_divide">Glasses Story (Part 3/4)</span></a></span>
+                  <span id="talkglasses_4"><a onmouseover="UIHover()" onclick="opentab(&#39;glasses_pt_4_1&#39;); menutab(&#39;blank&#39;); idlesprite(); typeInit(this);" data-line="85" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span><span id="talk_divide">Glasses Story (Part 4/4)</span></a></span>
+                  <a onmouseover="UIHover()" onclick="opentab(&#39;main&#39;); menutab(&#39;mainmenu&#39;); idlesprite();" id="exit"><span class="battleheart">❤ &nbsp;</span>Exit</a> 
                </div>
             </div>
             <!-- TALK - ABOUT YOU-->
             <div class="talk">
-               <div id="talkself" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkself2&#39;); idle_sprite(); typeInit(this);" data-line="36" data-speed="30" data-sound="0">
+               <div id="talkself" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkself2&#39;); idlesprite(); typeInit(this);" data-line="36" data-speed="30" data-sound="0">
                   <p id="talkself_1" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkself2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkself3&#39;); idle_sprite();  typeInit(this);" data-line="37" data-speed="30" data-sound="0">
+               <div id="talkself2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkself3&#39;); idlesprite();  typeInit(this);" data-line="37" data-speed="30" data-sound="0">
                   <p id="talkself_2" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkself3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkself4&#39;); idle_sprite(); typeInit(this);" data-line="38" data-speed="30" data-sound="0">
+               <div id="talkself3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkself4&#39;); idlesprite(); typeInit(this);" data-line="38" data-speed="30" data-sound="0">
                   <p id="talkself_3" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkself4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkself5&#39;); idle_sprite(); typeInit(this);" data-line="39" data-speed="30" data-sound="0">
+               <div id="talkself4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkself5&#39;); idlesprite(); typeInit(this);" data-line="39" data-speed="30" data-sound="0">
                   <p id="talkself_4" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkself5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkself6&#39;); idle_sprite(); typeInit(this);" data-line="40" data-speed="30" data-sound="0">
+               <div id="talkself5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkself6&#39;); idlesprite(); typeInit(this);" data-line="40" data-speed="30" data-sound="0">
                   <p id="talkself_5" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkself6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); idle_sprite(); typeInit(this); talkselfcheck();" data-line="94" data-speed="30" data-sound="0">
+               <div id="talkself6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); idlesprite(); typeInit(this); talkselfcheck();" data-line="94" data-speed="30" data-sound="0">
                   <p id="talkself_6" style="white-space: break-spaces;"><!----></p>
                </div>
             </div>
             <!-- TALK - YOUR SHOW-->
             <div class="talk">
-               <div id="talkshow" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow2&#39;); idle_sprite(); typeInit(this);" data-line="42" data-speed="30" data-sound="0">
+               <div id="talkshow" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow2&#39;); idlesprite(); typeInit(this);" data-line="42" data-speed="30" data-sound="0">
                   <p id="talkshow_1" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkshow2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow3&#39;); idle_sprite(); typeInit(this);" data-line="43" data-speed="30" data-sound="0">
+               <div id="talkshow2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow3&#39;); idlesprite(); typeInit(this);" data-line="43" data-speed="30" data-sound="0">
                   <p id="talkshow_2" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkshow3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow4&#39;); idle_sprite(); typeInit(this);" data-line="44" data-speed="30" data-sound="0">
+               <div id="talkshow3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow4&#39;); idlesprite(); typeInit(this);" data-line="44" data-speed="30" data-sound="0">
                   <p id="talkshow_3" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkshow4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow5&#39;); idle_sprite(); typeInit(this);" data-line="45" data-speed="30" data-sound="0">
+               <div id="talkshow4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow5&#39;); idlesprite(); typeInit(this);" data-line="45" data-speed="30" data-sound="0">
                   <p style="white-space: break-spaces; color: #ffffff00; position: absolute; z-index: 0; mix-blend-mode: multiply; text-shadow: none;">* The <span class="piss">Headchef</span>, the <span class="piss">Director</span> and the <span class="piss">Forecaster</span>?</p>
                   <p id="talkshow_4" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkshow5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow6&#39;); idle_sprite(); typeInit(this);" data-line="46" data-speed="30" data-sound="0">
+               <div id="talkshow5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow6&#39;); idlesprite(); typeInit(this);" data-line="46" data-speed="30" data-sound="0">
                   <p id="talkshow_5" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkshow6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow7&#39;); idle_sprite(); typeInit(this);" data-line="47" data-speed="30" data-sound="0">
+               <div id="talkshow6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow7&#39;); idlesprite(); typeInit(this);" data-line="47" data-speed="30" data-sound="0">
                   <p id="talkshow_6" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkshow7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow8&#39;); idle_sprite(); typeInit(this);" data-line="48" data-speed="30" data-sound="0">
+               <div id="talkshow7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow8&#39;); idlesprite(); typeInit(this);" data-line="48" data-speed="30" data-sound="0">
                   <p id="talkshow_7" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkshow8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow9&#39;); idle_sprite(); typeInit(this);" data-line="49" data-speed="30" data-sound="0">
+               <div id="talkshow8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkshow9&#39;); idlesprite(); typeInit(this);" data-line="49" data-speed="30" data-sound="0">
                   <p id="talkshow_8" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkshow9" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); idle_sprite(); typeInit(this); talkshowcheck();" data-line="94" data-speed="30" data-sound="0">
+               <div id="talkshow9" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); idlesprite(); typeInit(this); talkshowcheck();" data-line="94" data-speed="30" data-sound="0">
                   <p id="talkshow_9" style="white-space: break-spaces;"><!----></p>
                </div>
             </div>
             <!-- TALK - THE FOUNTAIN -->
             <div class="talk">
-               <div id="talkfountain" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain2&#39;); idle_sprite(); typeInit(this);" data-line="51" data-speed="30" data-sound="0">
+               <div id="talkfountain" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain2&#39;); idlesprite(); typeInit(this);" data-line="51" data-speed="30" data-sound="0">
                   <p id="talkfountain_1" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkfountain2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain3&#39;); idle_sprite(); typeInit(this);" data-line="52" data-speed="30" data-sound="0">
+               <div id="talkfountain2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain3&#39;); idlesprite(); typeInit(this);" data-line="52" data-speed="30" data-sound="0">
                   <p id="talkfountain_2" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkfountain3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain4&#39;); idle_sprite(); typeInit(this);" data-line="53" data-speed="30" data-sound="0">
+               <div id="talkfountain3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain4&#39;); idlesprite(); typeInit(this);" data-line="53" data-speed="30" data-sound="0">
                   <p id="talkfountain_3" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkfountain4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain5&#39;); idle_sprite(); typeInit(this);" data-line="54" data-speed="30" data-sound="0">
+               <div id="talkfountain4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain5&#39;); idlesprite(); typeInit(this);" data-line="54" data-speed="30" data-sound="0">
                   <p id="talkfountain_4" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkfountain5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain6&#39;); idle_sprite(); typeInit(this);" data-line="55" data-speed="30" data-sound="0">
+               <div id="talkfountain5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain6&#39;); idlesprite(); typeInit(this);" data-line="55" data-speed="30" data-sound="0">
                   <p id="talkfountain_5" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkfountain6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain7&#39;); idle_sprite(); typeInit(this);" data-line="56" data-speed="30" data-sound="0">
+               <div id="talkfountain6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain7&#39;); idlesprite(); typeInit(this);" data-line="56" data-speed="30" data-sound="0">
                   <p id="talkfountain_6" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkfountain7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain8&#39;); midle_sprite(); typeInit(this);" data-line="57" data-speed="30" data-sound="0">
+               <div id="talkfountain7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain8&#39;); midlesprite(); typeInit(this);" data-line="57" data-speed="30" data-sound="0">
                   <p id="talkfountain_7" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkfountain8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain9&#39;); idle_sprite(); typeInit(this);" data-line="58" data-speed="30" data-sound="0">
+               <div id="talkfountain8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talkfountain9&#39;); idlesprite(); typeInit(this);" data-line="58" data-speed="30" data-sound="0">
                   <p id="talkfountain_8" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="talkfountain9" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); idle_sprite(); typeInit(this); talkfountaincheck();" data-line="94" data-speed="30" data-sound="0">
+               <div id="talkfountain9" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); idlesprite(); typeInit(this); talkfountaincheck();" data-line="94" data-speed="30" data-sound="0">
                   <p id="talkfountain_9" style="white-space: break-spaces;"><!----></p>
                </div>
             </div>
             <!-- TALK - GLASSES STORY PT1 -->
             <div class="talk">
-               <div id="glasses_pt_1_1" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_2&#39;); idle_sprite(); typeInit(this);" data-line="60" data-speed="30" data-sound="0">
+               <div id="glasses_pt_1_1" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_2&#39;); idlesprite(); typeInit(this);" data-line="60" data-speed="30" data-sound="0">
                   <p id="glasses_pt1_1" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_1_2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_3&#39;); idle_sprite(); typeInit(this);" data-line="61" data-speed="30" data-sound="0">
+               <div id="glasses_pt_1_2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_3&#39;); idlesprite(); typeInit(this);" data-line="61" data-speed="30" data-sound="0">
                   <p id="glasses_pt1_2" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_1_3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_4&#39;); idle_sprite(); typeInit(this);" data-line="62" data-speed="30" data-sound="0">
+               <div id="glasses_pt_1_3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_4&#39;); idlesprite(); typeInit(this);" data-line="62" data-speed="30" data-sound="0">
                   <p id="glasses_pt1_3" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_1_4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_5&#39;); idle_sprite(); typeInit(this);" data-line="63" data-speed="30" data-sound="0">
+               <div id="glasses_pt_1_4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_5&#39;); idlesprite(); typeInit(this);" data-line="63" data-speed="30" data-sound="0">
                   <p id="glasses_pt1_4" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_1_5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_6&#39;); idle_spritee(); typeInit(this);" data-line="64" data-speed="30" data-sound="0">
+               <div id="glasses_pt_1_5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_6&#39;); idlespritee(); typeInit(this);" data-line="64" data-speed="30" data-sound="0">
                   <p id="glasses_pt1_5" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_1_6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_7&#39;); idle_sprite(); typeInit(this);" data-line="65" data-speed="30" data-sound="0">
+               <div id="glasses_pt_1_6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_7&#39;); idlesprite(); typeInit(this);" data-line="65" data-speed="30" data-sound="0">
                   <p id="glasses_pt1_6" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_1_7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_8&#39;); idle_sprite(); typeInit(this);" data-line="66" data-speed="30" data-sound="0">
+               <div id="glasses_pt_1_7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_8&#39;); idlesprite(); typeInit(this);" data-line="66" data-speed="30" data-sound="0">
                   <p id="glasses_pt1_7" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_1_8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_9&#39;); idle_sprite(); typeInit(this);" data-line="67" data-speed="30" data-sound="0">
+               <div id="glasses_pt_1_8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_9&#39;); idlesprite(); typeInit(this);" data-line="67" data-speed="30" data-sound="0">
                   <p id="glasses_pt1_8" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_1_9" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_10&#39;); idle_sprite(); typeInit(this);" data-line="68" data-speed="30" data-sound="0">
+               <div id="glasses_pt_1_9" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_10&#39;); idlesprite(); typeInit(this);" data-line="68" data-speed="30" data-sound="0">
                   <p id="glasses_pt1_9" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_1_10" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_11&#39;); idle_sprite(); typeInit(this);" data-line="69" data-speed="30" data-sound="0">
+               <div id="glasses_pt_1_10" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_11&#39;); idlesprite(); typeInit(this);" data-line="69" data-speed="30" data-sound="0">
                   <p id="glasses_pt1_10" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_1_11" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_12&#39;); idle_sprite(); typeInit(this);" data-line="70" data-speed="30" data-sound="0">
+               <div id="glasses_pt_1_11" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_1_12&#39;); idlesprite(); typeInit(this);" data-line="70" data-speed="30" data-sound="0">
                   <p id="glasses_pt1_11" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_1_12" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); idle_sprite(); typeInit(this); glassespt1check();" data-line="94" data-speed="30" data-sound="0">
+               <div id="glasses_pt_1_12" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); idlesprite(); typeInit(this); glassespt1check();" data-line="94" data-speed="30" data-sound="0">
                   <p id="glasses_pt1_12" style="white-space: break-spaces;"><!----></p>
                </div>
             </div>
             <!-- TALK - GLASSES STORY PT2 -->
             <div class="talk">
-               <div id="glasses_pt_2_1" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_2_2&#39;); idle_sprite(); typeInit(this);" data-line="72" data-speed="30" data-sound="0">
+               <div id="glasses_pt_2_1" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_2_2&#39;); idlesprite(); typeInit(this);" data-line="72" data-speed="30" data-sound="0">
                   <p id="glasses_pt2_1" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_2_2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_2_3&#39;); idle_sprite(); typeInit(this);" data-line="73" data-speed="30" data-sound="0">
+               <div id="glasses_pt_2_2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_2_3&#39;); idlesprite(); typeInit(this);" data-line="73" data-speed="30" data-sound="0">
                   <p id="glasses_pt2_2" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_2_3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_2_4&#39;); idle_sprite(); typeInit(this);" data-line="74" data-speed="30" data-sound="0">
+               <div id="glasses_pt_2_3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_2_4&#39;); idlesprite(); typeInit(this);" data-line="74" data-speed="30" data-sound="0">
                   <p id="glasses_pt2_3" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_2_4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_2_5&#39;); idle_sprite(); typeInit(this);" data-line="75" data-speed="30" data-sound="0">
+               <div id="glasses_pt_2_4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_2_5&#39;); idlesprite(); typeInit(this);" data-line="75" data-speed="30" data-sound="0">
                   <p id="glasses_pt2_4" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_2_5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_2_6&#39;); idle_sprite(); typeInit(this);" data-line="76" data-speed="30" data-sound="0">
+               <div id="glasses_pt_2_5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_2_6&#39;); idlesprite(); typeInit(this);" data-line="76" data-speed="30" data-sound="0">
                   <p id="glasses_pt2_5" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_2_6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); idle_sprite(); typeInit(this); glassespt2check();" data-line="94" data-speed="30" data-sound="0">
+               <div id="glasses_pt_2_6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); idlesprite(); typeInit(this); glassespt2check();" data-line="94" data-speed="30" data-sound="0">
                   <p id="glasses_pt2_6" style="white-space: break-spaces;"><!----></p>
                </div>
             </div>
             <!-- TALK - GLASSES STORY PT3 -->
             <div class="talk">
-               <div id="glasses_pt_3_1" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_2&#39;); idle_sprite(); typeInit(this);" data-line="78" data-speed="30" data-sound="0">
+               <div id="glasses_pt_3_1" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_2&#39;); idlesprite(); typeInit(this);" data-line="78" data-speed="30" data-sound="0">
                   <p id="glasses_pt3_1" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_3_2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_3&#39;); idle_sprite(); typeInit(this);" data-line="79" data-speed="30" data-sound="0">
+               <div id="glasses_pt_3_2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_3&#39;); idlesprite(); typeInit(this);" data-line="79" data-speed="30" data-sound="0">
                   <p id="glasses_pt3_2" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_3_3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_4&#39;); idle_sprite(); typeInit(this);" data-line="80" data-speed="30" data-sound="0">
+               <div id="glasses_pt_3_3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_4&#39;); idlesprite(); typeInit(this);" data-line="80" data-speed="30" data-sound="0">
                   <p id="glasses_pt3_3" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_3_4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_5&#39;); idle_spritee(); typeInit(this);" data-line="81" data-speed="30" data-sound="0">
+               <div id="glasses_pt_3_4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_5&#39;); idlespritee(); typeInit(this);" data-line="81" data-speed="30" data-sound="0">
                   <p id="glasses_pt3_4" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_3_5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_6&#39;); idle_sprite(); typeInit(this);" data-line="82" data-speed="30" data-sound="0">
+               <div id="glasses_pt_3_5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_6&#39;); idlesprite(); typeInit(this);" data-line="82" data-speed="30" data-sound="0">
                   <p id="glasses_pt3_5" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_3_6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_7&#39;); idle_sprite(); typeInit(this);" data-line="83" data-speed="30" data-sound="0">
+               <div id="glasses_pt_3_6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_7&#39;); idlesprite(); typeInit(this);" data-line="83" data-speed="30" data-sound="0">
                   <p id="glasses_pt3_6" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_3_7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_8&#39;); idle_sprite(); typeInit(this);" data-line="84" data-speed="30" data-sound="0">
+               <div id="glasses_pt_3_7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_3_8&#39;); idlesprite(); typeInit(this);" data-line="84" data-speed="30" data-sound="0">
                   <p id="glasses_pt3_7" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_3_8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); idle_sprite(); typeInit(this); glassespt3check();" data-line="94" data-speed="30" data-sound="0">
+               <div id="glasses_pt_3_8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); idlesprite(); typeInit(this); glassespt3check();" data-line="94" data-speed="30" data-sound="0">
                   <p id="glasses_pt3_8" style="white-space: break-spaces;"><!----></p>
                </div>
             </div>
             <!-- TALK - GLASSES STORY PT4 -->
             <div class="talk">
-               <div id="glasses_pt_4_1" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_2&#39;); idle_sprite(); typeInit(this);" data-line="86" data-speed="30" data-sound="0">
+               <div id="glasses_pt_4_1" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_2&#39;); idlesprite(); typeInit(this);" data-line="86" data-speed="30" data-sound="0">
                   <p id="glasses_pt4_1" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_4_2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_3&#39;); idle_sprite(); typeInit(this);" data-line="87" data-speed="30" data-sound="0">
+               <div id="glasses_pt_4_2" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_3&#39;); idlesprite(); typeInit(this);" data-line="87" data-speed="30" data-sound="0">
                   <p id="glasses_pt4_2" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_4_3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_4&#39;); idle_sprite(); typeInit(this);" data-line="88" data-speed="30" data-sound="0">
+               <div id="glasses_pt_4_3" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_4&#39;); idlesprite(); typeInit(this);" data-line="88" data-speed="30" data-sound="0">
                   <p id="glasses_pt4_3" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_4_4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_5&#39;); idle_sprite(); typeInit(this);" data-line="89" data-speed="30" data-sound="0">
+               <div id="glasses_pt_4_4" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_5&#39;); idlesprite(); typeInit(this);" data-line="89" data-speed="30" data-sound="0">
                   <p id="glasses_pt4_4" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_4_5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_6&#39;); idle_sprite(); typeInit(this);" data-line="90" data-speed="30" data-sound="0">
+               <div id="glasses_pt_4_5" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_6&#39;); idlesprite(); typeInit(this);" data-line="90" data-speed="30" data-sound="0">
                   <p id="glasses_pt4_5" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_4_6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_7&#39;); idle_sprite(); typeInit(this);" data-line="91" data-speed="30" data-sound="0">
+               <div id="glasses_pt_4_6" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_7&#39;); idlesprite(); typeInit(this);" data-line="91" data-speed="30" data-sound="0">
                   <p id="glasses_pt4_6" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_4_7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_8&#39;); idle_sprite(); typeInit(this);" data-line="92" data-speed="30" data-sound="0">
+               <div id="glasses_pt_4_7" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_8&#39;); idlesprite(); typeInit(this);" data-line="92" data-speed="30" data-sound="0">
                   <p id="glasses_pt4_7" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_4_8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_9&#39;); idle_sprite(); typeInit(this);" data-line="93" data-speed="30" data-sound="0">
+               <div id="glasses_pt_4_8" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;glasses_pt_4_9&#39;); idlesprite(); typeInit(this);" data-line="93" data-speed="30" data-sound="0">
                   <p id="glasses_pt4_8" style="white-space: break-spaces;"><!----></p>
                </div>
-               <div id="glasses_pt_4_9" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;);idle_sprite(); typeInit(this); glassespt4check(); oldman();" data-line="94" data-speed="30" data-sound="0">
+               <div id="glasses_pt_4_9" style="display: none;" class="tab ShopBox ShopDialogue" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;);idlesprite(); typeInit(this); glassespt4check(); oldman();" data-line="94" data-speed="30" data-sound="0">
                   <p id="glasses_pt4_9" style="white-space: break-spaces;"><!----></p>
                </div>
             </div>
             <div class="ShopBox ShopMenu">
                <div id="mainmenu" style="display: block;" class="tabmenu">
                   <div class="Menu">
-                     <a onmouseover="UIHover()" onclick="opentab(&#39;buy&#39;); menutab(&#39;buy2&#39;); idle_sprite(); typeInit(this);" data-line="0" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span>Buy</a>
-                     <a onmouseover="UIHover()" onclick="opentab(&#39;sell&#39;); menutab(&#39;sell2&#39;); idle_sprite(); typeInit(this);" data-line="2" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span>Sell</a>
-                     <a onmouseover="UIHover()" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); idle_sprite(); typeInit(this);" data-line="94" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span>Talk</a>
+                     <a onmouseover="UIHover()" onclick="opentab(&#39;buy&#39;); menutab(&#39;buy2&#39;); idlesprite(); typeInit(this);" data-line="0" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span>Buy</a>
+                     <a onmouseover="UIHover()" onclick="opentab(&#39;sell&#39;); menutab(&#39;sell2&#39;); idlesprite(); typeInit(this);" data-line="2" data-speed="20" data-sound="0"><span class="battleheart">❤ &nbsp;</span>Sell</a>
+                     <a onmouseover="UIHover()" onclick="opentab(&#39;talk&#39;); menutab(&#39;talk2&#39;); idlesprite(); typeInit(this);" data-line="94" data-speed="30" data-sound="0"><span class="battleheart">❤ &nbsp;</span>Talk</a>
                      <a onmouseover="UIHover()" onclick="window.location.href=&#39;/cable/cast&#39;;"><span class="battleheart">❤ &nbsp;</span>Exit</a>
                   </div>
                </div>
