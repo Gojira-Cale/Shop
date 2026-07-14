@@ -1,7 +1,7 @@
 
 @import url(https://github.com/Gojira-Cale/Shop/tree/main/assets/font);
 
-@font-face { font-family: 'DTM-sans'; src: url("assets/font/DTM-Sans.ttf") format("truetype"); }
+@font-face { font-family: 'DTMsans'; src: url("assets/font/DTMSans.ttf") format("truetype"); }
 @font-face { font-family: 'PixelOperatorMono'; src: url("assets/font/PixelOperatorMono-Bold.ttf") format("truetype"); }
 @font-face { font-family: 'Deltarune'; src: url("assets/font/deltarune.ttf") format("truetype"); }
 
@@ -25,7 +25,7 @@
   --link-visited: #AF65D3;
   --text-shadow: #5040AE60; /* Text color with opacity */
   --primary-font: 'PixelOperator', monospace;
-  --secondary-font: 'DTM-sans', monospace;  
+  --secondary-font: 'DTMsans', monospace;  
   --deltarune-font: 'Deltarune', monospace;
   --text-effect: 1px 1px var(--shadow-color1), -1px -1px var(--shadow-color2);
   --border-effect: 1px 1px var(--border-color1), -1px -1px var(--border-color2);
@@ -78,7 +78,7 @@
   --link-visited: #AF65D3;
   --text-shadow: #5040AE60; /* Text color with opacity */
   --primary-font: 'PixelOperator', monospace;
-  --secondary-font: 'DTM-sans', monospace;  
+  --secondary-font: 'DTMsans', monospace;  
   --deltarune-font: 'Deltarune', monospace;
   --text-effect: 1px 1px var(--shadow-color1), -1px -1px var(--shadow-color2);
   --border-effect: 1px 1px var(--border-color1), -1px -1px var(--border-color2);
