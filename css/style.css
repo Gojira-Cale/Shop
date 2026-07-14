@@ -54,10 +54,10 @@
   --decorhue: hue-rotate(0deg);
 
   /* Images */
-  --idle-sprite: url("https://github.com/Gojira-Cale/Shop/blob/main/assets/shop/me/idle.gif");
-  --confused-sprite-1: url("https://github.com/Gojira-Cale/Shop/blob/main/assets/shop/me/confused.gif");
-  --laughing-sprite-1: url("https://github.com/Gojira-Cale/Shop/blob/main/assets/shop/me/laughing.gif");
-  --talk-sprite-1: url("https://github.com/Gojira-Cale/Shop/blob/main/assets/shop/me/talk.gif"); 
+  --idle-sprite: url("assets/shop/me/idle.gif");
+  --confused-sprite-1: url("assets/shop/me/confused.gif");
+  --laughing-sprite-1: url("assets/shop/me/laughing.gif");
+  --talk-sprite-1: url("assets/shop/me/talk.gif"); 
   
 }
 
