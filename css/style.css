@@ -1,7 +1,7 @@
 
 @import url(https://github.com/Gojira-Cale/Shop/tree/main/assets/font);
 
-@font-face { font-family: 'DTMsans'; src: url("assets/font/DTMSans.ttf") format("truetype"); }
+@font-face { font-family: 'DTMsans'; src: url("assets/font/DTMSans.woff") format("truetype"); }
 @font-face { font-family: 'PixelOperatorMono'; src: url("assets/font/PixelOperatorMono-Bold.ttf") format("truetype"); }
 @font-face { font-family: 'Deltarune'; src: url("assets/font/deltarune.ttf") format("truetype"); }
 
