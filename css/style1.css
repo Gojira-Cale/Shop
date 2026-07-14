@@ -43,7 +43,7 @@ hr { border: 1px dashed var(--accent-purple); }
 .cablenav a:hover .heartnav { opacity: 1; }  
 .heart { color: red; display: none; text-shadow: none; }
 .heartnav { opacity: 0; color: red; text-shadow: none; }
-footer { font-family: 'DTM-sans'; background: black; box-shadow: none; margin: 10px auto 0;}
+footer { font-family: 'DTMsans'; background: black; box-shadow: none; margin: 10px auto 0;}
 footer p { font-size: 14px; padding: 0 5px; color: #474754; text-align: center; text-shadow: none; }
 
 .sidebar-content { border: var(--border-size); border-image: var(--border-img); border-image-slice: var(--border-slice); box-shadow: none; background: none; padding: 0 15px; filter: var(--border-shadow); text-shadow: 1px 1px var(--palette-color3); }
