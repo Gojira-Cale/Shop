@@ -1,9 +1,9 @@
 
-@import url(https://github.com/Gojira-Cale/Shop/tree/main/assests/font);
+@import url(https://github.com/Gojira-Cale/Shop/tree/main/assets/font);
 
-@font-face { font-family: 'DTM-sans'; src: url("assests/font/DTM-Sans.ttf") format("truetype"); }
-@font-face { font-family: 'PixelOperatorMono'; src: url("assests/font/PixelOperatorMono-Bold.ttf") format("truetype"); }
-@font-face { font-family: 'Deltarune'; src: url("assests/font/deltarune.ttf") format("truetype"); }
+@font-face { font-family: 'DTM-sans'; src: url("assets/font/DTM-Sans.ttf") format("truetype"); }
+@font-face { font-family: 'PixelOperatorMono'; src: url("assets/font/PixelOperatorMono-Bold.ttf") format("truetype"); }
+@font-face { font-family: 'Deltarune'; src: url("assets/font/deltarune.ttf") format("truetype"); }
 
 /* ===== Main Theme ===== */
 :root {
@@ -50,10 +50,10 @@
   --decorhue: hue-rotate(0deg);
 
   /* Images */
-  --idle-sprite: url("https://github.com/Gojira-Cale/Shop/blob/main/assests/shop/me/idle-sprite.gif");
-  --confused-sprite-1: url("https://github.com/Gojira-Cale/Shop/blob/main/assests/shop/me/confused-sprite-1.gif");
-  --laughing-sprite-1: url("https://github.com/Gojira-Cale/Shop/blob/main/assests/shop/me/laughing-sprite-1.gif");
-  --talk-sprite-1: url("https://github.com/Gojira-Cale/Shop/blob/main/assests/shop/me/talk-sprite-1.gif"); 
+  --idle-sprite: url("https://github.com/Gojira-Cale/Shop/blob/main/assets/shop/me/idle.gif");
+  --confused-sprite-1: url("https://github.com/Gojira-Cale/Shop/blob/main/assets/shop/me/confused.gif");
+  --laughing-sprite-1: url("https://github.com/Gojira-Cale/Shop/blob/main/assets/shop/me/laughing.gif");
+  --talk-sprite-1: url("https://github.com/Gojira-Cale/Shop/blob/main/assets/shop/me/talk.gif"); 
   
 }
 
@@ -206,78 +206,6 @@ ol li:before {
   font-size: 16px;
   height: 20px;
 }
-
-
-/* ===== EMOJIS ===== */
-#jay_heart      { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayHeart.png); }
-#jay_heartAro   { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayHeartAro.png); }
-#jay_wheeze     { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayWheeze.png); }
-#jay_wheezeAlt  { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayWheezeAlt.png); }
-#jay_hyper      { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayHYPER.png); }
-#jay_monkas     { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayMonkas.png); }
-#jay_ough       { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayOugh.png); }
-#jay_sob        { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JaySob.png); }
-#jay_aheem      { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayAheem.png); }
-#jay_whimper    { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayWhimper.png); }
-#jay_oggle      { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayOggle.png); }
-#jay_what       { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayConfusion.png); }
-#jay_sus        { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JaySus.png); }
-#jay_knife      { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayKnife.png); }
-#jay_tense      { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayTense.png); }
-#jay_towel      { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayTowel.png); }
-#jay_towelBlush { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayTowelBlush.png); }    
-#jay_style      { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/oppajaystyle.gif); }
-#jay_dance      { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/THISISSTUPID.gif); }
-#jay_explosion  { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayExplosion.gif); }
-#jay_twerk      { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayTwerk.gif); }
-#jay_crimes     { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayCrimes.png); }
-#jay_smol       { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayTiny.png); }
-#jay_orb        { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayOrb.png); }
-#jay_trolled    { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayGetsTrolled.jpg); }
-#jay_spin       { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/jayspin.gif); }
-#jay_IRL        { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayRaccoon.png); }
-#jay_mindblown  { padding: 0 2px; max-height: 30px; content: url(https://ne0nbandit.github.io/assets/img/chat/JayMindblown.png); }
-
-/* ===== Plush Squish ===== */
-.squish { -webkit-transition: 0.1s; -o-transition: 0.1s; transition: 0.1s; }  
-.squish:hover { cursor: var(--cursor-pointer); -webkit-transform: scale(0.95); -ms-transform: scale(0.95); transform: scale(0.95); }  
-.squish:active { -webkit-transform: scale(0.90); -ms-transform: scale(0.90); transform: scale(0.90); }
-
-/* == Theme Exceptions == */
-/* To fix awkward parts of the website's palette that don't translate super well with the different coloures! */
-/* Such as contrast and general readability */
-
-/* Christmas */
-/* #kofibtn { background: #14267a; }
-b { color: var(--title-color); }
-.aboutbox p { color: var(--title-color); }
-.namebox p { color: var(--title-color); }
-.likesdiv li { color: var(--title-color); }
-.collapsible { background: var(--box-gradient1); }
-#HCB_comment_box .hcb-comment-body { text-shadow: none;  }
-.blogdate { color: var(--text-color); }
-#nblogo { filter: drop-shadow(2px 2px 1px #14267a); }
-.warningcontent p:first-child { color: var(--bg-color); } */
-
-/* Halloween */
-/* textarea { text-shadow: none; }
-.bubble { background: #290057; }
-.bubble:after { border-color: transparent transparent #290057 transparent; }
-#kofibtn { background: #290057; }
-b { color: var(--title-color); }
-.aboutbox p { color: var(--title-color); }
-.namebox p { color: var(--title-color); }
-.likesdiv li { color: var(--title-color); }
-.collapsible { background: var(--box-gradient1); }
-.lb-dataContainer { background: #290057; }
-#HCB_comment_box div.comment { background: #290057;  }
-.blogdate { color: var(--text-color); }
-.achievementsCategory p { filter: none; }
-.achievementName { filter: none; }
-.achievementBox { background: var(--box-gradient1); }
-.warningcontent p:first-child  { color: var(--border-color1); }
-.warningcontent li { color: var(--title-color); }
-#HCB_comment_box .hcb-comment-body { text-shadow: none; }*/
 
 @media only screen and (max-width: 1115px) {
 /* /Home */
