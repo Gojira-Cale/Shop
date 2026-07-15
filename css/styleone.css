@@ -4,8 +4,8 @@
 :root {
  
   
-  --cursor-main: url(assets/cursors/utdrheart.png), auto;
-  --cursor-pointer: url(assets/cursors/utdrheartyellow.png), auto;
+  --cursor-main: url(/Shop/assets/cursors/utdrheart.png), auto;
+  --cursor-pointer: url(/Shop/assets/cursors/utdrheartyellow.png), auto;
 
 
   /* Deltarune Border CSS */
