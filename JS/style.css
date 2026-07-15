@@ -7,12 +7,14 @@
 @font-face { font-family: 'PixelOperatorMono-Bold'; src: url("/Shop/assets/font/PixelOperatorMono-Bold.ttf") format("truetype"); }
 @font-face { font-family: 'Deltarune'; src: url("/Shop/assets/font/deltarune.ttf") format("truetype"); }
 
-/* ===== Main Theme ===== */
+ cursor: var(--cursor-pointer);
+
+
 :root {
   --bg-color: #090033;
-  --bg-color-opacity1: #090033FC; /* From navbar & Autoplay */
+  --bg-color-opacity1: #090033FC; 
   --bg-color-opacity2: #090033CF;
-  --innerbox-color1: #FFFFFFCC; /* Main Boxes */
+  --innerbox-color1: #FFFFFFCC; 
   --innerbox-color2: #FFFFFFBF;
   --accentbox-color: #d7e5f596;
   --accentbox-border: #4e34e338;
@@ -250,15 +252,6 @@ ol li:before {
     .glbox:hover a::before { opacity: 0.2; -webkit-transition: opacity 0.4s; -o-transition: opacity 0.4s; transition: opacity 0.4s; }
 }
 
-@media only screen and (max-width: 850px) { 
-.sidebar-group { display: block; }  
-#left-sidebar  { max-width: none; width: 100%; }
-#right-sidebar { max-width: none; width: 100%; }   
-
-/* Character Profiles */
-.CharacterRelationships > div { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
-.CharacterRelationships > div > div { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
-}
 
 @media only screen and (max-width: 700px) {
 /* /Home */
@@ -285,57 +278,3 @@ ol li:before {
 .innerbox { padding: 20px; }
 .sidebar-content { padding: 15px 10px 15px 10px; }
 .solo-sidebar { width: 100%; min-width: auto; padding: 0 5px; }
-
-/* TABLES */ 
-tr { display: -ms-grid; display: grid; }
-td { width: 100%; margin: 0 auto; }
-.fiftywidthtd { width: 100%; }
-.eightywidthtd { width: 100%; }
-
-/* Character Profiles */
-.CharacterInfo { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
-.CharacterInfo > div { width: 100%; }
-
-/* GALLERY STUFF */
-.cardecordiv { display: block; }
-.cardecordiv p { margin: 12px 0px; }
-.cardecordiv div:first-child { height: 80px; width: 100%; -o-object-fit: cover; object-fit: cover; }
-.cardecordiv div:last-child  { height: 80px; width: 100%; -o-object-fit: cover; object-fit: cover; }
-.gallery-desc { padding: 8px 2px; }
-.gallery-desc span { letter-spacing: 0px; font-family: 'PixelOperator'; }
-.gallery-thumb img { height: 150px; max-width: 150px; }
-.LightboxGallery img { width: 100px; -o-object-fit: cover; object-fit: cover; }
-
-/* SLIDESHOW */
-.slideshow { height: auto; }
-.slideshow:hover .galleryNav { bottom: 0; }
-.prev, .next { opacity: 1; }
-.captiondiv { bottom: 0; }
-  
-/* Misc. */
-.shake { width: 100%; padding: 0px 5px; }
-.sitemap { -webkit-columns: 1; -moz-columns: 1; columns: 1; }
-.blogentries .innerbox { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
-
-/* SPLASH PAGE */
-#jaybody { left: 0%; height: 250px; top: 50%; }  
-#jaytail { left: 0%; height: 250px; top: 50%; }
-.warningbox { margin: auto; top: 130px; }
-#streetsign { left: 35px; top: -50px; }
-#autoplaynote { max-width: initial; }
-#autoplaynote p { font-size: 16px; line-height: 12px; margin: 8px 0; }
-
-/* JAY SAY */
-.jaysay { margin-left: auto; }
-.jaysay img { margin-left: -30px; }
-.bubblediv { margin-left: 180px; }
-
-}
-/* 700PX RESPONSIVE ENDS HERE, STOP PUTTING THINGS UNDER THE WRONG BRACKET */
-
-/* ==== Candidates for deletion aka Old code that's getting phased out but I need to clean up the rest of the pages that still use it  ==== */
-.blogtitle { margin-left: auto; text-align: left; line-height: 23px; } 
-.eightywidthtd { width: 80%; }
-.moodboard { display: -webkit-box; display: -ms-flexbox; display: flex; } /* Delete this once all the old versions of the moodboards have been updated */
-
-/* === CANDIDATES FOR DELETION END HERE === */
