@@ -1,5 +1,5 @@
 
-@import url(assets/font);
+@import url(/Shop/assets/font);
 @font-face {
   font-family: "DTM Sans";
   src: url("../fonts/DTMSans.woff2") format("woff2"),
