@@ -1,5 +1,5 @@
 
-@import url(Shop/assets/font-awesome.min.css);
+@import url(/Shop/assets/font-awesome.min.css);
 @font-face {
   font-family: "DTM Sans";
   src: url("../fonts/DTMSans.woff2") format("woff2"),
