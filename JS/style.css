@@ -4,7 +4,7 @@
   font-family: "DTM Sans";
   src: url("../fonts/DTMSans.woff2") format("woff2"),
        url("../fonts/DTMSans.woff") format("woff"
-@font-face { font-family: 'PixelOperatorMono'; src: url("/Shop/assets/font/PixelOperatorMono-Bold.ttf") format("truetype"); }
+@font-face { font-family: 'PixelOperatorMono-Bold'; src: url("/Shop/assets/font/PixelOperatorMono-Bold.ttf") format("truetype"); }
 @font-face { font-family: 'Deltarune'; src: url("/Shop/assets/font/deltarune.ttf") format("truetype"); }
 
 /* ===== Main Theme ===== */
