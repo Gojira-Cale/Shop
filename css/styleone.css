@@ -1,11 +1,14 @@
 @import url(/Shop/css/styleone.css);
 
-/* === Palettes === */
+
 :root {
  
   
   --cursor-main: url(/Shop/assets/cursors/utdrheart.png), auto;
   --cursor-pointer: url(/Shop/assets/cursors/utdrheartyellow.png), auto;
+ --cursor-move: url(https://ne0nbandit.art/assets/cursors/utdrheartmove.png), auto;
+  --cursor-zoom: url(https://ne0nbandit.art/assets/cursors/utdrheartzoom.png), auto;
+  
 
 
   /* Deltarune Border CSS */
